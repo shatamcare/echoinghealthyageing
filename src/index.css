@@ -8,59 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* EHA Brand Colors - Dementia Awareness Theme */
-    --background: 0 0% 100%;
-    --foreground: 217 33% 17%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
-
-    /* Primary: Navy Blue */
-    --primary: 217 33% 17%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary: Soft Teal */
-    --secondary: 180 15% 85%;
-    --secondary-foreground: 217 33% 17%;
-
-    /* Teal Accent */
-    --teal: 174 44% 51%;
-    --teal-foreground: 0 0% 100%;
-
-    /* Lavender Accent */
-    --lavender: 264 83% 91%;
-    --lavender-foreground: 217 33% 17%;
-
-    /* Gold/Warm Accent for CTAs */
-    --gold: 45 86% 62%;
-    --gold-foreground: 217 33% 17%;
-
-    --muted: 180 15% 95%;
-    --muted-foreground: 217 19% 45%;
-
-    --accent: 174 44% 96%;
-    --accent-foreground: 217 33% 17%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 180 15% 90%;
-    --input: 180 15% 90%;
-    --ring: 174 44% 51%;
-
-    --radius: 0.75rem;
-
-    /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(174 44% 96%), hsl(264 83% 96%));
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(180 15% 98%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(180 15% 97%));
+    /* Custom Design System Colors */
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 4.9%;
     
-    /* Smooth transitions */
+    /* Custom Brand Colors */
+    --teal: 185 84% 44%;
+    --teal-foreground: 0 0% 100%;
+    --lavender: 251 91% 95%;
+    --lavender-foreground: 251 91% 9%;
+    --gold: 48 94% 68%;
+    --gold-foreground: 45 93% 8%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 4.9%;
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    --radius: 0.75rem;
+    
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(185 84% 44%), hsl(222 47% 11%));
+    --gradient-hero: linear-gradient(135deg, hsl(185 84% 44% / 0.1), hsl(251 91% 95% / 0.2), hsl(222 47% 11% / 0.1));
+    --gradient-section: linear-gradient(180deg, hsl(251 91% 95% / 0.3), hsl(185 84% 44% / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(251 91% 95% / 0.5));
+    
+    /* Premium Shadows */
+    --shadow-premium: 0 25px 50px -12px hsl(222 47% 11% / 0.25);
+    --shadow-glow: 0 0 30px hsl(185 84% 44% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(222 47% 11% / 0.1);
+    
+    /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -130,23 +122,46 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Premium Utility Classes */
   .gradient-hero {
     background: var(--gradient-hero);
   }
-  
+
   .gradient-section {
     background: var(--gradient-section);
   }
-  
+
   .gradient-card {
     background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
   }
-  
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px hsl(var(--primary) / 0.1);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 }

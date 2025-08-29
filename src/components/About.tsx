@@ -1,5 +1,59 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, Activity, Handshake, Quote, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const CounterCard = ({ stat, index }: { stat: any; index: number }) => {
+  const [count, setCount] = useState(0);
+  const target = parseInt(stat.number.replace(/\D/g, ''));
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (count < target) {
+        setCount(Math.min(count + Math.ceil(target / 50), target));
+      }
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, [count, target]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
+      whileHover={{ 
+        scale: 1.05,
+        transition: { duration: 0.2 }
+      }}
+    >
+      <Card className="gradient-card border-0 shadow-premium text-center hover:shadow-glow transition-smooth h-full group cursor-pointer">
+        <CardContent className="p-8">
+          <motion.div
+            className={`inline-flex items-center justify-center p-4 rounded-full mb-4 ${
+              stat.color === 'teal' ? 'bg-teal/10 text-teal' :
+              stat.color === 'gold' ? 'bg-gold/10 text-gold' :
+              'bg-lavender/30 text-primary'
+            }`}
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            {stat.icon}
+          </motion.div>
+          <div className="text-4xl font-bold text-primary mb-2 group-hover:text-teal transition-smooth">
+            {count}{stat.number.includes('+') ? '+' : ''}
+          </div>
+          <p className="text-muted-foreground font-medium">{stat.label}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+};
 
 export const About = () => {
   const stats = [
@@ -42,11 +96,40 @@ export const About = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section id="about" className="py-20 gradient-section">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-shadow">
             About Echoing Healthy Ageing (EHA)
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -54,11 +137,17 @@ export const About = () => {
             caregiver support, and Memory Café programs. Founded during Alzheimer's Month 2012, we continue 
             to make a meaningful difference in the lives of seniors and their families.
           </p>
-        </div>
+        </motion.div>
 
         {/* Mission & Services */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <Card className="gradient-card border-0 shadow-xl">
+        <motion.div
+          className="max-w-4xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Card className="gradient-card border-0 shadow-premium hover:shadow-glow transition-smooth">
             <CardContent className="p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -68,7 +157,7 @@ export const About = () => {
                     particularly those living with dementia, while empowering their caregivers 
                     with knowledge and resources.
                   </p>
-                  <div className="bg-teal/10 p-4 rounded-lg">
+                  <div className="bg-teal/10 p-4 rounded-lg shadow-card">
                     <p className="text-sm text-primary font-medium">
                       <strong>Founded:</strong> September 2012 during Alzheimer's Month
                     </p>
@@ -78,19 +167,31 @@ export const About = () => {
                   <h3 className="text-2xl font-semibold text-primary mb-4">Our Services</h3>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-3">
-                      <div className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
+                      <motion.div
+                        className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.5 }}
+                      />
                       <span>Home-based therapy services</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="bg-gold w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
+                      <motion.div
+                        className="bg-gold w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.5 }}
+                      />
                       <span>Memory Café community programs</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="bg-lavender w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
+                      <motion.div
+                        className="bg-lavender w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.5 }}
+                      />
                       <span>Professional dementia care training</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
+                      <motion.div
+                        className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.5 }}
+                      />
                       <span>Caregiver support and education</span>
                     </li>
                   </ul>
@@ -98,60 +199,85 @@ export const About = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Impact Statistics */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-primary text-center mb-12">Our Impact</h3>
+          <motion.h3
+            className="text-3xl font-bold text-primary text-center mb-12 text-shadow"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Our Impact
+          </motion.h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <Card key={index} className={`gradient-card border-0 shadow-xl text-center hover:scale-105 transition-bounce`}>
-                <CardContent className="p-8">
-                  <div className={`inline-flex items-center justify-center p-4 rounded-full mb-4 ${
-                    stat.color === 'teal' ? 'bg-teal/10 text-teal' :
-                    stat.color === 'gold' ? 'bg-gold/10 text-gold' :
-                    'bg-lavender/30 text-primary'
-                  }`}>
-                    {stat.icon}
-                  </div>
-                  <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                  <p className="text-muted-foreground font-medium">{stat.label}</p>
-                </CardContent>
-              </Card>
+              <CounterCard key={index} stat={stat} index={index} />
             ))}
           </div>
         </div>
 
         {/* Testimonials */}
         <div>
-          <h3 className="text-3xl font-bold text-primary text-center mb-12">What People Say</h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <motion.h3
+            className="text-3xl font-bold text-primary text-center mb-12 text-shadow"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            What People Say
+          </motion.h3>
+          <motion.div
+            className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="gradient-card border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="bg-gold/10 p-3 rounded-full flex-shrink-0">
-                      <Quote className="h-6 w-6 text-gold" />
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="gradient-card border-0 shadow-premium hover:shadow-glow transition-smooth hover:scale-[1.02] h-full group">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-4 mb-6">
+                      <motion.div
+                        className="bg-gold/10 p-3 rounded-full flex-shrink-0"
+                        whileHover={{ scale: 1.1, rotate: 10 }}
+                      >
+                        <Quote className="h-6 w-6 text-gold" />
+                      </motion.div>
+                      <p className="text-muted-foreground italic leading-relaxed text-lg">
+                        "{testimonial.text}"
+                      </p>
                     </div>
-                    <p className="text-muted-foreground italic leading-relaxed text-lg">
-                      "{testimonial.text}"
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="flex text-gold">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-current" />
-                      ))}
+                    <div className="flex items-center gap-3">
+                      <div className="flex text-gold">
+                        {[...Array(5)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.1, duration: 0.3 }}
+                            viewport={{ once: true }}
+                          >
+                            <Star className="h-4 w-4 fill-current" />
+                          </motion.div>
+                        ))}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary group-hover:text-teal transition-smooth">
+                          {testimonial.author}
+                        </p>
+                        <p className="text-sm text-muted-foreground">{testimonial.relation}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-primary">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.relation}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
