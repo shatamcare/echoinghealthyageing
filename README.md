@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# Echo Age Connect - EHA Website
 
-## Project info
+Echo Age Connect is the official website for Echoing Healthy Ageing (EHA), a social enterprise dedicated to geriatric care, dementia support, and caregiver empowerment since 2012.
 
-**URL**: https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38
+## About EHA
 
-## How can I edit this code?
+EHA (Echoing Healthy Ageing) has been making a difference in elderly care and dementia support since Alzheimer's Month 2012. We focus on:
 
-There are several ways of editing your application.
+- Memory Café sessions
+- Therapy workshops
+- Caregiver support and training
+- Dementia care education
+- Community support programs
 
-**Use Lovable**
+## Development
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38) and start prompting.
+This is a React + TypeScript + Vite project with Tailwind CSS for styling.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher)
+- npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+npm install
+```
 
-Follow these steps:
+### Development
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To start the development server:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
 
-**Use GitHub Codespaces**
+To build for production:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+### Preview
 
-This project is built with:
+To preview the production build:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run preview
+```
 
-## How can I deploy this project?
+## Tech Stack
 
-Simply open [Lovable](https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38) and click on Share -> Publish.
+- **Frontend Framework**: React 18
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **Form Handling**: React Hook Form
+- **Animation**: Framer Motion
 
-## Can I connect a custom domain to my Lovable project?
+## Project Structure
 
-Yes, you can!
+```
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── Header.tsx      # Navigation header
+│   ├── Hero.tsx        # Hero section
+│   ├── Events.tsx      # Events section
+│   ├── Connect.tsx     # Connect/contact section
+│   ├── About.tsx       # About section
+│   └── Footer.tsx      # Footer
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── assets/             # Static assets
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Features
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Responsive design
+- Accessibility focused
+- Modern UI components
+- SEO optimized
+- Event registration integration
+- Contact information
+- Social media links
+
+## Contact
+
+For more information about EHA or this website, visit:
+- Website: [www.echoinghealthyageing.com](https://www.echoinghealthyageing.com)
+- Email: info@echoinghealthyageing.com
+- Phone: +91 98678 32665, +91 91676 13665
+
+---
+
+© 2024 Echoing Healthy Ageing (EHA). All rights reserved.
