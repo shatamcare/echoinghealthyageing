@@ -35,20 +35,20 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/Images/Ts EHA Logo.jpg"
-              alt="Echoing Healthy Ageing Logo"
+              src="/Images/Ts Logo tree.jpg"
+              alt="Echoing Healthy Ageing Tree Logo"
               className="h-16 w-auto"
             />
             <img
               src="/Images/Ts EHA Name.jpg"
               alt="Echoing Healthy Ageing"
-              className="h-16 w-auto translate-y-2"
+              className="h-16 w-auto translate-y-1"
             />
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {["Events", "Connect", "About EHA"].map((item) => (
+            {["Events", "About EHA"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "")}`}
@@ -60,7 +60,7 @@ export const Header = () => {
             <Button
               variant="cta"
               size="sm"
-              onClick={() => window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank')}
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
               className="shadow-card hover:shadow-glow transition-smooth hover:scale-105"
             >
               Register Now
@@ -80,7 +80,7 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              {["Events", "Connect", "About EHA"].map((item) => (
+              {["Events", "About EHA"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(" ", "")}`}
@@ -95,7 +95,7 @@ export const Header = () => {
                 size="sm"
                 className="w-full shadow-card hover:shadow-glow transition-smooth"
                 onClick={() => {
-                  window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank');
+                  window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank');
                   setIsMenuOpen(false);
                 }}
               >

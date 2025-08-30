@@ -54,32 +54,34 @@ export const Hero = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-5xl md:text-7xl font-bold text-white mb-10 leading-tight drop-shadow-lg"
+          className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg"
           variants={itemVariants}
           style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
         >
-          Join Us<br />
-          This Alzheimer's Month
+          Together We Care,<br />
+          Together We Age
         </motion.h1>
+        
+        <motion.p
+          className="text-xl md:text-2xl text-white/90 mb-16 leading-relaxed font-light"
+          variants={itemVariants}
+          style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
+        >
+          Supporting seniors, families, and caregivers through every step of the aging journey
+        </motion.p>
+        
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          className="mt-16"
           variants={itemVariants}
         >
           <Button 
             variant="cta" 
             size="lg"
             onClick={scrollToEvents}
-            className="text-lg px-8 py-4 shadow-premium hover:shadow-glow transition-smooth hover:scale-105"
+            className="text-lg px-10 py-5 shadow-premium hover:shadow-glow transition-smooth hover:scale-105"
           >
-            Explore Events
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg"
-            onClick={() => window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank')}
-            className="text-lg px-8 py-4 border-2 border-teal text-teal hover:bg-teal hover:text-teal-foreground hover:scale-105 transition-smooth shadow-card"
-          >
-            Register Now
+            Discover Our Community Events
+            <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
       </motion.div>

@@ -32,23 +32,19 @@ const CounterCard = ({ stat, index }: { stat: any; index: number }) => {
         transition: { duration: 0.2 }
       }}
     >
-      <Card className="gradient-card border-0 shadow-premium text-center hover:shadow-glow transition-smooth h-full group cursor-pointer">
+      <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-center h-full group cursor-pointer">
         <CardContent className="p-8">
           <motion.div
-            className={`inline-flex items-center justify-center p-4 rounded-full mb-4 ${
-              stat.color === 'teal' ? 'bg-teal/10 text-teal' :
-              stat.color === 'gold' ? 'bg-gold/10 text-gold' :
-              'bg-lavender/30 text-primary'
-            }`}
-            whileHover={{ scale: 1.2, rotate: 360 }}
+            className="inline-flex items-center justify-center p-4 rounded-full mb-4 bg-gradient-to-br from-slate-500 to-teal-600 text-white shadow-sm"
+            whileHover={{ scale: 1.1, rotate: 180 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
             {stat.icon}
           </motion.div>
-          <div className="text-4xl font-bold text-primary mb-2 group-hover:text-teal transition-smooth">
+          <div className="text-4xl font-bold text-slate-800 mb-2 group-hover:text-teal-700 transition-smooth">
             {count}{stat.number.includes('+') ? '+' : ''}
           </div>
-          <p className="text-muted-foreground font-medium">{stat.label}</p>
+          <p className="text-slate-700 font-medium">{stat.label}</p>
         </CardContent>
       </Card>
     </motion.div>
@@ -113,8 +109,7 @@ export const About = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        duration: 0.8
       }
     }
   };
@@ -147,50 +142,50 @@ export const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <Card className="gradient-card border-0 shadow-premium hover:shadow-glow transition-smooth">
+          <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
             <CardContent className="p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary mb-4">Our Mission</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <h3 className="text-2xl font-semibold text-slate-800 mb-4">Our Mission</h3>
+                  <p className="text-slate-700 leading-relaxed mb-6">
                     To provide comprehensive, person-centered care and support for seniors, 
                     particularly those living with dementia, while empowering their caregivers 
                     with knowledge and resources.
                   </p>
-                  <div className="bg-teal/10 p-4 rounded-lg shadow-card">
-                    <p className="text-sm text-primary font-medium">
+                  <div className="bg-slate-100/80 p-4 rounded-lg shadow-sm border border-slate-200/40">
+                    <p className="text-sm text-slate-800 font-medium">
                       <strong>Founded:</strong> September 2012 during Alzheimer's Month
                     </p>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary mb-4">Our Services</h3>
-                  <ul className="space-y-3 text-muted-foreground">
+                  <h3 className="text-2xl font-semibold text-slate-800 mb-4">Our Services</h3>
+                  <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
                       <motion.div
-                        className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5 }}
+                        className="bg-gradient-to-br from-slate-500 to-teal-600 w-2 h-2 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                        whileHover={{ scale: 1.3 }}
                       />
                       <span>Home-based therapy services</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <motion.div
-                        className="bg-gold w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5 }}
+                        className="bg-gradient-to-br from-slate-500 to-teal-600 w-2 h-2 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                        whileHover={{ scale: 1.3 }}
                       />
                       <span>Memory Café community programs</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <motion.div
-                        className="bg-lavender w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5 }}
+                        className="bg-gradient-to-br from-slate-500 to-teal-600 w-2 h-2 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                        whileHover={{ scale: 1.3 }}
                       />
                       <span>Professional dementia care training</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <motion.div
-                        className="bg-teal w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5 }}
+                        className="bg-gradient-to-br from-slate-500 to-teal-600 w-2 h-2 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                        whileHover={{ scale: 1.3 }}
                       />
                       <span>Caregiver support and education</span>
                     </li>
@@ -239,21 +234,21 @@ export const About = () => {
           >
             {testimonials.map((testimonial, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="gradient-card border-0 shadow-premium hover:shadow-glow transition-smooth hover:scale-[1.02] h-full group">
+                <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 h-full group">
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4 mb-6">
                       <motion.div
-                        className="bg-gold/10 p-3 rounded-full flex-shrink-0"
-                        whileHover={{ scale: 1.1, rotate: 10 }}
+                        className="bg-gradient-to-br from-slate-500 to-teal-600 p-3 rounded-full flex-shrink-0 shadow-sm"
+                        whileHover={{ scale: 1.05, rotate: 5 }}
                       >
-                        <Quote className="h-6 w-6 text-gold" />
+                        <Quote className="h-6 w-6 text-white" />
                       </motion.div>
-                      <p className="text-muted-foreground italic leading-relaxed text-lg">
+                      <p className="text-slate-700 italic leading-relaxed text-lg">
                         "{testimonial.text}"
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="flex text-gold">
+                      <div className="flex text-amber-400">
                         {[...Array(5)].map((_, i) => (
                           <motion.div
                             key={i}
@@ -267,10 +262,10 @@ export const About = () => {
                         ))}
                       </div>
                       <div>
-                        <p className="font-semibold text-primary group-hover:text-teal transition-smooth">
+                        <p className="font-semibold text-slate-800 group-hover:text-teal-700 transition-smooth">
                           {testimonial.author}
                         </p>
-                        <p className="text-sm text-muted-foreground">{testimonial.relation}</p>
+                        <p className="text-sm text-slate-600">{testimonial.relation}</p>
                       </div>
                     </div>
                   </CardContent>

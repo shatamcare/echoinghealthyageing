@@ -1,65 +1,121 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, MapPin, Users, Brain, Heart, BookOpen } from "lucide-react";
+import { Calendar, MapPin, Users, Brain, Heart, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 export const Events = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
   const events = [
     {
-      title: "Memory Café Sessions",
-      description: "Group activities for seniors (60+) with puzzles, music, and art therapy. A warm, welcoming space for connection and cognitive stimulation.",
-      icon: <Brain className="h-6 w-6" />,
-      locations: ["Breach Candy", "Malad", "Borivali"],
-      format: "In-person & Online",
+      title: "Dementia Caregiver Support Group",
+      description: "Online support session for family caregivers and friends of dementia patients. Share experiences and learn coping strategies.",
+      icon: <Users className="h-6 w-6" />,
+      date: "September 5, 2025",
+      time: "4:00 PM - 5:00 PM",
+      locations: ["Online Session"],
+      audience: "Family Caregivers & Friends",
       color: "teal"
     },
     {
-      title: "Therapy Awareness Workshops",
-      description: "Learn about person-centered therapy, reminiscence therapy, art therapy, and music therapy approaches for dementia care.",
-      icon: <Heart className="h-6 w-6" />,
-      locations: ["Multiple venues", "Online sessions"],
-      format: "Workshop series",
+      title: "Decoding Dementia (Part 1)",
+      description: "Comprehensive workshop for healthcare professionals on dementia care approaches, diagnosis, and treatment strategies.",
+      icon: <BookOpen className="h-6 w-6" />,
+      date: "September 13, 2025",
+      time: "10:00 AM - 2:00 PM",
+      locations: ["In-Person Workshop"],
+      audience: "Healthcare Professionals",
       color: "lavender"
     },
     {
-      title: "Caregiver Support Groups",
-      description: "Support sessions and training for family carers and healthcare professionals. Share experiences and learn coping strategies.",
-      icon: <Users className="h-6 w-6" />,
-      locations: ["Community centers", "Virtual meetings"],
-      format: "Group sessions",
+      title: "Decoding Dementia (Part 2)",
+      description: "Second part of the comprehensive dementia workshop covering advanced care techniques and person-centered approaches.",
+      icon: <BookOpen className="h-6 w-6" />,
+      date: "September 20, 2025",
+      time: "10:00 AM - 2:00 PM",
+      locations: ["In-Person Workshop"],
+      audience: "Healthcare Professionals",
+      color: "lavender"
+    },
+    {
+      title: "Shankar Mahadevan Academy Music Concert",
+      description: "Special online music concert featuring therapeutic music sessions designed for seniors and their families.",
+      icon: <Heart className="h-6 w-6" />,
+      date: "September 21, 2025",
+      time: "5:00 PM - 6:00 PM",
+      locations: ["Online Concert"],
+      audience: "Seniors & Families",
       color: "gold"
     },
     {
-      title: "Professional Training",
-      description: "Comprehensive training programs for healthcare professionals and caregivers on dementia care best practices.",
+      title: "Decoding Dementia (Part 3)",
+      description: "Final session of the dementia workshop series focusing on practical implementation and case studies.",
       icon: <BookOpen className="h-6 w-6" />,
-      locations: ["Training centers", "Online certification"],
-      format: "Certification course",
+      date: "September 28, 2025",
+      time: "4:00 PM - 6:00 PM",
+      locations: ["In-Person Workshop"],
+      audience: "Healthcare Professionals",
+      color: "lavender"
+    },
+    {
+      title: "Memory Café Sessions",
+      description: "Group activities for seniors with puzzles, music, and art therapy in a warm, welcoming community environment.",
+      icon: <Brain className="h-6 w-6" />,
+      date: "October 1, 2025",
+      time: "4:30 PM - 6:00 PM",
+      locations: ["Mumbai"],
+      audience: "Seniors (60+)",
       color: "teal"
     }
   ];
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 320; // Width of card + gap
+      const newScrollLeft = scrollRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+      
+      scrollRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const updateScrollButtons = () => {
+    if (scrollRef.current) {
+      setCanScrollLeft(scrollRef.current.scrollLeft > 0);
+      setCanScrollRight(
+        scrollRef.current.scrollLeft < 
+        scrollRef.current.scrollWidth - scrollRef.current.clientWidth - 10
+      );
+    }
+  };
+
+  useEffect(() => {
+    updateScrollButtons();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        duration: 0.5
       }
     }
   };
@@ -83,67 +139,127 @@ export const Events = () => {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="relative"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {events.map((event, index) => (
-            <motion.div key={index} variants={cardVariants}>
-              <Card className="gradient-card border-0 shadow-premium hover:shadow-glow transition-smooth hover:scale-[1.02] h-full group">
-                <CardHeader className="pb-4">
-                  <div className="inline-flex items-center gap-3 mb-4">
-                    <motion.div
-                      className={`p-3 rounded-full ${
-                        event.color === 'teal' ? 'bg-teal text-teal-foreground' :
-                        event.color === 'lavender' ? 'bg-lavender text-lavender-foreground' :
-                        'bg-gold text-gold-foreground'
-                      }`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      {event.icon}
-                    </motion.div>
-                    <CardTitle className="text-2xl text-primary group-hover:text-teal transition-smooth">
-                      {event.title}
-                    </CardTitle>
-                  </div>
-                  <CardDescription className="text-lg text-muted-foreground leading-relaxed">
-                    {event.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-teal mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-primary mb-1">Locations:</p>
-                      <p className="text-muted-foreground">{event.locations.join(" • ")}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <Calendar className="h-5 w-5 text-teal flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-primary mb-1">Format:</p>
-                      <p className="text-muted-foreground">{event.format}</p>
-                    </div>
-                  </div>
+          {/* Navigation Buttons */}
+          <div className="flex justify-between items-center mb-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => scroll('left')}
+              disabled={!canScrollLeft}
+              className="bg-white/90 hover:bg-white shadow-md border-slate-200 text-slate-700 hover:text-slate-900 disabled:opacity-50"
+            >
+              <ChevronLeft className="h-4 w-4 mr-1" />
+              Previous
+            </Button>
+            
+            <p className="text-sm text-muted-foreground px-4">
+              Browse through our upcoming events
+            </p>
+            
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => scroll('right')}
+              disabled={!canScrollRight}
+              className="bg-white/90 hover:bg-white shadow-md border-slate-200 text-slate-700 hover:text-slate-900 disabled:opacity-50"
+            >
+              Next
+              <ChevronRight className="h-4 w-4 ml-1" />
+            </Button>
+          </div>
 
-                  <div className="pt-4">
-                    <Button 
-                      variant="cta" 
-                      className="w-full shadow-card hover:shadow-glow transition-smooth hover:scale-105"
-                      onClick={() => window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank')}
-                    >
-                      Register for {event.title}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          {/* Scrollable Cards Container */}
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-4"
+            style={{ 
+              scrollSnapType: 'x mandatory',
+              scrollBehavior: 'smooth'
+            }}
+            onScroll={updateScrollButtons}
+          >
+            {events.map((event, index) => (
+              <motion.div 
+                key={index}
+                variants={cardVariants}
+                className="flex-shrink-0 w-80"
+                style={{ scrollSnapAlign: 'start' }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <Card className="bg-gradient-to-br from-white via-slate-50/80 to-blue-50/60 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  {/* Header */}
+                  <CardHeader className="pb-3 bg-gradient-to-r from-slate-600 to-teal-700 text-white rounded-t-lg">
+                    <div className="flex items-center gap-3 mb-2">
+                      <motion.div
+                        className="p-2 rounded-full bg-white/20"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="text-white text-sm">
+                          {event.icon}
+                        </div>
+                      </motion.div>
+                      <CardTitle className="text-lg text-white leading-tight">
+                        {event.title}
+                      </CardTitle>
+                    </div>
+                    <CardDescription className="text-sm text-slate-100 leading-relaxed">
+                      {event.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  {/* Content */}
+                  <CardContent className="p-4 space-y-3">
+                    <div className="flex items-start gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
+                      <Calendar className="h-4 w-4 text-slate-600 mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium text-slate-800 text-xs mb-1">Date & Time:</p>
+                        <p className="text-slate-700 text-xs">{event.date}</p>
+                        <p className="text-slate-700 text-xs font-medium">{event.time}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
+                      <MapPin className="h-4 w-4 text-slate-600 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-slate-800 text-xs mb-1">Location:</p>
+                        <p className="text-slate-700 text-xs">{event.locations.join(" • ")}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
+                      <Users className="h-4 w-4 text-slate-600 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-slate-800 text-xs mb-1">For:</p>
+                        <p className="text-slate-700 text-xs">{event.audience}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-2">
+                      <Button 
+                        variant="cta" 
+                        size="sm"
+                        className="w-full bg-gradient-to-r from-slate-600 to-teal-700 hover:from-slate-700 hover:to-teal-800 text-white shadow-md hover:shadow-lg transform hover:scale-[1.01] transition-all duration-200 text-xs"
+                        onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
+                      >
+                        Register Now
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
@@ -159,10 +275,10 @@ export const Events = () => {
           <Button 
             variant="teal" 
             size="lg"
-            onClick={() => window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank')}
+            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
             className="text-lg px-8 py-4 shadow-premium hover:shadow-glow transition-smooth hover:scale-105"
           >
-            View All Events & Register
+            Register
           </Button>
         </motion.div>
       </div>
