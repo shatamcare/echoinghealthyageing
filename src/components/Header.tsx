@@ -29,16 +29,8 @@ export const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-8 h-8 bg-teal rounded-full flex items-center justify-center shadow-glow">
-              <span className="text-teal-foreground font-bold text-sm">EHA</span>
-            </div>
-            <span className="font-bold text-xl text-primary">Echoing Healthy Ageing</span>
-          </motion.div>
+          {/* Empty space where logo was */}
+          <div></div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

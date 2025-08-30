@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import heroBanner from "@/assets/hero-banner.jpg";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
@@ -44,11 +43,11 @@ export const Hero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <img
-          src={heroBanner}
+          src="/Images/sessions.jpg"
           alt="Elderly people and caregivers in supportive community setting"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-90 scale-110 translate-x-8"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background/20" />
       </motion.div>
 
       {/* Content */}
@@ -59,29 +58,33 @@ export const Hero = () => {
         animate="visible"
       >
         <motion.div
-          className="mb-6 inline-block bg-lavender text-lavender-foreground px-4 py-2 rounded-full text-sm font-medium shadow-glow"
+          className="mb-6 inline-block bg-white/90 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm"
           variants={itemVariants}
         >
-          Alzheimer's Month 2024
+          Alzheimer's Month 2025
         </motion.div>
         
         <motion.h1
-          className="text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight text-shadow"
+          className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
           variants={itemVariants}
+          style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
         >
-          Join Us This Alzheimer's Month
+          Join Us<br />
+          This Alzheimer's Month
         </motion.h1>
         
         <motion.h2
-          className="text-2xl md:text-3xl text-teal font-medium mb-8"
+          className="text-2xl md:text-3xl text-white font-semibold mb-8 drop-shadow-md"
           variants={itemVariants}
+          style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
         >
           Awareness, Care & Connection
         </motion.h2>
         
         <motion.p
-          className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md bg-black/30 backdrop-blur-sm rounded-lg p-4"
           variants={itemVariants}
+          style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
         >
           Discover events, support groups, and therapies that bring hope to seniors and caregivers
         </motion.p>
