@@ -8,13 +8,11 @@ export const Footer = () => {
           {/* Logo and Mission */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="bg-teal text-teal-foreground rounded-lg p-3 font-bold text-2xl">
-                EHA
-              </div>
-              <div>
-                <h3 className="font-bold text-xl">Echoing Healthy Ageing</h3>
-                <p className="text-primary-foreground/80 text-sm">Since 2012</p>
-              </div>
+              <img
+                src="/Images/EHA Logo .jpg"
+                alt="Echoing Healthy Ageing"
+                className="h-16 w-auto"
+              />
             </div>
             <p className="text-primary-foreground/90 leading-relaxed">
               A social enterprise dedicated to geriatric care, dementia support, and caregiver empowerment. 
@@ -137,10 +135,10 @@ export const Footer = () => {
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/80 text-sm">
-              © 2024 Echoing Healthy Ageing (EHA). All rights reserved.
+              © 2025 Echoing Healthy Ageing (EHA). All rights reserved.
             </p>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/80">
-              <span>Alzheimer's Month 2024</span>
+              <span>Alzheimer's Month 2025</span>
               <span>•</span>
               <span>Spreading Awareness & Hope</span>
             </div>

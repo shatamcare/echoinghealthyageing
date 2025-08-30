@@ -29,8 +29,17 @@ export const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Empty space where logo was */}
-          <div></div>
+          {/* EHA Logo */}
+          <motion.div
+            className="flex items-center space-x-2"
+            whileHover={{ scale: 1.05 }}
+          >
+            <img
+              src="/Images/EHA Logo .jpg"
+              alt="Echoing Healthy Ageing"
+              className="h-14 w-auto"
+            />
+          </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
