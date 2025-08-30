@@ -3,7 +3,13 @@ import { Users, Award, Activity, Handshake, Quote, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const CounterCard = ({ stat, index }: { stat: any; index: number }) => {
+interface StatItem {
+  number: string;
+  label: string;
+  icon: typeof Users;
+}
+
+const CounterCard = ({ stat, index }: { stat: StatItem; index: number }) => {
   const [count, setCount] = useState(0);
   const target = parseInt(stat.number.replace(/\D/g, ''));
   
