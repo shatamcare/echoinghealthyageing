@@ -35,7 +35,7 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/Images/EHA Logo .jpg"
+              src="/Images/EHA Header .jpg"
               alt="Echoing Healthy Ageing"
               className="h-14 w-auto"
             />
