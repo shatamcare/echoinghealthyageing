@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Mail, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -18,11 +19,7 @@ export const Connect = () => {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
+      y: 0
     }
   };
 
@@ -84,20 +81,24 @@ export const Connect = () => {
                     </p>
                   </motion.div>
                   
-                  {/* Embedded Google Form */}
+                  {/* Google Form Link */}
                   <div className="w-full">
-                    <iframe
-                      src="https://forms.gle/wfShhrQuzP4hjYhB8"
-                      width="100%"
-                      height="600"
-                      frameBorder="0"
-                      marginHeight={0}
-                      marginWidth={0}
-                      className="rounded-lg border shadow-card"
-                      title="EHA Registration Form"
-                    >
-                      Loading form...
-                    </iframe>
+                    <div className="p-8 border-2 border-dashed border-primary/30 rounded-lg text-center bg-background/50">
+                      <div className="space-y-4">
+                        <div className="text-6xl">📝</div>
+                        <h4 className="text-xl font-semibold text-primary">Registration Form</h4>
+                        <p className="text-muted-foreground">
+                          Click the button below to open our registration form in a new tab
+                        </p>
+                        <Button
+                          size="lg"
+                          onClick={() => window.open('https://forms.gle/wfShhrQuzP4hjYhB8', '_blank')}
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Open Registration Form
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

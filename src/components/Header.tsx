@@ -20,24 +20,29 @@ export const Header = () => {
     <motion.header
       className={`fixed top-0 w-full z-50 transition-smooth ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-sm shadow-premium' 
-          : 'bg-background/95 backdrop-blur-sm'
+          ? 'bg-white shadow-premium' 
+          : 'bg-white'
       } border-b border-border`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* EHA Logo */}
           <motion.div
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/Images/EHA Header .jpg"
+              src="/Images/Ts EHA Logo.jpg"
+              alt="Echoing Healthy Ageing Logo"
+              className="h-16 w-auto"
+            />
+            <img
+              src="/Images/Ts EHA Name.jpg"
               alt="Echoing Healthy Ageing"
-              className="h-14 w-auto"
+              className="h-16 w-auto translate-y-2"
             />
           </motion.div>
 
