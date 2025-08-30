@@ -34,9 +34,6 @@ export const Header = () => {
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 bg-teal rounded-full flex items-center justify-center shadow-glow">
-              <span className="text-teal-foreground font-bold text-sm">EHA</span>
-            </div>
             <span className="font-bold text-xl text-primary">Echoing Healthy Ageing</span>
           </motion.div>
 
