@@ -35,12 +35,12 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}Images/Ts Logo tree.jpg`}
+              src={`${import.meta.env.BASE_URL}Images/ts-logo-tree.jpg`}
               alt="Echoing Healthy Ageing Tree Logo"
               className="h-16 w-auto"
             />
             <img
-              src={`${import.meta.env.BASE_URL}Images/Ts EHA Name.jpg`}
+              src={`${import.meta.env.BASE_URL}Images/ts-eha-name.jpg`}
               alt="Echoing Healthy Ageing"
               className="h-16 w-auto translate-y-1"
             />
