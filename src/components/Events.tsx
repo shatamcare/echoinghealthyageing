@@ -70,7 +70,8 @@ export const Events = () => {
       time: "4:30 PM - 6:00 PM",
       locations: ["Mumbai"],
       audience: "Seniors (60+)",
-      color: "teal"
+  color: "teal",
+  registerUrl: "https://forms.gle/2cE1c99vXk7ykPvv7"
     }
   ];
 
