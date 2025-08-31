@@ -49,7 +49,8 @@ export const Events = () => {
       time: "5:00 PM - 6:00 PM",
       locations: ["Online Concert"],
       audience: "Seniors & Families",
-      color: "gold"
+  color: "gold",
+  registerUrl: "https://forms.gle/iWQRsXDK78PZfczY9"
     },
     {
       title: "Decoding Dementia (Part 3)",
