@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import heroSessions from "../../public/Images/sessions.jpg";
 import { ArrowDown } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -45,7 +46,7 @@ export const Hero = () => {
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
         <div className="absolute inset-0">
           <img
-            src={`${import.meta.env.BASE_URL}Images/sessions.jpg`}
+            src={heroSessions}
             alt="Elderly people and caregivers in supportive community setting"
             className="w-full h-full object-cover brightness-[0.85] saturate-110 scale-[1.15]"
             loading="eager"

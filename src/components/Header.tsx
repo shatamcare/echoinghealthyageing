@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import logoTree from "../../public/Images/ts-logo-tree.jpg";
+import logoName from "../../public/Images/ts-eha-name.jpg";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,12 +37,12 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}Images/ts-logo-tree.jpg`}
+              src={logoTree}
               alt="Echoing Healthy Ageing Tree Logo"
               className="h-16 w-auto"
             />
             <img
-              src={`${import.meta.env.BASE_URL}Images/ts-eha-name.jpg`}
+              src={logoName}
               alt="Echoing Healthy Ageing"
               className="h-16 w-auto translate-y-1"
             />
