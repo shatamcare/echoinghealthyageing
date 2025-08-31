@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, MapPin, Users, Brain, Heart, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, MapPin, Users, Brain, Heart, BookOpen, ChevronLeft, ChevronRight, Music, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 
 export const Events = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -100,186 +100,178 @@ export const Events = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.25 } }
+  };
+  const cardVariants = {
+    hidden: { opacity: 0, y: 32, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1 }
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
+  // Tag mapping (derived, no change to event data content itself)
+  const tagMap = useMemo(() => ({
+    'Dementia Caregiver Support Group': 'Support Group',
+    'Decoding Dementia (Part 1)': 'Workshop',
+    'Decoding Dementia (Part 2)': 'Workshop',
+    'Decoding Dementia (Part 3)': 'Workshop',
+    'Shankar Mahadevan Academy Music Concert': 'Concert',
+    'Memory Café Sessions': 'Memory Café'
+  } as Record<string,string>), []);
+
+  const registerUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform';
+
+  const openRegister = () => window.open(registerUrl, '_blank');
 
   return (
-    <section id="events" className="py-20 gradient-section">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-shadow">
-            Upcoming Events & Programs
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+    <section id="events" className="relative py-28 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
+      {/* subtle background accents */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_15%_25%,#0d9488,transparent_60%),radial-gradient(circle_at_85%_70%,#334155,transparent_65%)]" />
+      <div className="container relative mx-auto px-4">
+        <motion.div className="text-center mb-20" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <div className="inline-block relative">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-800 mb-4">
+              Upcoming Events & Programs
+            </h2>
+            <span className="absolute left-1/2 -bottom-2 h-[3px] w-0 -translate-x-1/2 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-400 rounded-full animate-[underlineGrow_1.6s_ease-out_forwards]" />
+          </div>
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Join our community events designed to support seniors, caregivers, and healthcare professionals
           </p>
         </motion.div>
 
-        <motion.div
-          className="relative"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mb-6">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => scroll('left')}
-              disabled={!canScrollLeft}
-              className="bg-white/90 hover:bg-white shadow-md border-slate-200 text-slate-700 hover:text-slate-900 disabled:opacity-50"
-            >
-              <ChevronLeft className="h-4 w-4 mr-1" />
-              Previous
-            </Button>
-            
-            <p className="text-sm text-muted-foreground px-4">
-              Browse through our upcoming events
-            </p>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => scroll('right')}
-              disabled={!canScrollRight}
-              className="bg-white/90 hover:bg-white shadow-md border-slate-200 text-slate-700 hover:text-slate-900 disabled:opacity-50"
-            >
-              Next
-              <ChevronRight className="h-4 w-4 ml-1" />
-            </Button>
+        <motion.div className="relative" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          {/* Carousel Nav Buttons (overlay) */}
+          <div className="pointer-events-none hidden md:block">
+            {canScrollLeft && (
+              <button
+                aria-label="Previous events"
+                onClick={() => scroll('left')}
+                className="pointer-events-auto group absolute -left-3 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-white/70 backdrop-blur shadow-lg border border-white/50 flex items-center justify-center hover:bg-white transition-all"
+              >
+                <ChevronLeft className="h-6 w-6 text-slate-700 group-hover:scale-110 transition-transform" />
+              </button>
+            )}
+            {canScrollRight && (
+              <button
+                aria-label="Next events"
+                onClick={() => scroll('right')}
+                className="pointer-events-auto group absolute -right-3 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-white/70 backdrop-blur shadow-lg border border-white/50 flex items-center justify-center hover:bg-white transition-all"
+              >
+                <ChevronRight className="h-6 w-6 text-slate-700 group-hover:scale-110 transition-transform" />
+              </button>
+            )}
           </div>
 
-          {/* Scrollable Cards Container */}
-          <div 
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-4"
-            style={{ 
-              scrollSnapType: 'x mandatory',
-              scrollBehavior: 'smooth'
-            }}
-            onScroll={updateScrollButtons}
-          >
-            {events.map((event, index) => (
-              <motion.div 
-                key={index}
-                variants={cardVariants}
-                className="flex-shrink-0 w-80"
-                style={{ scrollSnapAlign: 'start' }}
-                whileHover={{ 
-                  scale: 1.02,
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <Card className="bg-gradient-to-br from-white via-slate-50/80 to-blue-50/60 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                  {/* Header */}
-                  <CardHeader className="pb-3 bg-gradient-to-r from-slate-600 to-teal-700 text-white rounded-t-lg">
-                    <div className="flex items-center gap-3 mb-2">
-                      <motion.div
-                        className="p-2 rounded-full bg-white/20"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="text-white text-sm">
+          {/* Scrollable Container */}
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent" />
+            <div
+              ref={scrollRef}
+              className="flex gap-8 overflow-x-auto scrollbar-hide pb-6 px-2 snap-x snap-mandatory"
+              style={{ scrollBehavior: 'smooth' }}
+              onScroll={updateScrollButtons}
+            >
+              {events.map((event, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  transition={{ duration: 0.7 }}
+                  className="snap-start w-[300px] sm:w-[340px] md:w-[360px] flex-shrink-0"
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <Card className="group h-full relative bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 border border-slate-200/70 rounded-3xl shadow-[0_8px_30px_-10px_rgba(15,23,42,0.25)] hover:shadow-[0_12px_40px_-10px_rgba(13,148,136,0.45)] transition-all">
+                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-teal-500/10 via-transparent to-cyan-400/10" />
+                    {/* Header */}
+                    <CardHeader className="pb-4 relative z-10">
+                      <div className="flex items-start justify-between mb-3">
+                        <motion.div whileHover={{ rotate: 8 }} className="p-3 rounded-2xl bg-gradient-to-br from-teal-600 to-slate-600 text-white shadow-md">
                           {event.icon}
-                        </div>
-                      </motion.div>
-                      <CardTitle className="text-lg text-white leading-tight">
-                        {event.title}
+                        </motion.div>
+                        {tagMap[event.title] && (
+                          <span className="text-[10px] uppercase tracking-wide font-semibold px-2 py-1 rounded-full bg-teal-600/10 text-teal-700 border border-teal-500/30 shadow-sm">
+                            {tagMap[event.title]}
+                          </span>
+                        )}
+                      </div>
+                      <CardTitle className="text-lg font-semibold leading-snug text-slate-800 group-hover:text-teal-700 transition-colors">
+                        <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>{event.title}</motion.span>
                       </CardTitle>
-                    </div>
-                    <CardDescription className="text-sm text-slate-100 leading-relaxed">
-                      {event.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  {/* Content */}
-                  <CardContent className="p-4 space-y-3">
-                    <div className="flex items-start gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
-                      <Calendar className="h-4 w-4 text-slate-600 mt-0.5 flex-shrink-0" />
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium text-slate-800 text-xs mb-1">Date & Time:</p>
-                        <p className="text-slate-700 text-xs">{event.date}</p>
-                        <p className="text-slate-700 text-xs font-medium">{event.time}</p>
+                      <CardDescription className="text-[13px] text-slate-600 leading-relaxed mt-2">
+                        {event.description}
+                      </CardDescription>
+                    </CardHeader>
+                    {/* Body */}
+                    <CardContent className="pt-0 relative z-10 space-y-3">
+                      <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-100/70 border border-slate-200/60">
+                        <Calendar className="h-4 w-4 text-teal-600 mt-0.5" />
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium text-slate-800 text-[11px] mb-0.5 tracking-wide uppercase">Date & Time</p>
+                          <p className="text-slate-700 text-xs leading-tight">{event.date}</p>
+                          <p className="text-slate-700 text-xs font-medium">{event.time}</p>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
-                      <MapPin className="h-4 w-4 text-slate-600 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-slate-800 text-xs mb-1">Location:</p>
-                        <p className="text-slate-700 text-xs">{event.locations.join(" • ")}</p>
+                      <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-100/70 border border-slate-200/60">
+                        <MapPin className="h-4 w-4 text-teal-600 mt-0.5" />
+                        <div className="min-w-0">
+                          <p className="font-medium text-slate-800 text-[11px] mb-0.5 tracking-wide uppercase">Location</p>
+                          <p className="text-slate-700 text-xs leading-tight">{event.locations.join(' • ')}</p>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-100/60 border border-slate-200/40">
-                      <Users className="h-4 w-4 text-slate-600 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-slate-800 text-xs mb-1">For:</p>
-                        <p className="text-slate-700 text-xs">{event.audience}</p>
+                      <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-100/70 border border-slate-200/60">
+                        <Users className="h-4 w-4 text-teal-600 mt-0.5" />
+                        <div className="min-w-0">
+                          <p className="font-medium text-slate-800 text-[11px] mb-0.5 tracking-wide uppercase">For</p>
+                          <p className="text-slate-700 text-xs leading-tight">{event.audience}</p>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <Button 
-                        variant="cta" 
-                        size="sm"
-                        className="w-full bg-gradient-to-r from-slate-600 to-teal-700 hover:from-slate-700 hover:to-teal-800 text-white shadow-md hover:shadow-lg transform hover:scale-[1.01] transition-all duration-200 text-xs"
-                        onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
-                      >
-                        Register Now
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                      <div className="pt-2">
+                        <Button
+                          variant="cta"
+                          size="sm"
+                          onClick={openRegister}
+                          className="relative w-full rounded-full text-xs font-medium py-2.5 bg-gradient-to-r from-teal-600 to-slate-700 hover:from-teal-500 hover:to-slate-800 shadow-md hover:shadow-lg transition-all group overflow-hidden"
+                        >
+                          <span className="relative z-10">Register Now</span>
+                          <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-400/20 via-transparent to-teal-500/20 transition-opacity" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
-
+        {/* Bottom CTA Bar */}
         <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mt-24"
         >
-          <p className="text-lg text-muted-foreground mb-6">
-            Ready to join our community? Register for any event using our simple form.
-          </p>
-          <Button 
-            variant="teal" 
-            size="lg"
-            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
-            className="text-lg px-8 py-4 shadow-premium hover:shadow-glow transition-smooth hover:scale-105"
-          >
-            Register
-          </Button>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-700 via-teal-800 to-slate-900 p-10 sm:p-14 shadow-[0_12px_40px_-10px_rgba(13,148,136,0.4)]">
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,#ffffff50,transparent_65%)]" />
+            <div className="relative flex flex-col lg:flex-row gap-10 items-center">
+              <div className="flex-1 text-center lg:text-left">
+                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight">
+                  Ready to join our community?
+                </h3>
+                <p className="text-slate-100/85 text-base md:text-lg max-w-2xl mx-auto lg:mx-0">
+                  Register for any event using our simple form.
+                </p>
+              </div>
+              <div className="flex items-center gap-5">
+                <Button
+                  size="lg"
+                  onClick={openRegister}
+                  className="relative rounded-full px-10 py-6 text-base font-semibold bg-white text-teal-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                >
+                  <span className="relative z-10">Register</span>
+                </Button>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -48,20 +48,25 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {["Events", "About EHA"].map((item) => (
+            {[
+              { name: "Home", href: "#" },
+              { name: "Events", href: "#events" },
+              { name: "About Us", href: "#about" },
+              { name: "Contact", href: "#contact" }
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "")}`}
-                className="text-muted-foreground hover:text-primary transition-smooth"
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground hover:text-primary transition-smooth font-medium text-sm"
               >
-                {item}
+                {item.name}
               </a>
             ))}
             <Button
               variant="cta"
               size="sm"
               onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
-              className="shadow-card hover:shadow-glow transition-smooth hover:scale-105"
+              className="shadow-card hover:shadow-glow transition-smooth hover:scale-105 ml-2"
             >
               Register Now
             </Button>
@@ -80,14 +85,19 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              {["Events", "About EHA"].map((item) => (
+              {[
+                { name: "Home", href: "#" },
+                { name: "Events", href: "#events" },
+                { name: "About Us", href: "#about" },
+                { name: "Contact", href: "#contact" }
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(" ", "")}`}
-                  className="text-muted-foreground hover:text-primary transition-smooth py-2"
+                  key={item.name}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-primary transition-smooth py-2 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
               <Button
