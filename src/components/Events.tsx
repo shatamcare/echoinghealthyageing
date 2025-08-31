@@ -46,7 +46,7 @@ export const Events = () => {
       description: "Special online music concert featuring therapeutic music sessions designed for seniors and their families.",
       icon: <Heart className="h-6 w-6" />,
       date: "September 21, 2025",
-      time: "5:00 PM - 6:00 PM",
+  time: "6:00 PM - 7:00 PM",
       locations: ["Online Concert"],
       audience: "Seniors & Families",
   color: "gold",
@@ -68,7 +68,7 @@ export const Events = () => {
       icon: <Brain className="h-6 w-6" />,
       date: "October 1, 2025",
       time: "4:30 PM - 6:00 PM",
-      locations: ["Mumbai"],
+  locations: ["Bhulabhai Desai Marg, Mumbai"],
       audience: "Seniors (60+)",
   color: "teal",
   registerUrl: "https://forms.gle/2cE1c99vXk7ykPvv7"
