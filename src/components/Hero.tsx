@@ -45,7 +45,7 @@ export const Hero = () => {
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
         <div className="absolute inset-0">
           <img
-            src="/Images/sessions.jpg"
+            src={`${import.meta.env.BASE_URL}Images/sessions.jpg`}
             alt="Elderly people and caregivers in supportive community setting"
             className="w-full h-full object-cover brightness-[0.85] saturate-110 scale-[1.15]"
             loading="eager"
