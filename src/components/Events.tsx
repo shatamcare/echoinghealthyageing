@@ -22,23 +22,23 @@ export const Events = () => {
       registerUrl: "https://forms.gle/SJBNBMjHU5qUHsYm6"
     },
     {
-      title: "Decoding Dementia (Part 1)",
-      description: "Comprehensive workshop for healthcare professionals on dementia care approaches, diagnosis, and treatment strategies.",
+  title: "Ask About Dementia (AMA) - Part 1",
+  description: "Interactive live webinar (AMA) covering foundations of dementia, early signs, and practical first-line support. Includes open Q&A.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 13, 2025",
       time: "10:00 AM - 2:00 PM",
       locations: ["In-Person Workshop"],
-      audience: "Healthcare Professionals",
+  audience: "Family Caregivers & Professionals",
       color: "lavender"
     },
     {
-      title: "Decoding Dementia (Part 2)",
-      description: "Second part of the comprehensive dementia workshop covering advanced care techniques and person-centered approaches.",
+  title: "Ask About Dementia (AMA) - Part 2",
+  description: "Deep dive AMA on behavioural changes, communication strategies, and caregiver resilience with case discussions.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 20, 2025",
       time: "10:00 AM - 2:00 PM",
       locations: ["In-Person Workshop"],
-      audience: "Healthcare Professionals",
+  audience: "Family Caregivers & Professionals",
       color: "lavender"
     },
     {
@@ -53,13 +53,13 @@ export const Events = () => {
   registerUrl: "https://forms.gle/iWQRsXDK78PZfczY9"
     },
     {
-      title: "Decoding Dementia (Part 3)",
-      description: "Final session of the dementia workshop series focusing on practical implementation and case studies.",
+  title: "Ask About Dementia (AMA) - Part 3",
+  description: "Final AMA session: advanced care scenarios, late-stage support, and multidisciplinary coordination. Open Q&A wrap-up.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 28, 2025",
       time: "4:00 PM - 6:00 PM",
       locations: ["In-Person Workshop"],
-      audience: "Healthcare Professionals",
+  audience: "Family Caregivers & Professionals",
       color: "lavender"
     },
     {
@@ -113,9 +113,9 @@ export const Events = () => {
   // Tag mapping (derived, no change to event data content itself)
   const tagMap = useMemo(() => ({
     'Dementia Caregiver Support Group': 'Support Group',
-    'Decoding Dementia (Part 1)': 'Workshop',
-    'Decoding Dementia (Part 2)': 'Workshop',
-    'Decoding Dementia (Part 3)': 'Workshop',
+  'Ask About Dementia (AMA) - Part 1': 'Webinar',
+  'Ask About Dementia (AMA) - Part 2': 'Webinar',
+  'Ask About Dementia (AMA) - Part 3': 'Webinar',
     'Shankar Mahadevan Academy Music Concert': 'Concert',
     'Memory Café Sessions': 'Memory Café'
   } as Record<string,string>), []);
