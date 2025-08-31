@@ -1,6 +1,6 @@
 // Clean, complete About component with named export (no default) to avoid HMR cache mismatches
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Heart, BookOpen, Coffee, Quote, Star, HeartHandshake } from "lucide-react";
+import { Users, Heart, BookOpen, Coffee, Quote, Star, HeartHandshake, Mail, Phone, MapPin, Clock, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 type Service = { icon: JSX.Element; title: string; description: string };
@@ -68,6 +68,64 @@ export const About = () => {
                   <p className="text-slate-700 leading-relaxed text-base md:text-lg">
                     We enhance quality of life through compassionate, person-centred dementia & geriatric support— empowering caregivers, connecting communities, and fostering meaningful engagement.
                   </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Contact Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+            >
+              <Card className="relative border border-teal-200/50 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/50 shadow-[0_8px_30px_-10px_rgba(13,148,136,0.25)] overflow-hidden">
+                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity bg-gradient-to-br from-teal-100/40 via-transparent to-cyan-100/50" />
+                <CardContent className="relative p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-teal-600 to-slate-600 text-white shadow">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-slate-800">Contact Us</h3>
+                  </div>
+                  <ul className="space-y-4 text-sm md:text-base">
+                    <li className="flex items-start gap-3">
+                      <Mail className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <a href="mailto:info@echoinghealthyageing.com" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">info@echoinghealthyageing.com</a>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Phone className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <a href="tel:+919867832665" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">+91 98678 32665</a>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <MapPin className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <span className="text-slate-700 font-medium">Mumbai, Maharashtra</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Clock className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <span className="text-slate-700 font-medium">Mon – Fri: 9:00 AM – 6:00 PM</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-wrap gap-4 pt-2">
+                    <button
+                      onClick={() => window.location.href = 'mailto:info@echoinghealthyageing.com'}
+                      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-slate-700 hover:from-teal-500 hover:to-slate-800 text-white text-sm font-medium px-5 py-2.5 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <Mail className="h-4 w-4" /> Email
+                    </button>
+                    <button
+                      onClick={() => window.open('tel:+919867832665')}
+                      className="inline-flex items-center gap-2 rounded-full border border-teal-600/40 text-teal-700 hover:bg-teal-50 text-sm font-medium px-5 py-2.5 shadow-sm hover:shadow transition-all"
+                    >
+                      <Phone className="h-4 w-4" /> Call
+                    </button>
+                    <button
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})}
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100 text-sm font-medium px-5 py-2.5 shadow-sm hover:shadow transition-all"
+                    >
+                      <ExternalLink className="h-4 w-4" /> More
+                    </button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
