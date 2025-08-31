@@ -18,7 +18,8 @@ export const Events = () => {
       time: "4:00 PM - 5:00 PM",
       locations: ["Online Session"],
       audience: "Family Caregivers & Friends",
-      color: "teal"
+      color: "teal",
+      registerUrl: "https://forms.gle/SJBNBMjHU5qUHsYm6"
     },
     {
       title: "Decoding Dementia (Part 1)",
@@ -117,9 +118,8 @@ export const Events = () => {
     'Memory Café Sessions': 'Memory Café'
   } as Record<string,string>), []);
 
-  const registerUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform';
-
-  const openRegister = () => window.open(registerUrl, '_blank');
+  const defaultRegisterUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform';
+  const openRegister = (url?: string) => window.open(url || defaultRegisterUrl, '_blank');
 
   return (
     <section id="events" className="relative py-28 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
@@ -228,7 +228,7 @@ export const Events = () => {
                         <Button
                           variant="cta"
                           size="sm"
-                          onClick={openRegister}
+                          onClick={() => openRegister((event as any).registerUrl)}
                           className="relative w-full rounded-full text-xs font-medium py-2.5 bg-gradient-to-r from-teal-600 to-slate-700 hover:from-teal-500 hover:to-slate-800 shadow-md hover:shadow-lg transition-all group overflow-hidden"
                         >
                           <span className="relative z-10">Register Now</span>
@@ -264,7 +264,7 @@ export const Events = () => {
               <div className="flex items-center gap-5">
                 <Button
                   size="lg"
-                  onClick={openRegister}
+                  onClick={() => openRegister()}
                   className="relative rounded-full px-10 py-6 text-base font-semibold bg-white text-teal-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
                 >
                   <span className="relative z-10">Register</span>
