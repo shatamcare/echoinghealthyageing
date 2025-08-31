@@ -22,8 +22,8 @@ export const Events = () => {
       registerUrl: "https://forms.gle/SJBNBMjHU5qUHsYm6"
     },
     {
-  title: "Ask About Dementia (AMA) - Part 1",
-  description: "Interactive live webinar (AMA) covering foundations of dementia, early signs, and practical first-line support. Includes open Q&A.",
+  title: "Decoding Dementia (Part 1)",
+  description: "Comprehensive workshop covering dementia basics: types, early signs, diagnosis pathway, and person-centred first responses.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 13, 2025",
       time: "10:00 AM - 2:00 PM",
@@ -32,8 +32,8 @@ export const Events = () => {
       color: "lavender"
     },
     {
-  title: "Ask About Dementia (AMA) - Part 2",
-  description: "Deep dive AMA on behavioural changes, communication strategies, and caregiver resilience with case discussions.",
+  title: "Decoding Dementia (Part 2)",
+  description: "Advanced session on behavioural symptoms, communication strategies, environment adaptation, and caregiver resilience.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 20, 2025",
       time: "10:00 AM - 2:00 PM",
@@ -54,12 +54,12 @@ export const Events = () => {
     },
     {
   title: "Ask About Dementia (AMA) - Part 3",
-  description: "Final AMA session: advanced care scenarios, late-stage support, and multidisciplinary coordination. Open Q&A wrap-up.",
+  description: "Live AMA: late-stage care, safety, multidisciplinary coordination, and open Q&A wrap-up. Free and open for everyone.",
       icon: <BookOpen className="h-6 w-6" />,
       date: "September 28, 2025",
       time: "4:00 PM - 6:00 PM",
       locations: ["In-Person Workshop"],
-  audience: "Family Caregivers & Professionals",
+  audience: "Open to All (Free Webinar)",
       color: "lavender"
     },
     {
@@ -113,8 +113,8 @@ export const Events = () => {
   // Tag mapping (derived, no change to event data content itself)
   const tagMap = useMemo(() => ({
     'Dementia Caregiver Support Group': 'Support Group',
-  'Ask About Dementia (AMA) - Part 1': 'Webinar',
-  'Ask About Dementia (AMA) - Part 2': 'Webinar',
+  'Decoding Dementia (Part 1)': 'Workshop',
+  'Decoding Dementia (Part 2)': 'Workshop',
   'Ask About Dementia (AMA) - Part 3': 'Webinar',
     'Shankar Mahadevan Academy Music Concert': 'Concert',
     'Memory Café Sessions': 'Memory Café'
