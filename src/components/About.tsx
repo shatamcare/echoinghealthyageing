@@ -97,7 +97,7 @@ export const About = () => {
                       <Phone className="h-5 w-5 text-teal-600 mt-0.5" />
                       <div className="flex flex-col">
                         <a href="tel:+919867832665" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">+91 98678 32665</a>
-                        <a href="tel:+919158656665" className="text-slate-600 hover:text-teal-700 transition-colors font-medium text-sm">+91 91586 56665</a>
+                        <a href="tel:+919158656665" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">+91 91586 56665</a>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">

@@ -135,8 +135,8 @@ export const Connect = () => {
                     </motion.div>
                     <div>
                       <h4 className="font-semibold text-slate-800 mb-2">Phone Numbers</h4>
-                      <p className="text-slate-700">+91 98678 32665</p>
-                      <p className="text-slate-700">+91 91586 56665</p>
+                      <p className="text-slate-700 font-medium">+91 98678 32665</p>
+                      <p className="text-slate-700 font-medium">+91 91586 56665</p>
                     </div>
                   </motion.div>
 
