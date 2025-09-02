@@ -95,7 +95,10 @@ export const About = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <Phone className="h-5 w-5 text-teal-600 mt-0.5" />
-                      <a href="tel:+919867832665" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">+91 98678 32665</a>
+                      <div className="flex flex-col">
+                        <a href="tel:+919867832665" className="text-slate-700 hover:text-teal-700 transition-colors font-medium">+91 98678 32665</a>
+                        <a href="tel:+919158656665" className="text-slate-600 hover:text-teal-700 transition-colors font-medium text-sm">+91 91586 56665</a>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-teal-600 mt-0.5" />
@@ -118,6 +121,12 @@ export const About = () => {
                       className="inline-flex items-center gap-2 rounded-full border border-teal-600/40 text-teal-700 hover:bg-teal-50 text-sm font-medium px-5 py-2.5 shadow-sm hover:shadow transition-all"
                     >
                       <Phone className="h-4 w-4" /> Call
+                    </button>
+                    <button
+                      onClick={() => window.open('tel:+919158656665')}
+                      className="inline-flex items-center gap-2 rounded-full border border-teal-600/40 text-teal-700 hover:bg-teal-50 text-sm font-medium px-5 py-2.5 shadow-sm hover:shadow transition-all"
+                    >
+                      <Phone className="h-4 w-4" /> Call 2
                     </button>
                     <button
                       onClick={() => document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})}
