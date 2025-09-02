@@ -62,7 +62,8 @@ export const Events = () => {
       time: "4:00 PM - 6:00 PM",
       locations: ["In-Person Workshop"],
   audience: "Open to All (Free Webinar)",
-      color: "lavender"
+    color: "lavender",
+  registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdV-CX3_0eBHO3kqtJarGkX8NyISbvHto51wlDtG-orvi54zQ/viewform?usp=send_form"
     },
     {
       title: "Memory Café Sessions",
