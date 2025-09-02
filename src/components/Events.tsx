@@ -29,7 +29,8 @@ export const Events = () => {
       time: "10:00 AM - 2:00 PM",
       locations: ["In-Person Workshop"],
   audience: "Family Caregivers & Professionals",
-      color: "lavender"
+  color: "lavender",
+  registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdV-CX3_0eBHO3kqtJarGkX8NyISbvHto51wlDtG-orvi54zQ/viewform?usp=send_form"
     },
     {
   title: "Decoding Dementia (Part 2)",
@@ -39,7 +40,8 @@ export const Events = () => {
       time: "10:00 AM - 2:00 PM",
       locations: ["In-Person Workshop"],
   audience: "Family Caregivers & Professionals",
-      color: "lavender"
+  color: "lavender",
+  registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdV-CX3_0eBHO3kqtJarGkX8NyISbvHto51wlDtG-orvi54zQ/viewform?usp=send_form"
     },
     {
       title: "Shankar Mahadevan Academy Music Concert",
