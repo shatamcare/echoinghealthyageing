@@ -36,9 +36,17 @@ export default {
 					DEFAULT: 'hsl(var(--teal))',
 					foreground: 'hsl(var(--teal-foreground))'
 				},
+				sea: {
+					DEFAULT: 'hsl(var(--sea))',
+					foreground: 'hsl(var(--sea-foreground))'
+				},
 				lavender: {
 					DEFAULT: 'hsl(var(--lavender))',
 					foreground: 'hsl(var(--lavender-foreground))'
+				},
+				peach: {
+					DEFAULT: 'hsl(var(--peach))',
+					foreground: 'hsl(var(--peach-foreground))'
 				},
 				gold: {
 					DEFAULT: 'hsl(var(--gold))',

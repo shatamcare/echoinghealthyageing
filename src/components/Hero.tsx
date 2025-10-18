@@ -1,146 +1,190 @@
 import { Button } from "@/components/ui/button";
-import heroSessions from "../../public/Images/sessions.jpg";
-import { ArrowDown } from "lucide-react";
+import heroCare from "../../public/Images/care.jpg";
+import { ArrowRight, PhoneCall } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
+const STAT_ITEMS = [
+  { label: "Active since", value: "2012" },
+  { label: "Based in", value: "Mumbai" },
+  { label: "Monthly programs", value: "Ongoing" }
+];
+
 export const Hero = () => {
-  const scrollToEvents = () => {
-    const element = document.getElementById('events');
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Parallax effect for background image
-  const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 400], [0, 120]);
+  const dialCareLine = () => {
+    window.open("tel:+919867832665");
+  };
 
-  // Split heading into words for staggered animation
-  const headingLines = useMemo(() => ["Join Us", "This Alzheimer's Month"], []);
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 480], [0, 160]);
+
+  const headingLines = useMemo(
+    () => ["Supporting Persons with Dementia", "And Their Caregivers in Mumbai"],
+    []
+  );
+
   const wordVariants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)' }
+    hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: "blur(0px)"
+    }
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+      y: 0,
+      transition: { 
+        staggerChildren: 0.15, 
+        delayChildren: 0.25, 
+        duration: 0.7
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0
+    hidden: { opacity: 0, y: 28 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6
+      } 
     }
   };
 
   return (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 md:pt-32 pb-20">
-      {/* Background / Overlay / Parallax */}
+	<section
+      className="relative flex min-h-[88vh] items-center overflow-hidden bg-transparent px-4 pt-28 pb-24 md:px-6 md:pt-36 md:pb-28 lg:px-8"
+      aria-labelledby="hero-heading"
+    >
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
         <div className="absolute inset-0">
           <img
-            src={heroSessions}
-            alt="Elderly people and caregivers in supportive community setting"
-            className="w-full h-full object-cover brightness-[0.85] saturate-110 scale-[1.15]"
+            src={heroCare}
+            alt="An experienced caregiver supporting an elderly woman with warmth and dignity"
+            className="h-full w-full object-cover object-[50%_35%] md:object-center brightness-[0.95]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.12),transparent_60%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#031b28]/70 via-[#032c38]/40 to-[#03121b]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-sea/30 to-primary/35" />
         </div>
       </motion.div>
 
-      {/* Decorative particles (subtle) */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 left-[8%] w-40 h-40 bg-teal-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-[10%] w-56 h-56 bg-cyan-400/10 rounded-full blur-3xl" />
-      </div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent" />
 
-      {/* Content Container */}
       <motion.div
-        className="relative z-10 container mx-auto px-4 text-center max-w-5xl"
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 text-slate-50 md:flex-row md:items-center md:gap-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="mb-10">
-          <h1 className="font-bold leading-tight tracking-tight text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
-            {headingLines.map((line, iLine) => (
+        <div className="w-full max-w-2xl space-y-8 text-center md:text-left">
+          <motion.span
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg"
+            variants={itemVariants}
+          >
+            Dementia Care & Caregiver Support
+          </motion.span>
+
+          <h1
+            id="hero-heading"
+            className="text-balance font-bold text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+          >
+            {headingLines.map((line) => (
               <span key={line} className="block">
-                {line.split(" ").map((word, iWord) => {
-                  const idx = iLine * 10 + iWord;
-                  const highlight = word.includes("Alzheimer's");
-                  return (
-                    <motion.span
-                      key={word + iWord}
-                      variants={wordVariants}
-                      initial="hidden"
-                      animate="visible"
-                      transition={{ duration: 0.8, ease: [0.22,0.65,0.32,0.9], delay: 0.4 + idx * 0.12 }}
-                      whileHover={highlight ? { color: '#5eead4' } : {}}
-                      className={`inline-block mr-2 ${highlight ? 'relative cursor-pointer group' : ''}`}
-                    >
-                      {word}
-                      {highlight && (
-                        <span className="absolute left-0 -bottom-1 h-[3px] w-0 bg-gradient-to-r from-teal-300 to-cyan-400 rounded-full group-hover:w-full transition-all duration-500" />
-                      )}
-                    </motion.span>
-                  );
-                })}
+                {line.split(" ").map((word, index) => (
+                  <motion.span
+                    key={`${word}-${index}`}
+                    variants={wordVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ duration: 0.9, ease: [0.18, 0.84, 0.36, 1], delay: 0.4 + index * 0.08 }}
+                    className={`inline-block px-[0.2rem] ${word.includes("Alzheimer") ? "bg-white/15 text-accent" : ""}`}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </span>
             ))}
           </h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="max-w-2xl text-base leading-[1.8] text-white sm:text-lg md:text-xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
+          >
+            We at Echoing Healthy Ageing provide Memory Café sessions, caregiver support groups, home-based therapy programs, and dementia awareness workshops across Mumbai under the Shatam Care Foundation.
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start"
+            role="group"
+            aria-label="Primary actions"
+          >
+            <Button
+              variant="cta"
+              size="lg"
+              className="group w-full min-w-[240px] justify-between px-8 py-4 text-base font-semibold sm:w-auto min-h-[56px] md:min-h-[48px]"
+              onClick={scrollToContact}
+            >
+              Book a Care Consultation
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="w-full min-w-[220px] justify-center rounded-full border border-white/30 bg-white/20 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 backdrop-blur hover:bg-white/30 focus-visible:ring-accent min-h-[56px] md:min-h-[48px]"
+              onClick={dialCareLine}
+            >
+              <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />Speak to a Care Specialist
+            </Button>
+          </motion.div>
+
+          <motion.ul
+            variants={itemVariants}
+            className="grid gap-4 text-left text-sm text-white sm:grid-cols-3"
+          >
+            {STAT_ITEMS.map((item) => (
+              <li
+                key={item.label}
+                className="rounded-2xl border-2 border-white/30 bg-white/95 p-4 shadow-lg transition-smooth hover:bg-white focus-within:bg-white"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
+                  {item.label}
+                </p>
+                <p className="pt-2 text-2xl font-bold text-primary">{item.value}</p>
+              </li>
+            ))}
+          </motion.ul>
         </div>
 
-        <motion.div
-          className="mx-auto max-w-3xl"
+        
+        <motion.aside
           variants={itemVariants}
+          className="relative hidden w-full max-w-sm rounded-3xl border-2 border-white/40 bg-white/95 p-6 text-left shadow-2xl md:block"
+          aria-label="Community insight"
         >
-          <div className="relative group">
-            <div className="absolute inset-0 rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.25)]" />
-            <p
-              className="relative text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed font-normal px-6 sm:px-8 py-6"
-              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.4)' }}
-            >
-              Supporting seniors, families, and caregivers through every step of the aging journey
-            </p>
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">
+            Our Approach
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-foreground">
+            We believe in creating dementia-friendly communities through awareness, practical training, and compassionate peer support that empowers families and caregivers.
+          </p>
+          <p className="mt-6 text-sm font-medium text-accent">— Echoing Healthy Ageing Team</p>
+          <div className="mt-8 grid grid-cols-2 gap-4 text-xs uppercase tracking-wide">
+            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Memory Café</span>
+            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Support Groups</span>
+            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Home Therapy</span>
+            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Training Courses</span>
           </div>
-        </motion.div>
-
-        <motion.div className="mt-14" variants={itemVariants}>
-          <Button
-            variant="cta"
-            size="lg"
-            onClick={scrollToEvents}
-            className="relative isolate text-base sm:text-lg lg:text-xl px-10 sm:px-12 py-5 rounded-full font-medium shadow-[0_10px_30px_-10px_rgba(14,116,144,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(13,148,136,0.75)] transition-all hover:-translate-y-0.5 overflow-hidden group"
-          >
-            <span className="relative z-10 flex items-center">
-              Discover Our Community Events
-              <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-            </span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500 via-teal-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Button>
-          <motion.div
-            className="mt-12 flex justify-center"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.8, ease: 'easeOut' }}
-          >
-            <button
-              aria-label="Scroll to events"
-              onClick={scrollToEvents}
-              className="relative group"
-            >
-              <ArrowDown className="h-8 w-8 text-teal-300 animate-bounce group-hover:scale-110 transition-transform" />
-            </button>
-          </motion.div>
-        </motion.div>
+        </motion.aside>
       </motion.div>
     </section>
   );

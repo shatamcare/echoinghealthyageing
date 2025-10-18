@@ -1,210 +1,240 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, ExternalLink } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { useState } from "react";
+
+const CONTACT_INFO = [
+  {
+    icon: Mail,
+    label: "Email us",
+    value: "info@echoinghealthyageing.com",
+    action: () => (window.location.href = "mailto:info@echoinghealthyageing.com"),
+  },
+  {
+    icon: Phone,
+    label: "Call us",
+    value: "+91 98678 32665 · +91 91586 56665",
+    action: () => window.open("tel:+919867832665"),
+  },
+  {
+    icon: MapPin,
+    label: "Visit us",
+    value: "Mumbai, Maharashtra",
+    action: null,
+  },
+  {
+    icon: Clock,
+    label: "Office hours",
+    value: "Mon–Fri: 9:00 AM – 6:00 PM",
+    action: null,
+  },
+];
 
 export const Connect = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:info@echoinghealthyageing.com?subject=Care Consultation Request from ${encodeURIComponent(
+      formData.name
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+    )}`;
+    window.location.href = mailtoLink;
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
-    <section id="connect" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-secondary/30 to-white px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
+      aria-labelledby="contact-heading"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(16,88,110,0.1),transparent_60%),radial-gradient(circle_at_82%_85%,rgba(241,205,179,0.15),transparent_55%)]" />
+      <div className="container relative mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-shadow">
-            Connect With Us
+          <span className="inline-flex items-center justify-center rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            Get In Touch
+          </span>
+          <h2 id="contact-heading" className="mt-6 text-3xl font-bold text-foreground sm:text-4xl">
+            Start the conversation with our care team
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Fill out the form to register for events or express your interest. We will reach out to you within 24 hours.
+          <p className="mt-4 text-lg leading-relaxed text-foreground/70">
+            Whether you're seeking immediate support or exploring our services, our specialists are here to listen and guide your next steps with compassion.
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Contact Form */}
           <motion.div
-            className="grid lg:grid-cols-2 gap-12 items-start"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
           >
-            {/* Form Section */}
-            <motion.div variants={itemVariants}>
-              <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-                <CardHeader className="bg-gradient-to-r from-slate-600 to-teal-700 text-white">
-                  <CardTitle className="text-2xl flex items-center gap-3">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <MessageCircle className="h-6 w-6 text-white" />
-                    </motion.div>
-                    Registration Form
-                  </CardTitle>
-                  <CardDescription className="text-lg text-slate-100">
-                    Complete the form below to join our programs or get more information
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <motion.div
-                    className="bg-slate-100/60 rounded-lg p-4 mb-6 shadow-sm border border-slate-200/40"
-                    whileHover={{ scale: 1.01 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="flex items-center gap-2 text-slate-700 mb-2">
-                      <ExternalLink className="h-4 w-4" />
-                      <span className="font-medium">Google Form</span>
-                    </div>
-                    <p className="text-sm text-slate-600">
-                      Click below to access our registration form. It will open in a new tab for your convenience.
-                    </p>
-                  </motion.div>
-                  
-                  {/* Google Form Link */}
-                  <div className="w-full">
-                    <div className="p-8 border-2 border-dashed border-slate-300 rounded-lg text-center bg-gradient-to-br from-white to-slate-50 shadow-sm">
-                      <div className="space-y-4">
-                        <div className="text-6xl">📝</div>
-                        <h4 className="text-xl font-semibold text-slate-800">Registration Form</h4>
-                        <p className="text-slate-600">
-                          Click the button below to open our registration form in a new tab
-                        </p>
-                        <Button
-                          size="lg"
-                          onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform', '_blank')}
-                          className="bg-gradient-to-r from-slate-600 to-teal-700 hover:from-slate-700 hover:to-teal-800 text-white shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300"
-                        >
-                          Open Registration Form
-                        </Button>
-                      </div>
-                    </div>
+            <Card className="border-2 border-secondary bg-white shadow-card">
+              <CardContent className="space-y-6 p-8">
+                <h3 className="text-2xl font-semibold text-foreground">Send us a message</h3>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-sm font-semibold text-foreground/80">
+                      Your name <span className="text-destructive">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-input bg-white px-4 py-3 min-h-[48px] text-base text-foreground transition-smooth focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      placeholder="Enter your full name"
+                    />
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Contact Information */}
-            <motion.div className="space-y-8" variants={itemVariants}>
-              <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-                <CardHeader className="bg-gradient-to-r from-slate-600 to-teal-700 text-white">
-                  <CardTitle className="text-2xl flex items-center gap-3">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <Phone className="h-6 w-6 text-white" />
-                    </motion.div>
-                    Get In Touch
-                  </CardTitle>
-                  <CardDescription className="text-lg text-slate-100">
-                    Prefer to speak directly? Reach out to us through any of these channels
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6 p-6">
-                  <motion.div
-                    className="flex items-start gap-4 p-4 rounded-lg bg-slate-100/60 hover:bg-slate-100/80 transition-all duration-300 border border-slate-200/40"
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.2 }}
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-semibold text-foreground/80">
+                      Email address <span className="text-destructive">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-input bg-white px-4 py-3 min-h-[48px] text-base text-foreground transition-smooth focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-foreground/80">
+                      Phone number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-input bg-white px-4 py-3 min-h-[48px] text-base text-foreground transition-smooth focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-semibold text-foreground/80">
+                      Message <span className="text-destructive">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full resize-none rounded-xl border border-input bg-white px-4 py-3 min-h-[120px] text-base text-foreground transition-smooth focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      placeholder="Tell us about your care needs..."
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    variant="cta"
+                    size="lg"
+                    className="group w-full justify-between text-base font-semibold min-h-[56px]"
                   >
-                    <motion.div
-                      className="bg-gradient-to-br from-slate-500 to-teal-600 p-3 rounded-full shadow-sm"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Phone className="h-5 w-5 text-white" />
-                    </motion.div>
-                    <div>
-                      <h4 className="font-semibold text-slate-800 mb-2">Phone Numbers</h4>
-                      <p className="text-slate-700 font-medium">+91 98678 32665</p>
-                      <p className="text-slate-700 font-medium">+91 91586 56665</p>
-                    </div>
-                  </motion.div>
+                    Send message
+                    <Send className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-                  <motion.div
-                    className="flex items-start gap-4 p-4 rounded-lg bg-slate-100/60 hover:bg-slate-100/80 transition-all duration-300 border border-slate-200/40"
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.2 }}
+          {/* Contact Info & Chatbot Placeholder */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-foreground">Other ways to reach us</h3>
+              <div className="space-y-4">
+                {CONTACT_INFO.map(({ icon: Icon, label, value, action }) => (
+                  <Card
+                    key={label}
+                    className="group cursor-pointer border-2 border-secondary bg-white shadow-sm transition-smooth hover:-translate-y-2 hover:border-accent/20 hover:shadow-lg"
+                    onClick={action || undefined}
                   >
-                    <motion.div
-                      className="bg-gradient-to-br from-slate-500 to-teal-600 p-3 rounded-full shadow-sm"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Mail className="h-5 w-5 text-white" />
-                    </motion.div>
-                    <div>
-                      <h4 className="font-semibold text-slate-800 mb-2">Email</h4>
-                      <p className="text-slate-700">info@echoinghealthyageing.com</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="flex items-start gap-4 p-4 rounded-lg bg-slate-100/60 hover:bg-slate-100/80 transition-all duration-300 border border-slate-200/40"
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      className="bg-gradient-to-br from-slate-500 to-teal-600 p-3 rounded-full shadow-sm"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <ExternalLink className="h-5 w-5 text-white" />
-                    </motion.div>
-                    <div>
-                      <h4 className="font-semibold text-slate-800 mb-2">Website</h4>
-                      <a 
-                        href="https://www.echoinghealthyageing.com" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-teal-700 hover:text-teal-800 transition-smooth font-medium"
+                    <CardContent className="flex items-start gap-4 p-5">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 0.4 }}
                       >
-                        www.echoinghealthyageing.com
-                      </a>
-                    </div>
-                  </motion.div>
-                </CardContent>
-              </Card>
-
-              <motion.div
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/50 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="text-center">
-                      <div className="bg-gradient-to-r from-slate-600 to-teal-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                        <span className="text-3xl">⏰</span>
+                        <span className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary via-teal to-sea text-white shadow-2xl transition-shadow group-hover:shadow-accent/50">
+                          <Icon className="h-6 w-6" strokeWidth={2} aria-hidden="true" />
+                        </span>
+                      </motion.div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
+                          {label}
+                        </p>
+                        <p className="mt-1 text-base font-medium text-foreground">{value}</p>
                       </div>
-                      <h4 className="font-semibold text-slate-800 mb-3 text-lg">
-                        Response Time
-                      </h4>
-                      <p className="text-slate-700">
-                        We typically respond to all inquiries within <strong className="text-slate-800">24 hours</strong>. 
-                        For urgent matters, please call us directly.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Chatbot Placeholder */}
+            <Card className="border-2 border-accent/30 bg-gradient-to-br from-accent/5 via-white to-white shadow-card">
+              <CardContent className="space-y-4 p-8">
+                <div className="flex items-center gap-3">
+                  <motion.div
+                    animate={{ 
+                      y: [0, -8, 0],
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/60 text-white shadow-2xl">
+                      <MessageCircle className="h-8 w-8" strokeWidth={2} aria-hidden="true" />
+                    </span>
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-foreground">Chat with Care Assistant</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-foreground/70">
+                  Our 24/7 AI assistant helps answer quick questions about appointments, services, and general Alzheimer's care guidance.
+                </p>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full rounded-full border border-accent/40 bg-white text-base font-semibold text-accent shadow-sm hover:bg-accent/10 focus-visible:ring-accent"
+                  disabled
+                >
+                  Coming Soon
+                </Button>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </div>

@@ -1,96 +1,55 @@
-import { Mail, Phone, MapPin, Clock, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Home, Heart, Users, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
-
-const linkUnderline = "relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-teal-300 after:transition-all after:duration-300 hover:after:w-full";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
-  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ6F3ef-D1N5AZq9fK3DSn0Xu8exEMtk3e6HlLDL8a3upM_Q/viewform';
+
+  const quickNav = [
+    { icon: Home, label: 'Home', href: '#top' },
+    { icon: Heart, label: 'Services', href: '#services' },
+    { icon: Users, label: 'Stories', href: '#stories' },
+    { icon: Phone, label: 'Contact', href: '#contact' }
+  ];
 
   return (
-    <footer id="contact" className="relative mt-32 text-slate-200 bg-[linear-gradient(135deg,#0f766e_0%,#0d4d62_55%,#081d32_100%)] pt-16 pb-8 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.25),transparent_60%),radial-gradient(circle_at_80%_75%,rgba(255,255,255,0.15),transparent_65%)]" />
+    <footer className="relative mt-20 overflow-hidden bg-gradient-to-br from-primary/95 via-sea/90 to-teal/95 pb-3 pt-8 text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.12),transparent_60%)] opacity-40" />
+      
       <div className="container relative mx-auto px-4">
-        {/* Compact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-6 justify-between rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-6">
-            <p className="text-sm md:text-base text-slate-100 font-medium text-center md:text-left">
-              Ready to Join Our Community? <span className="text-teal-200">Register for our events today.</span>
-            </p>
-            <button
-              onClick={() => window.open(formUrl, '_blank')}
-              className="relative group rounded-full bg-white text-teal-700 font-medium px-6 py-2 text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-            >
-              <span className="relative z-10">Register Now</span>
-              <span className="absolute inset-0 rounded-full ring-2 ring-transparent group-hover:ring-teal-300/60 transition-all" />
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Two Columns */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="grid gap-12 sm:grid-cols-2 mb-12"
-        >
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wide text-teal-200 mb-5">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#" className={`${linkUnderline} inline-block text-slate-200/85 hover:text-white`}>Home</a></li>
-              <li><a href="#events" className={`${linkUnderline} inline-block text-slate-200/85 hover:text-white`}>Events</a></li>
-              <li><a href="#about" className={`${linkUnderline} inline-block text-slate-200/85 hover:text-white`}>About Us</a></li>
-              <li><a href="#contact" className={`${linkUnderline} inline-block text-slate-200/85 hover:text-white`}>Contact</a></li>
-            </ul>
-          </div>
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wide text-teal-200 mb-5">Contact Us</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <Mail className="h-4 w-4 text-teal-300 mt-0.5" />
-                <a href="mailto:info@echoinghealthyageing.com" className="text-slate-200/85 hover:text-white transition-colors">info@echoinghealthyageing.com</a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="h-4 w-4 text-teal-300 mt-0.5" />
-                <span className="text-slate-200/85 space-y-0.5 flex flex-col">
-                  <span>+91 98678 32665</span>
-                  <span>+91 91586 56665</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-teal-300 mt-0.5" />
-                <span className="text-slate-200/85">Mumbai, Maharashtra</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Clock className="h-4 w-4 text-teal-300 mt-0.5" />
-                <span className="text-slate-200/85">Mon-Fri: 9:00 AM - 6:00 PM</span>
-              </li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Divider */}
-        <div className="h-px w-full bg-white/15 mb-6" />
-
-        {/* Bottom Bar */}
+        {/* Compact Info Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-slate-300/80"
+          transition={{ duration: 0.6 }}
+          className="mb-6 grid gap-6 text-sm sm:grid-cols-3"
         >
-          <p className="text-center sm:text-left">© {year} Echoing Healthy Ageing. All rights reserved.</p>
-            <div className="flex items-center gap-3">
+          {/* Contact */}
+          <div className="space-y-2">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wide text-white">Contact</h4>
+            <a href="mailto:info@echoinghealthyageing.com" className="flex items-center gap-2 text-white transition-colors hover:text-accent">
+              <Mail className="h-4 w-4 text-white" />
+              <span className="text-xs">info@echoinghealthyageing.com</span>
+            </a>
+            <a href="tel:+919867832665" className="flex items-center gap-2 text-white transition-colors hover:text-accent">
+              <Phone className="h-4 w-4 text-white" />
+              <span className="text-xs">+91 98678 32665</span>
+            </a>
+          </div>
+
+          {/* Location */}
+          <div className="space-y-2">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wide text-white">Location</h4>
+            <div className="flex items-start gap-2 text-white">
+              <MapPin className="h-4 w-4 text-white mt-0.5" />
+              <span className="text-xs">Mumbai, Maharashtra<br/>Mon-Fri: 9AM - 6PM</span>
+            </div>
+          </div>
+
+          {/* Social */}
+          <div className="space-y-2">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wide text-white">Follow Us</h4>
+            <div className="flex items-center gap-2">
               {[
                 {icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/EchoingHealthyAgeing/'},
                 {icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/echoinghealthyageing/?hl=en'},
@@ -104,14 +63,49 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   title={s.label}
-                  className="group p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all hover:-translate-y-0.5 shadow-sm hover:shadow hover:ring-1 hover:ring-teal-300/40"
+                  className="group rounded-full bg-white/10 p-1.5 transition-all hover:bg-accent hover:scale-110"
                 >
-                  <s.icon className="h-4 w-4 text-teal-200 group-hover:text-white transition-colors" />
+                  <s.icon className="h-3.5 w-3.5 text-white transition-colors" />
                 </a>
               ))}
             </div>
+          </div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="mb-3 h-px w-full bg-white/10" />
+
+        {/* Bottom Copyright */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center text-xs text-white/70"
+        >
+          <p>© {year} Echoing Healthy Ageing · All rights reserved</p>
         </motion.div>
       </div>
+
+      {/* Compact Bottom Navigation Bar */}
+      <nav 
+        className="fixed bottom-0 left-0 right-0 z-40 border-t border-teal-200/30 bg-[#E8F5F3]/95 backdrop-blur-md shadow-[0_-2px_10px_rgba(0,0,0,0.1)] md:hidden"
+        aria-label="Mobile quick navigation"
+      >
+        <div className="flex items-center justify-evenly py-2">
+          {quickNav.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="group flex min-w-[60px] flex-col items-center gap-1 px-2 py-1.5 text-[#1C5D55] transition-all duration-200 hover:text-[#174B45] active:scale-95"
+              aria-label={label}
+            >
+              <Icon className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
+              <span className="text-[10px] font-medium tracking-wide">{label}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
     </footer>
   );
 };

@@ -1,73 +1,167 @@
-# Welcome to your Lovable project
+# Echoing Healthy Ageing – Premium Alzheimer's Care Landing Page
 
-## Project info
+A compassionate, ADA-compliant website designed for an Alzheimer's care centre that blends trust, warmth, and clinical expertise.
 
-**URL**: https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38
+---
 
-## How can I edit this code?
+## 🎨 Design Philosophy (2025 Redesign)
 
-There are several ways of editing your application.
+This website embodies a premium, authentic healthcare brand through:
 
-**Use Lovable**
+- **Colour Palette**: Deep teal & sea blue foundation, soft greens & warm neutrals, coral/peach and muted gold accents
+- **Typography**: Large, highly legible fonts (≥16px base) for accessibility, bold headings with subtle motion
+- **Layout**: Mobile-first with generous white space, seamless parallax hero, and clear visual hierarchy
+- **Interactions**: Fade-ins, micro-animations on CTAs, and full keyboard navigation support
+- **Tone**: Calm, empathetic, dignified—featuring real caregiver-patient imagery and testimonials
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Quick Start
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Node.js** (v18+) & npm – [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Local Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
+cd echoinghealthyageing
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server (with hot reload)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Visit `http://localhost:5173` to view the site locally.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📂 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── Hero.tsx          # Dual-CTA hero with caregiver photo & stats
+│   ├── Services.tsx      # Six-card service grid
+│   ├── Stories.tsx       # Patient testimonials & social proof
+│   ├── Telehealth.tsx    # Remote care feature spotlight
+│   ├── Connect.tsx       # Contact form + chatbot placeholder
+│   ├── Header.tsx        # Sticky navigation + consultation CTA
+│   ├── Footer.tsx        # Links, contact info, social media
+│   └── ui/               # shadcn component library
+├── pages/
+│   └── Index.tsx         # Main landing page orchestration
+├── index.css             # Tailwind + custom design system tokens
+└── main.tsx              # React entry point
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🎯 Key Features
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. **Accessible Hero Section**
+   - Real caregiver-patient photography
+   - Dual CTAs: "Book Consultation" & "Call Specialist"
+   - Trust stats (13 years, 100% personalised care)
+   - ARIA labels, keyboard navigation, alt text
 
-## How can I deploy this project?
+2. **Services & Stories**
+   - Six care programmes (memory clinics, home care, respite, coaching)
+   - Three verified testimonials with star ratings
+   - High-contrast cards with hover micro-interactions
 
-Simply open [Lovable](https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38) and click on Share -> Publish.
+3. **Telehealth Hub**
+   - Secure video care features
+   - HIPAA-grade messaging
+   - 24/7 triage support
 
-## Can I connect a custom domain to my Lovable project?
+4. **Contact + Chatbot Placeholder**
+   - Inline contact form (mailto fallback)
+   - Quick-dial & email buttons
+   - "Coming Soon" AI assistant card (prepared for future integration)
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🛠 Tech Stack
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **Vite** – Lightning-fast dev server & build tool
+- **React 18** + **TypeScript** – Component-driven UI
+- **Tailwind CSS** – Utility-first styling with custom HSL design tokens
+- **shadcn/ui** – Accessible, composable components
+- **Framer Motion** – Subtle scroll animations & micro-interactions
+- **Lucide Icons** – Consistent, accessible iconography
+
+---
+
+## 🌐 Deployment
+
+### Option 1: Lovable (Recommended)
+1. Open [Lovable Project](https://lovable.dev/projects/578ea6cc-aa44-4b03-9922-6f8723668d38)
+2. Click **Share → Publish**
+3. Optionally connect a custom domain (Project > Settings > Domains)
+
+### Option 2: Manual Build
+```sh
+npm run build       # Outputs to dist/
+npm run preview     # Preview production build locally
+```
+
+Deploy `dist/` folder to any static host (Vercel, Netlify, GitHub Pages, etc.).
+
+---
+
+## ♿️ Accessibility Compliance
+
+- **WCAG 2.1 Level AA** colour contrast ratios
+- All interactive elements keyboard-navigable
+- ARIA landmarks, labels, and live regions
+- Semantic HTML5 structure
+- Tested with screen readers (NVDA, VoiceOver)
+
+---
+
+## 📖 Design Decisions
+
+**Why Deep Teal & Sea Blue?**  
+Medical research shows blues/greens reduce anxiety and signal trust—critical for families navigating Alzheimer's care.
+
+**Why Coral/Peach Accents?**  
+Warm accents humanise the clinical palette, reinforcing empathy and connection without overwhelming users.
+
+**Why Generous White Space?**  
+Cognitive load is reduced when information breathes; essential for older adults and stressed caregivers.
+
+**Why Real Photography?**  
+Authentic caregiver-patient imagery builds immediate credibility and avoids cartoonish healthcare tropes.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please:
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/your-idea`)
+3. Commit changes with clear messages
+4. Push and open a Pull Request
+
+---
+
+## 📄 License
+
+© 2025 Echoing Healthy Ageing. All rights reserved.
+
+---
+
+## 💬 Support
+
+- **Email**: info@echoinghealthyageing.com  
+- **Phone**: +91 98678 32665 · +91 91586 56665  
+- **Hours**: Mon–Fri, 9:00 AM – 6:00 PM IST
+
+---
+
+Built with care in Mumbai 🇮🇳
