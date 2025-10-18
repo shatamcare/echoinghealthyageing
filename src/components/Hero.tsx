@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroCare from "../../public/Images/care.jpg";
-import { ArrowRight, PhoneCall } from "lucide-react";
+import { ArrowRight, PhoneCall, Heart, Users, Home, Brain, HeartHandshake } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
@@ -168,60 +168,57 @@ export const Hero = () => {
         
         <motion.aside
           variants={itemVariants}
-          className="relative hidden w-full max-w-sm rounded-3xl border-2 border-white/40 bg-white/98 backdrop-blur-sm p-8 text-left shadow-2xl md:block overflow-hidden"
+          className="relative hidden w-full max-w-sm rounded-3xl border-4 border-accent/60 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] p-6 text-left md:block overflow-hidden"
           aria-label="Our approach to dementia care"
+          whileHover={{ scale: 1.02, boxShadow: "0 25px 70px -15px rgba(0,0,0,0.5)" }}
+          transition={{ duration: 0.3 }}
         >
-          {/* Subtle background accent */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl -z-10" />
+          {/* Strong colorful gradient accent */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-accent/40 to-primary/40 rounded-full blur-2xl" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-tr from-primary/30 to-sea/30 rounded-full blur-2xl" />
           
           <div className="relative">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-1 w-8 bg-gradient-to-r from-accent to-primary rounded-full"></div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
-                Why We Do This
-              </p>
-            </div>
-            
-            <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight">
-              Every person deserves dignity, connection, and care
-            </h3>
-            
-            <p className="text-base leading-relaxed text-foreground/80 mb-6">
-              Since 2012, we've walked alongside Mumbai families facing dementia. Not with jargon or clinical distance—but with real support, honest conversations, and programs that actually help in daily life.
-            </p>
-
-            <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl border border-primary/10 mb-6">
-              <div className="mt-1">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+            {/* Bold header with strong visual */}
+            <div className="mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-primary rounded-full mb-4 shadow-lg">
+                <Heart className="w-5 h-5 text-white fill-white" />
+                <span className="text-sm font-bold uppercase tracking-wider text-white">
+                  Our Approach
+                </span>
               </div>
-              <p className="text-sm text-foreground/70 leading-relaxed">
-                <span className="font-semibold text-foreground">No one-size-fits-all.</span> We listen first, then tailor our support to what your family actually needs.
-              </p>
+              <h3 className="text-2xl font-extrabold text-foreground leading-tight mb-2">
+                Dignity. Connection.<br />Real Support.
+              </h3>
+              <p className="text-sm text-foreground/70">What makes us different</p>
             </div>
 
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-sm">
-                <span className="w-2 h-2 rounded-full bg-accent"></span>
-                <span className="text-foreground/70">Memory Café every Tuesday</span>
+            {/* Key value props - bold visual boxes */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="group p-4 bg-gradient-to-br from-accent/20 to-accent/30 hover:from-accent/30 hover:to-accent/40 rounded-2xl border-2 border-accent/40 transition-all hover:scale-110 hover:shadow-xl cursor-pointer">
+                <Users className="w-7 h-7 text-accent mb-2 drop-shadow-lg" />
+                <p className="text-xs font-bold text-foreground">Memory Café</p>
+                <p className="text-[10px] text-foreground/70 mt-1 font-medium">Weekly sessions</p>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                <span className="text-foreground/70">Home therapy that fits your schedule</span>
+              
+              <div className="group p-4 bg-gradient-to-br from-primary/20 to-primary/30 hover:from-primary/30 hover:to-primary/40 rounded-2xl border-2 border-primary/40 transition-all hover:scale-110 hover:shadow-xl cursor-pointer">
+                <Home className="w-7 h-7 text-primary mb-2 drop-shadow-lg" />
+                <p className="text-xs font-bold text-foreground">Home Therapy</p>
+                <p className="text-[10px] text-foreground/70 mt-1 font-medium">Your schedule</p>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="w-2 h-2 rounded-full bg-sea"></span>
-                <span className="text-foreground/70">Training for caregivers who need it</span>
+              
+              <div className="group p-4 bg-gradient-to-br from-sea/20 to-sea/30 hover:from-sea/30 hover:to-sea/40 rounded-2xl border-2 border-sea/40 transition-all hover:scale-110 hover:shadow-xl cursor-pointer">
+                <Brain className="w-7 h-7 text-sea mb-2 drop-shadow-lg" />
+                <p className="text-xs font-bold text-foreground">Training</p>
+                <p className="text-[10px] text-foreground/70 mt-1 font-medium">For caregivers</p>
+              </div>
+              
+              <div className="group p-4 bg-gradient-to-br from-teal/20 to-teal/30 hover:from-teal/30 hover:to-teal/40 rounded-2xl border-2 border-teal/40 transition-all hover:scale-110 hover:shadow-xl cursor-pointer">
+                <HeartHandshake className="w-7 h-7 text-teal mb-2 drop-shadow-lg" />
+                <p className="text-xs font-bold text-foreground">Support Groups</p>
+                <p className="text-[10px] text-foreground/70 mt-1 font-medium">Peer connections</p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-primary/10">
-              <p className="text-xs text-foreground/60 italic">
-                "You're not alone in this journey. We're here."
-              </p>
-              <p className="mt-2 text-xs font-semibold text-primary">— Team EHA</p>
-            </div>
           </div>
         </motion.aside>
       </motion.div>

@@ -32,82 +32,81 @@ export const Stories = () => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(1,58,74,0.08),transparent_60%),radial-gradient(circle_at_80%_70%,rgba(240,202,175,0.16),transparent_55%)]" />
       <div className="container relative mx-auto px-4">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
-          {/* Left side - Images (hidden on mobile, visible on desktop) */}
-          <div className="hidden lg:flex lg:flex-col lg:gap-6 lg:w-48 xl:w-56 lg:sticky lg:top-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* LEFT COLUMN: Image at top → Text content → Image at bottom */}
+          <div className="space-y-10">
             {/* Top Image */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="overflow-hidden rounded-2xl shadow-lg"
+              transition={{ duration: 0.7 }}
+              className="overflow-hidden rounded-3xl shadow-2xl"
             >
               <img 
                 src="/Images/img 3.jpg" 
                 alt="Community members at Memory Café session"
-                className="h-56 w-full object-cover transition-transform duration-500 hover:scale-110"
+                className="h-80 w-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
             </motion.div>
 
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <span className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                Patient Stories
+              </span>
+              <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
+                Voices from our community
+              </h2>
+              <p className="text-lg leading-relaxed text-foreground/70">
+                These are real experiences from caregivers, healthcare professionals, and community members who have participated in our Memory Café sessions, training programs, and support groups across Mumbai.
+              </p>
+              <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
+                <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
+                  <Heart className="h-5 w-5 text-accent" aria-hidden="true" /> Active since 2012 in Mumbai
+                </span>
+                <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
+                  <Users className="h-5 w-5 text-primary" aria-hidden="true" /> Monthly support group sessions
+                </span>
+              </div>
+            </motion.div>
+
             {/* Bottom Image */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="overflow-hidden rounded-2xl shadow-lg"
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="overflow-hidden rounded-3xl shadow-2xl"
             >
               <img 
                 src="/Images/img 7.jpg" 
                 alt="Caregiver support group gathering"
-                className="h-56 w-full object-cover transition-transform duration-500 hover:scale-110"
+                className="h-80 w-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
             </motion.div>
           </div>
 
-          {/* Center content - Text and badges */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-xl space-y-6 lg:flex-shrink-0"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-              Patient Stories
-            </span>
-            <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-              Voices from our community
-            </h2>
-            <p className="text-lg leading-relaxed text-foreground/70">
-              These are real experiences from caregivers, healthcare professionals, and community members who have participated in our Memory Café sessions, training programs, and support groups across Mumbai.
-            </p>
-            <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
-              <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
-                <Heart className="h-5 w-5 text-accent" aria-hidden="true" /> Active since 2012 in Mumbai
-              </span>
-              <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
-                <Users className="h-5 w-5 text-primary" aria-hidden="true" /> Monthly support group sessions
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Right side - Testimonial cards */}
-          <div className="grid flex-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
+          {/* RIGHT COLUMN: Testimonial Cards (Full Size) */}
+          <div className="flex flex-col gap-8">
             {STORIES.map(({ quote, name, role }, index) => (
               <motion.div
                 key={name}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-                className={index === 0 ? "lg:col-span-2" : ""}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
                 <Card className="group h-full border-2 border-secondary bg-white shadow-card transition-smooth hover:-translate-y-2 hover:border-accent/20 hover:shadow-xl">
-                  <CardContent className="space-y-6 p-8 text-left">
+                  <CardContent className="space-y-6 p-8">
                     <motion.div
                       className="inline-flex"
                       initial={{ rotate: -10, scale: 0.8 }}
