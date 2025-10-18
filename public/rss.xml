@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sample RSS feed seeded from the current DOCX content.
+  Replace this file with the automated export produced by the forthcoming blog build script when new posts are published.
+-->
+<rss version="2.0">
+  <channel>
+    <title>Echoing Healthy Ageing Blog</title>
+    <link>https://echoinghealthyageing.com/blog</link>
+    <description>Dementia care guides, Memory Café highlights, and telehealth support for Mumbai caregivers.</description>
+    <language>en-IN</language>
+    <lastBuildDate>Sun, 18 Aug 2024 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[5 Ways to Support Dementia Caregivers in Mumbai]]></title>
+      <link>https://echoinghealthyageing.com/blog/caregiver_support_mumbai</link>
+      <guid isPermaLink="true">https://echoinghealthyageing.com/blog/caregiver_support_mumbai</guid>
+      <pubDate>Sun, 18 Aug 2024 00:00:00 GMT</pubDate>
+      <description><![CDATA[These five practices make caregiving sustainable without waiting for a crisis.]]></description>
+      <category><![CDATA[Caregiver Support, Mumbai]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Why Telehealth Matters for Dementia Care in India]]></title>
+      <link>https://echoinghealthyageing.com/blog/telehealth_benefits</link>
+      <guid isPermaLink="true">https://echoinghealthyageing.com/blog/telehealth_benefits</guid>
+      <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
+      <description><![CDATA[Telehealth is no longer optional—it is foundational for dignified dementia care.]]></description>
+      <category><![CDATA[Telehealth, Dementia Care]]></category>
+    </item>
+  </channel>
+</rss>

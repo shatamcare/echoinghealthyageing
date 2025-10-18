@@ -8,6 +8,7 @@ export const Footer = () => {
     { icon: Home, label: 'Home', href: '#top' },
     { icon: Heart, label: 'Services', href: '#services' },
     { icon: Users, label: 'Stories', href: '#stories' },
+    { icon: Mail, label: 'Blog', href: '/blog' },
     { icon: Phone, label: 'Contact', href: '#contact' }
   ];
 

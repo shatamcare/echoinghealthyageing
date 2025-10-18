@@ -5,6 +5,7 @@ import { Stories } from "@/components/Stories";
 import { Telehealth } from "@/components/Telehealth";
 import { Connect } from "@/components/Connect";
 import { Footer } from "@/components/Footer";
+import { BlogHighlights } from "@/components/BlogHighlights";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <Hero />
         <Services />
         <Stories />
+  <BlogHighlights />
         <Telehealth />
         <Connect />
       </main>

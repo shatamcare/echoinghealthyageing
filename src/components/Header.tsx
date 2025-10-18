@@ -13,6 +13,7 @@ export const Header = () => {
     { name: "Services", href: "#services" },
     { name: "Stories", href: "#stories" },
     { name: "Telehealth", href: "#telehealth" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "#contact" }
   ];
 
