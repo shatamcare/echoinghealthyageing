@@ -68,8 +68,8 @@ export const Telehealth = () => {
         </motion.div>
 
         <motion.div
-          className="grid flex-1 gap-6 md:grid-cols-2"
-          initial={{ opacity: 0, y: 40 }}
+          className="grid flex-1 gap-6 grid-cols-1 lg:grid-cols-2"
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}

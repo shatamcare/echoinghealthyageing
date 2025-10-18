@@ -149,7 +149,7 @@ export const Hero = () => {
 
           <motion.ul
             variants={itemVariants}
-            className="grid gap-4 text-left text-sm text-white sm:grid-cols-3"
+            className="grid gap-4 text-left text-sm text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           >
             {STAT_ITEMS.map((item) => (
               <li

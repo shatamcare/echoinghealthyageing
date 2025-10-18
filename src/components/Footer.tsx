@@ -22,7 +22,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-6 grid gap-6 text-sm sm:grid-cols-3"
+          className="mb-6 grid gap-6 text-sm grid-cols-1 md:grid-cols-3"
         >
           {/* Contact */}
           <div className="space-y-2">

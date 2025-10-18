@@ -59,7 +59,7 @@ export const Stories = () => {
             </div>
           </motion.div>
 
-          <div className="grid flex-1 gap-6 md:grid-cols-2">
+          <div className="grid flex-1 gap-6 sm:grid-cols-1 lg:grid-cols-2">
             {STORIES.map(({ quote, name, role }, index) => (
               <motion.div
                 key={name}
@@ -67,7 +67,7 @@ export const Stories = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className={index === 0 ? "md:col-span-2" : ""}
+                className={index === 0 ? "lg:col-span-2" : ""}
               >
                 <Card className="group h-full border-2 border-secondary bg-white shadow-card transition-smooth hover:-translate-y-2 hover:border-accent/20 hover:shadow-xl">
                   <CardContent className="space-y-6 p-8 text-left">

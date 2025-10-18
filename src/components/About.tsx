@@ -151,7 +151,7 @@ export const About = () => {
             <h3 className="text-3xl font-semibold text-slate-800 flex items-center gap-3">
               <Heart className="h-7 w-7 text-teal-600" /> Services We Provide
             </h3>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {services.map((service, i) => (
                 <motion.div
                   key={service.title}
@@ -189,7 +189,7 @@ export const About = () => {
           className="max-w-5xl mx-auto"
         >
           <h3 className="text-3xl font-semibold text-slate-800 mb-12 text-center">What Families & Professionals Say</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.author}
