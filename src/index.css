@@ -191,6 +191,27 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Accessibility helpers */
+  .focus-ring:focus-visible { 
+    outline: 2px solid hsl(var(--ring)); 
+    outline-offset: 2px; 
+  }
+  
+  .text-high-contrast { 
+    color: hsl(222 84% 4.9%); 
+  }
+  
+  .bg-high-contrast { 
+    background: hsl(0 0% 100%); 
+  }
+
+  /* Image helpers */
+  .img-cover { 
+    object-fit: cover; 
+    width: 100%; 
+    height: 100%; 
+  }
+
   /* Premium Utility Classes */
   .gradient-hero {
     background: var(--gradient-hero);
