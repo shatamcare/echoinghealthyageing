@@ -32,22 +32,58 @@ export const Stories = () => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(1,58,74,0.08),transparent_60%),radial-gradient(circle_at_80%_70%,rgba(240,202,175,0.16),transparent_55%)]" />
       <div className="container relative mx-auto px-4">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
+          {/* Left side - Images (hidden on mobile, visible on desktop) */}
+          <div className="hidden lg:flex lg:flex-col lg:gap-6 lg:w-48 xl:w-56 lg:sticky lg:top-24">
+            {/* Top Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="overflow-hidden rounded-2xl shadow-lg"
+            >
+              <img 
+                src="/Images/img 3.jpg" 
+                alt="Community members at Memory Café session"
+                className="h-56 w-full object-cover transition-transform duration-500 hover:scale-110"
+                loading="lazy"
+              />
+            </motion.div>
+
+            {/* Bottom Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="overflow-hidden rounded-2xl shadow-lg"
+            >
+              <img 
+                src="/Images/img 7.jpg" 
+                alt="Caregiver support group gathering"
+                className="h-56 w-full object-cover transition-transform duration-500 hover:scale-110"
+                loading="lazy"
+              />
+            </motion.div>
+          </div>
+
+          {/* Center content - Text and badges */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.7 }}
-            className="max-w-xl space-y-6"
+            className="max-w-xl space-y-6 lg:flex-shrink-0"
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
               Patient Stories
             </span>
             <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-              What families are saying
+              Voices from our community
             </h2>
             <p className="text-lg leading-relaxed text-foreground/70">
-              Real voices from people who've been through it. These aren't polished testimonials—they're honest reflections from caregivers and families who found support here when they needed it most.
+              These are real experiences from caregivers, healthcare professionals, and community members who have participated in our Memory Café sessions, training programs, and support groups across Mumbai.
             </p>
             <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
               <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
@@ -59,7 +95,8 @@ export const Stories = () => {
             </div>
           </motion.div>
 
-          <div className="grid flex-1 gap-6 sm:grid-cols-1 lg:grid-cols-2">
+          {/* Right side - Testimonial cards */}
+          <div className="grid flex-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
             {STORIES.map(({ quote, name, role }, index) => (
               <motion.div
                 key={name}
