@@ -37,11 +37,11 @@ export const About = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-800 mb-6 relative inline-block">
-            About Echoing Healthy Ageing (EHA)
+            Who We Are
             <span className="absolute left-1/2 -bottom-2 h-[3px] w-0 -translate-x-1/2 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 rounded-full animate-[underlineGrow_1.4s_ease-out_forwards]" />
           </h2>
           <p className="text-xl text-slate-600 leading-relaxed">
-            Since 2012, we support seniors & families with dignified, person-centred geriatric & dementia care— blending therapeutic engagement, caregiver empowerment, and collaborative community programs.
+            We're Echoing Healthy Ageing—a team that's been supporting Mumbai families through dementia since 2012. Not with corporate scripts, but with real care, honest advice, and programs that actually make a difference in people's lives.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export const About = () => {
                     <h3 className="text-2xl font-semibold text-slate-800">Our Mission</h3>
                   </div>
                   <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-                    We enhance quality of life through compassionate, person-centred dementia & geriatric support— empowering caregivers, connecting communities, and fostering meaningful engagement.
+                    Our mission is simple: help families navigate dementia with dignity and hope. We do this by showing up—with support groups, therapy programs, and training that empowers caregivers to care for themselves too.
                   </p>
                 </CardContent>
               </Card>

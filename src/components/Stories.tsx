@@ -5,21 +5,21 @@ import { Quote, Star, Heart, Users } from "lucide-react";
 const STORIES = [
   {
     quote:
-      "The Memory Café sessions gave us a space to connect with others who truly understand. My mother enjoys the music therapy, and I found caregivers who became friends.",
+      "Tuesday mornings at Memory Café became the highlight of our week. Ma sings along to old Hindi songs, and I finally met other caregivers who just... get it. We're not experts, but we're in this together.",
     name: "Priya M.",
-    role: "Family Caregiver, Mumbai",
+    role: "Caring for her mother, Andheri",
   },
   {
     quote:
-      "The caregiver certificate course transformed how I approach my work. I learned practical communication techniques and gained confidence in providing dignified dementia care.",
+      "Before the training course, I was honestly scared of saying the wrong thing. Now I know how to really listen, how to calm someone down without arguing. It changed everything about how I do my job.",
     name: "Anjali S.",
     role: "Healthcare Aide",
   },
   {
     quote:
-      "Attending the Decoding Dementia workshop opened my eyes. It helped me support my colleague whose father was diagnosed, and I now volunteer at awareness sessions.",
+      "I didn't know anything about dementia until their workshop came to our office. When my colleague's dad got diagnosed, I actually knew how to help. Now I volunteer because everyone should understand this.",
     name: "Rohan K.",
-    role: "Community Volunteer",
+    role: "IT Professional & Volunteer",
   },
 ];
 
@@ -44,10 +44,10 @@ export const Stories = () => {
               Patient Stories
             </span>
             <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-              Voices from our community
+              What families are saying
             </h2>
             <p className="text-lg leading-relaxed text-foreground/70">
-              These are real experiences from caregivers, healthcare professionals, and community members who have participated in our Memory Café sessions, training programs, and support groups across Mumbai.
+              Real voices from people who've been through it. These aren't polished testimonials—they're honest reflections from caregivers and families who found support here when they needed it most.
             </p>
             <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
               <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">

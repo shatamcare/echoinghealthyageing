@@ -119,7 +119,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="max-w-2xl text-base leading-[1.8] text-white sm:text-lg md:text-xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
           >
-            We at Echoing Healthy Ageing provide Memory Café sessions, caregiver support groups, home-based therapy programs, and dementia awareness workshops across Mumbai under the Shatam Care Foundation.
+            When dementia enters a family, everything changes. Since 2012, we've been right here in Mumbai—running Memory Cafés, supporting caregivers, bringing therapy home, and helping families find their way through.
           </motion.p>
 
           <motion.div
@@ -168,21 +168,60 @@ export const Hero = () => {
         
         <motion.aside
           variants={itemVariants}
-          className="relative hidden w-full max-w-sm rounded-3xl border-2 border-white/40 bg-white/95 p-6 text-left shadow-2xl md:block"
-          aria-label="Community insight"
+          className="relative hidden w-full max-w-sm rounded-3xl border-2 border-white/40 bg-white/98 backdrop-blur-sm p-8 text-left shadow-2xl md:block overflow-hidden"
+          aria-label="Our approach to dementia care"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">
-            Our Approach
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-foreground">
-            We believe in creating dementia-friendly communities through awareness, practical training, and compassionate peer support that empowers families and caregivers.
-          </p>
-          <p className="mt-6 text-sm font-medium text-accent">— Echoing Healthy Ageing Team</p>
-          <div className="mt-8 grid grid-cols-2 gap-4 text-xs uppercase tracking-wide">
-            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Memory Café</span>
-            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Support Groups</span>
-            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Home Therapy</span>
-            <span className="rounded-xl border-2 border-primary/30 bg-secondary px-4 py-3 font-semibold text-foreground">Training Courses</span>
+          {/* Subtle background accent */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl -z-10" />
+          
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-1 w-8 bg-gradient-to-r from-accent to-primary rounded-full"></div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
+                Why We Do This
+              </p>
+            </div>
+            
+            <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight">
+              Every person deserves dignity, connection, and care
+            </h3>
+            
+            <p className="text-base leading-relaxed text-foreground/80 mb-6">
+              Since 2012, we've walked alongside Mumbai families facing dementia. Not with jargon or clinical distance—but with real support, honest conversations, and programs that actually help in daily life.
+            </p>
+
+            <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl border border-primary/10 mb-6">
+              <div className="mt-1">
+                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                <span className="font-semibold text-foreground">No one-size-fits-all.</span> We listen first, then tailor our support to what your family actually needs.
+              </p>
+            </div>
+
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center gap-2 text-sm">
+                <span className="w-2 h-2 rounded-full bg-accent"></span>
+                <span className="text-foreground/70">Memory Café every Tuesday</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="w-2 h-2 rounded-full bg-primary"></span>
+                <span className="text-foreground/70">Home therapy that fits your schedule</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="w-2 h-2 rounded-full bg-sea"></span>
+                <span className="text-foreground/70">Training for caregivers who need it</span>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-primary/10">
+              <p className="text-xs text-foreground/60 italic">
+                "You're not alone in this journey. We're here."
+              </p>
+              <p className="mt-2 text-xs font-semibold text-primary">— Team EHA</p>
+            </div>
           </div>
         </motion.aside>
       </motion.div>

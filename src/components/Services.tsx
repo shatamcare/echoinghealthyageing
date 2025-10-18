@@ -6,37 +6,37 @@ const SERVICES = [
   {
     title: "Memory Café Sessions",
     description:
-      "Interactive monthly gatherings in Mumbai where persons with dementia and caregivers engage through music, art, conversation, and cognitive activities in a supportive social setting.",
+      "Every Tuesday, families gather for music, art, and conversation. It's not therapy—it's connection. A place where your loved one can be themselves, and you can breathe for a couple of hours.",
     icon: Users,
   },
   {
     title: "Caregiver Support Groups",
     description:
-      "Regular in-person and online peer support meetings offering practical guidance, emotional support, and shared experiences for family caregivers navigating dementia care.",
+      "You can't pour from an empty cup. Our support groups (in-person and online) are where caregivers share the weight, swap tips, and remember they're not doing this alone.",
     icon: HeartHandshake,
   },
   {
-    title: "Home-Based Therapy Programs",
+    title: "Home-Based Therapy",
     description:
-      "Music therapy, art therapy, and movement therapy sessions delivered at home by trained practitioners, designed to enhance cognitive function and quality of life.",
+      "Music, art, and movement therapy—brought right to your doorstep. No hospital visits, no stress. Just trained therapists helping your loved one stay engaged and active at home.",
     icon: Home,
   },
   {
-    title: "Geriatric Caregiver Training",
+    title: "Caregiver Training",
     description:
-      "Certificate course providing practical training for students, healthcare aides, and family members in evidence-based dementia care techniques and communication strategies.",
+      "Whether you're a family member, healthcare aide, or student—this certificate course teaches you what actually works. Real techniques, honest conversations, no fluff.",
     icon: Brain,
   },
   {
     title: "Decoding Dementia Workshops",
     description:
-      "Community awareness sessions conducted in colleges, corporate settings, and neighbourhoods across Mumbai to reduce stigma and improve understanding of dementia.",
+      "We take our workshops to colleges, offices, and neighborhoods across Mumbai. Because the more people understand dementia, the kinder our city becomes.",
     icon: Stethoscope,
   },
   {
-    title: "Dementia Care Home Project",
+    title: "Dementia Care Home (Coming Soon)",
     description:
-      "Planned residential care facility and training centre under development by Shatam Care Foundation to provide specialized dementia care and caregiver education.",
+      "We're building something special—a residential care home and training center where families can find respite and quality care. Currently in development by Shatam Care Foundation.",
     icon: Sparkles,
   },
 ];
@@ -61,10 +61,10 @@ export const Services = () => {
             Our Services
           </span>
           <h2 id="services-heading" className="mt-6 text-3xl font-bold text-foreground sm:text-4xl">
-            Real programs building dementia-friendly communities
+            How we support families living with dementia
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-foreground/70">
-            We at Echoing Healthy Ageing work actively in Mumbai and surrounding areas, offering practical support, training, and community engagement for persons with dementia and their caregivers.
+            These aren't just programs on paper. They're spaces where real people meet, learn, and find strength. Whether you need a break, some guidance, or just someone who gets it—we're here.
           </p>
         </motion.div>
 

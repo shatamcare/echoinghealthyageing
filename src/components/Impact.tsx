@@ -10,10 +10,10 @@ interface Stat {
 }
 
 const rawStats: Stat[] = [
-  { icon: <Users className="h-7 w-7" />, number: "120+", label: "Elderly & Persons with Dementia Supported" },
-  { icon: <Award className="h-7 w-7" />, number: "1500+", label: "Caregivers & Professionals Trained" },
-  { icon: <Activity className="h-7 w-7" />, number: "3600+", label: "Therapy Sessions Conducted" },
-  { icon: <Handshake className="h-7 w-7" />, number: "10+", label: "Partnerships Across India" }
+  { icon: <Users className="h-7 w-7" />, number: "120+", label: "Families Supported Through Dementia" },
+  { icon: <Award className="h-7 w-7" />, number: "1500+", label: "Caregivers Trained (and counting)" },
+  { icon: <Activity className="h-7 w-7" />, number: "3600+", label: "Therapy Sessions at People's Homes" },
+  { icon: <Handshake className="h-7 w-7" />, number: "10+", label: "Partner Organizations Nationwide" }
 ];
 
 const parseTarget = (value: string) => parseInt(value.replace(/\D/g, ""), 10) || 0;
@@ -51,11 +51,11 @@ export const Impact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-800 inline-block relative mb-6">
-            Our Impact
+            By the Numbers
             <span className="absolute left-1/2 -bottom-2 h-[3px] w-0 -translate-x-1/2 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 rounded-full animate-[underlineGrow_1.4s_ease-out_forwards]" />
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Tangible outcomes achieved through person-centred care, training, and collaborative community engagement.
+            Over a decade of showing up for Mumbai families. Here's what that looks like.
           </p>
         </motion.div>
 
