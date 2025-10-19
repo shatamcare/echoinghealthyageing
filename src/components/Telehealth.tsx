@@ -33,7 +33,8 @@ export const Telehealth = () => {
       aria-labelledby="telehealth-heading"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(255,255,255,0.2),transparent_55%),radial-gradient(circle_at_85%_80%,rgba(255,189,168,0.22),transparent_60%)]" />
-      <div className="container relative mx-auto flex flex-col gap-16 px-4 lg:flex-row lg:items-center">
+      <div className="container relative mx-auto px-4">
+        <div className="flex flex-col gap-16 lg:flex-row lg:items-center">
         <motion.div
           className="max-w-xl space-y-6"
           initial={{ opacity: 0, x: -30 }}
@@ -91,6 +92,7 @@ export const Telehealth = () => {
             </Card>
           ))}
         </motion.div>
+        </div>
       </div>
     </section>
   );
