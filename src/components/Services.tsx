@@ -16,7 +16,7 @@ const SERVICES = [
     description:
       "You can't pour from an empty cup. Our support groups (in-person and online) are where caregivers share the weight, swap tips, and remember they're not doing this alone.",
     icon: HeartHandshake,
-    image: "/Images/img 7.jpg",
+    image: "/Images/hospital.jpg",
     features: ["In-person & online options", "Peer support", "Monthly meetings"],
   },
   {
@@ -42,14 +42,6 @@ const SERVICES = [
     icon: Stethoscope,
     image: "/Images/sessions.jpg",
     features: ["Community outreach", "Office workshops", "Educational sessions"],
-  },
-  {
-    title: "Dementia Care Home (Coming Soon)",
-    description:
-      "We're building something special—a residential care home and training center where families can find respite and quality care. Currently in development by Shatam Care Foundation.",
-    icon: Sparkles,
-    image: "/Images/hospital.jpg",
-    features: ["Residential care", "Training center", "Respite care services"],
   },
 ];
 
