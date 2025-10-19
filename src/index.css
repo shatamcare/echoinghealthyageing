@@ -8,29 +8,29 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core Brand Palette - Formal, Professional, Healthcare */
-    --primary: 195 70% 35%; /* Deep teal */
+    /* Core Brand Palette - Blue & Teal Harmony - Calming, Trustworthy, Ocean-inspired */
+    --primary: 195 60% 45%; /* Deep ocean teal */
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 25% 96%; /* Soft gray */
-    --secondary-foreground: 200 40% 20%;
-    --accent: 210 80% 42%; /* Vibrant blue */
+    --secondary: 200 45% 96%; /* Light blue-gray cream */
+    --secondary-foreground: 200 25% 30%;
+    --accent: 185 55% 55%; /* Bright turquoise accent */
     --accent-foreground: 0 0% 100%;
-    --muted: 210 18% 94%; /* Neutral gray */
-    --muted-foreground: 200 25% 35%;
-    --background: 0 0% 100%;
-    --foreground: 200 35% 18%;
+    --muted: 200 20% 94%; /* Soft blue-gray */
+    --muted-foreground: 200 15% 45%;
+    --background: 200 25% 98%; /* Cool white with blue tint */
+    --foreground: 200 30% 25%;
 
-    /* Extended Brand Tokens */
-    --teal: 188 68% 40%;
+    /* Extended Brand Tokens - Blue & Teal Spectrum */
+    --teal: 175 50% 50%; /* Classic teal */
     --teal-foreground: 0 0% 100%;
-    --sea: 203 60% 45%;
+    --sea: 190 55% 55%; /* Bright sea blue */
     --sea-foreground: 0 0% 100%;
-    --gold: 42 75% 55%;
-    --gold-foreground: 42 90% 10%;
-    --peach: 210 75% 50%;
-    --peach-foreground: 0 0% 100%;
-    --lavender: 220 30% 92%;
-    --lavender-foreground: 220 50% 25%;
+    --gold: 185 60% 65%; /* Light aqua */
+    --gold-foreground: 185 80% 20%;
+    --peach: 170 45% 70%; /* Soft mint-teal */
+    --peach-foreground: 170 70% 25%;
+    --lavender: 195 35% 92%; /* Pale blue-gray */
+    --lavender-foreground: 195 40% 35%;
 
     --destructive: 4 86% 58%;
     --destructive-foreground: 17 100% 98%;
