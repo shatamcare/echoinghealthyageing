@@ -62,7 +62,7 @@ export const Hero = () => {
 
   return (
 	<section
-      className="relative flex min-h-[88vh] items-center overflow-hidden bg-transparent px-4 pt-28 pb-24 md:px-6 md:pt-36 md:pb-28 lg:px-8"
+      className="relative flex min-h-[88vh] items-center overflow-hidden bg-transparent px-4 pt-28 pb-24 md:min-h-[85vh] md:px-6 md:pt-36 md:pb-28 lg:min-h-[88vh] lg:px-8"
       aria-labelledby="hero-heading"
     >
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
@@ -80,12 +80,12 @@ export const Hero = () => {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent" />
 
       <motion.div
-        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 text-slate-50 md:flex-row md:items-center md:gap-16"
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 text-slate-50 md:gap-12 md:flex-row md:items-center lg:gap-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="w-full max-w-2xl space-y-8 text-center md:text-left">
+        <div className="w-full max-w-2xl space-y-6 text-center md:space-y-7 md:text-left lg:space-y-8">
           <motion.span
             className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg"
             variants={itemVariants}
@@ -124,14 +124,14 @@ export const Hero = () => {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start"
+            className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4 sm:justify-center md:justify-start"
             role="group"
             aria-label="Primary actions"
           >
             <Button
               variant="cta"
               size="lg"
-              className="group w-full min-w-[240px] justify-between px-8 py-4 text-base font-semibold sm:w-auto min-h-[56px] md:min-h-[48px]"
+              className="group w-full min-w-[240px] justify-between px-6 py-4 text-sm font-semibold sm:text-base sm:w-auto sm:px-8 min-h-[56px] md:min-h-[52px] lg:min-h-[48px]"
               onClick={scrollToContact}
             >
               Book a Care Consultation
@@ -140,7 +140,7 @@ export const Hero = () => {
             <Button
               variant="secondary"
               size="lg"
-              className="w-full min-w-[220px] justify-center rounded-full border border-white/30 bg-white/20 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 backdrop-blur hover:bg-white/30 focus-visible:ring-accent min-h-[56px] md:min-h-[48px]"
+              className="w-full min-w-[220px] justify-center rounded-full border border-white/30 bg-white/20 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-black/10 backdrop-blur hover:bg-white/30 focus-visible:ring-accent sm:text-base sm:px-8 min-h-[56px] md:min-h-[52px] lg:min-h-[48px]"
               onClick={dialCareLine}
             >
               <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />Speak to a Care Specialist
@@ -149,7 +149,7 @@ export const Hero = () => {
 
           <motion.ul
             variants={itemVariants}
-            className="grid gap-4 text-left text-sm text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-3 text-left text-sm text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4"
           >
             {STAT_ITEMS.map((item) => (
               <li
@@ -168,7 +168,7 @@ export const Hero = () => {
         
         <motion.aside
           variants={itemVariants}
-          className="relative hidden w-full max-w-sm rounded-3xl border-4 border-accent/60 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] p-6 text-left md:block overflow-hidden"
+          className="relative hidden w-full max-w-sm rounded-3xl border-4 border-accent/60 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] p-6 text-left overflow-hidden md:block lg:max-w-md"
           aria-label="Our approach to dementia care"
           whileHover={{ scale: 1.02, boxShadow: "0 25px 70px -15px rgba(0,0,0,0.5)" }}
           transition={{ duration: 0.3 }}

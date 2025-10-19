@@ -79,7 +79,7 @@ export const Connect = () => {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-16 grid gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -88,7 +88,7 @@ export const Connect = () => {
             transition={{ duration: 0.7 }}
           >
             <Card className="border-2 border-secondary bg-white shadow-card">
-              <CardContent className="space-y-6 p-8">
+              <CardContent className="space-y-6 p-6 md:p-8">
                 <h3 className="text-2xl font-semibold text-foreground">Send us a message</h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
@@ -170,7 +170,7 @@ export const Connect = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-foreground">Other ways to reach us</h3>

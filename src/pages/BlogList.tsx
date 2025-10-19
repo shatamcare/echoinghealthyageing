@@ -7,21 +7,21 @@ const BlogList = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-secondary via-white to-white">
       <Header />
-      <main id="main-content" className="flex min-h-screen items-center justify-center px-4 py-32">
+      <main id="main-content" className="flex min-h-screen items-center justify-center px-4 py-32 md:py-36">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-2xl text-center px-4"
         >
           {/* Icon */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mb-8 inline-flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary/10 to-accent/10"
+            className="mx-auto mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary/10 to-accent/10 md:mb-8 md:h-24 md:w-24"
           >
-            <Sparkles className="h-12 w-12 text-primary" strokeWidth={2} />
+            <Sparkles className="h-10 w-10 text-primary md:h-12 md:w-12" strokeWidth={2} />
           </motion.div>
 
           {/* Heading */}
@@ -29,7 +29,7 @@ const BlogList = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-6 text-4xl font-bold text-foreground sm:text-5xl"
+            className="mb-4 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl md:mb-6"
           >
             Coming Soon
           </motion.h1>
@@ -39,7 +39,7 @@ const BlogList = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-8 text-lg leading-relaxed text-foreground/70"
+            className="mb-6 text-base leading-relaxed text-foreground/70 sm:text-lg md:mb-8"
           >
             We're preparing valuable insights, guides, and stories about dementia care. 
             Our blog will feature practical tips for caregivers, updates from our Memory Café sessions, 
@@ -68,7 +68,7 @@ const BlogList = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-12"
+            className="mt-8 md:mt-12"
           >
             <a
               href="/"

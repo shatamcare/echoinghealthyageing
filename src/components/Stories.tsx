@@ -32,7 +32,7 @@ export const Stories = () => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(1,58,74,0.08),transparent_60%),radial-gradient(circle_at_80%_70%,rgba(240,202,175,0.16),transparent_55%)]" />
       <div className="container relative mx-auto px-4">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-12 md:gap-14 lg:grid-cols-2 lg:gap-16">
           {/* LEFT COLUMN: Image at top → Text content → Image at bottom */}
           <div className="space-y-10">
             {/* Top Image */}
