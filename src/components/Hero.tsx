@@ -23,7 +23,7 @@ export const Hero = () => {
   const yParallax = useTransform(scrollY, [0, 480], [0, 160]);
 
   const headingLines = useMemo(
-    () => ["Supporting Persons with Dementia", "And Their Caregivers in Mumbai"],
+    () => ["Dementia Care & Support", "For Families in Mumbai"],
     []
   );
 
@@ -90,7 +90,7 @@ export const Hero = () => {
             className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg"
             variants={itemVariants}
           >
-            Dementia Care & Caregiver Support
+            Since 2012 in Mumbai
           </motion.span>
 
           <h1
@@ -119,7 +119,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="max-w-2xl text-base leading-[1.8] text-white sm:text-lg md:text-xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
           >
-            When dementia enters a family, everything changes. Since 2012, we've been right here in Mumbai—running Memory Cafés, supporting caregivers, bringing therapy home, and helping families find their way through.
+            Memory Cafés, caregiver support groups, home therapy, and training. Real support for families living with dementia.
           </motion.p>
 
           <motion.div
@@ -187,9 +187,9 @@ export const Hero = () => {
                 </span>
               </div>
               <h3 className="text-2xl font-extrabold text-foreground leading-tight mb-2">
-                Dignity. Connection.<br />Practical Support.
+                What We Offer
               </h3>
-              <p className="text-sm text-foreground/70">What we offer</p>
+              <p className="text-sm text-foreground/70">Programs & services</p>
             </div>
 
             {/* Key value props - bold visual boxes */}
