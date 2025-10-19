@@ -4,12 +4,6 @@ import { ArrowRight, PhoneCall, Heart, Users, Home, Brain, HeartHandshake } from
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
-const STAT_ITEMS = [
-  { label: "Active since", value: "2012" },
-  { label: "Based in", value: "Mumbai" },
-  { label: "Monthly programs", value: "Ongoing" }
-];
-
 export const Hero = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -146,23 +140,6 @@ export const Hero = () => {
               <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />Speak to a Care Specialist
             </Button>
           </motion.div>
-
-          <motion.ul
-            variants={itemVariants}
-            className="grid gap-3 text-left text-sm text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4"
-          >
-            {STAT_ITEMS.map((item) => (
-              <li
-                key={item.label}
-                className="rounded-2xl border-2 border-white/30 bg-white/95 p-4 shadow-lg transition-smooth hover:bg-white focus-within:bg-white"
-              >
-                <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
-                  {item.label}
-                </p>
-                <p className="pt-2 text-2xl font-bold text-primary">{item.value}</p>
-              </li>
-            ))}
-          </motion.ul>
         </div>
 
         
