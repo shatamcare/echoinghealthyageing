@@ -187,9 +187,9 @@ export const Hero = () => {
                 </span>
               </div>
               <h3 className="text-2xl font-extrabold text-foreground leading-tight mb-2">
-                Dignity. Connection.<br />Real Support.
+                Dignity. Connection.<br />Practical Support.
               </h3>
-              <p className="text-sm text-foreground/70">What makes us different</p>
+              <p className="text-sm text-foreground/70">What we offer</p>
             </div>
 
             {/* Key value props - bold visual boxes */}

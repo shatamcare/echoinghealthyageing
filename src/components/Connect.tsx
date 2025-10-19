@@ -223,7 +223,7 @@ export const Connect = () => {
                   <h3 className="text-xl font-semibold text-foreground">Chat with Care Assistant</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-foreground/70">
-                  Our 24/7 AI assistant helps answer quick questions about appointments, services, and general Alzheimer's care guidance.
+                  Our 24/7 AI assistant helps answer quick questions about appointments, services, and general dementia care guidance.
                 </p>
                 <Button
                   variant="secondary"

@@ -11,13 +11,13 @@ const STORIES = [
   },
   {
     quote:
-      "Before the training course, I was honestly scared of saying the wrong thing. Now I know how to really listen, how to calm someone down without arguing. It changed everything about how I do my job.",
+      "Before the training course, I was honestly scared of saying the wrong thing. Now I know how to listen, how to calm someone down without arguing. It changed how I do my job.",
     name: "Anjali S.",
     role: "Healthcare Aide",
   },
   {
     quote:
-      "I didn't know anything about dementia until their workshop came to our office. When my colleague's dad got diagnosed, I actually knew how to help. Now I volunteer because everyone should understand this.",
+      "I didn't know anything about dementia until their workshop came to our office. When my colleague's dad got diagnosed, I knew how to help. Now I volunteer because everyone should understand this.",
     name: "Rohan K.",
     role: "IT Professional & Volunteer",
   },
