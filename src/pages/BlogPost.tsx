@@ -9,7 +9,7 @@ import {
   buildBreadcrumbList,
   formatDisplayDate,
   SITE_URL,
-  toAbsoluteUrl,
+  resolveDocAssetUrl,
 } from "@/lib/blog";
 
 const buildDocViewerUrl = (docUrl: string) =>
@@ -133,11 +133,15 @@ const BlogPost = () => {
 
         <section className="blog-simple-viewer" aria-label={`${post.title} Word document`}>
           <iframe
-            src={buildDocViewerUrl(toAbsoluteUrl(post.sourceDoc))}
+            src={buildDocViewerUrl(resolveDocAssetUrl(post.sourceDoc))}
             title={`${post.title} Word document`}
             className="blog-doc-frame"
             loading="lazy"
+            allowFullScreen
           />
+          <p className="blog-viewer-note">
+            If the preview does not load, use the download link below to open the original file.
+          </p>
         </section>
 
         {citationItems.length > 0 && (

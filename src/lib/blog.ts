@@ -153,6 +153,24 @@ export function toAbsoluteUrl(path: string): string {
   return `${SITE_URL}${prefix}${path}`;
 }
 
+export function resolveDocAssetUrl(path: string): string {
+  if (!path) {
+    return path;
+  }
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  if (isBrowser && typeof window !== "undefined") {
+    const prefix = path.startsWith("/") ? "" : "/";
+    return `${window.location.origin}${prefix}${path}`;
+  }
+
+  const prefix = path.startsWith("/") ? "" : "/";
+  return `${SITE_URL}${prefix}${path}`;
+}
+
 export function updatePageMetadata({
   title,
   description,

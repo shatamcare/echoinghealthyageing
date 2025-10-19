@@ -6,7 +6,7 @@ import {
   formatDisplayDate,
   getAllPosts,
   injectJsonLd,
-  toAbsoluteUrl,
+  resolveDocAssetUrl,
   updatePageMetadata,
 } from "@/lib/blog";
 
@@ -105,11 +105,15 @@ const BlogList = () => {
 
               <section className="blog-simple-viewer" aria-label={`${post.title} Word document`}>
                 <iframe
-                  src={buildDocViewerUrl(toAbsoluteUrl(post.sourceDoc))}
+                  src={buildDocViewerUrl(resolveDocAssetUrl(post.sourceDoc))}
                   title={`${post.title} Word document`}
                   className="blog-doc-frame"
                   loading="lazy"
+                  allowFullScreen
                 />
+                <p className="blog-viewer-note">
+                  If the preview does not load, use the button below to download and open the document.
+                </p>
               </section>
 
               <footer className="blog-simple-footer">
