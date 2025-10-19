@@ -1,13 +1,11 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Brain, Home, HeartHandshake, Users, Stethoscope, Sparkles, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 
 const SERVICES = [
   {
     title: "Memory Café Sessions",
     description:
       "Every Tuesday, families gather for music, art, and conversation. It's not therapy—it's connection. A place where your loved one can be themselves, and you can breathe for a couple of hours.",
-    icon: Users,
     image: "/Images/activities.jpg",
     features: ["Weekly Tuesday sessions", "Music & art activities", "Safe, welcoming space"],
   },
@@ -15,7 +13,6 @@ const SERVICES = [
     title: "Caregiver Support Groups",
     description:
       "You can't pour from an empty cup. Our support groups (in-person and online) are where caregivers share the weight, swap tips, and remember they're not doing this alone.",
-    icon: HeartHandshake,
     image: "/Images/hospital.jpg",
     features: ["In-person & online options", "Peer support", "Monthly meetings"],
   },
@@ -23,7 +20,6 @@ const SERVICES = [
     title: "Home-Based Therapy",
     description:
       "Music, art, and movement therapy—brought right to your doorstep. No hospital visits, no stress. Just trained therapists helping your loved one stay engaged and active at home.",
-    icon: Home,
     image: "/Images/art.jpg",
     features: ["Music & art therapy", "Movement therapy", "At your convenience"],
   },
@@ -31,7 +27,6 @@ const SERVICES = [
     title: "Caregiver Training",
     description:
       "Whether you're a family member, healthcare aide, or student—this certificate course teaches you what actually works. Real techniques, honest conversations, no fluff.",
-    icon: Brain,
     image: "/Images/training.jpg",
     features: ["Certificate program", "Practical techniques", "For families & professionals"],
   },
@@ -39,7 +34,6 @@ const SERVICES = [
     title: "Decoding Dementia Workshops",
     description:
       "We take our workshops to colleges, offices, and neighborhoods across Mumbai. Because the more people understand dementia, the kinder our city becomes.",
-    icon: Stethoscope,
     image: "/Images/sessions.jpg",
     features: ["Community outreach", "Office workshops", "Educational sessions"],
   },
@@ -73,8 +67,8 @@ export const Services = () => {
         </motion.div>
 
         {/* Alternating Image-Content Layout */}
-        <div className="mt-20 space-y-24 md:space-y-32">
-          {SERVICES.map(({ title, description, icon: Icon, image, features }, index) => {
+        <div className="mt-20 space-y-20 md:space-y-28 lg:space-y-32">
+          {SERVICES.map(({ title, description, image, features }, index) => {
             const isEven = index % 2 === 0;
             
             return (
@@ -82,77 +76,74 @@ export const Services = () => {
                 key={title}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className={`grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center ${
-                  isEven ? "" : "lg:grid-flow-dense"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+                className={`grid gap-8 md:gap-10 lg:grid-cols-5 lg:gap-12 items-center ${
+                  isEven ? "" : ""
                 }`}
               >
                 {/* Image Side */}
                 <motion.div
-                  initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className={`${isEven ? "" : "lg:col-start-2"}`}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className={`lg:col-span-2 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                 >
-                  <div className="group relative overflow-hidden rounded-3xl shadow-2xl">
+                  <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
                     <img
                       src={image}
                       alt={`${title} at Echoing Healthy Ageing`}
-                      className="h-[400px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
                   </div>
                 </motion.div>
 
                 {/* Content Side */}
                 <motion.div
-                  initial={{ opacity: 0, x: isEven ? 40 : -40 }}
+                  initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7, delay: 0.4 }}
-                  className={`space-y-6 ${isEven ? "" : "lg:col-start-1 lg:row-start-1"}`}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className={`lg:col-span-3 ${isEven ? "lg:order-2" : "lg:order-1"}`}
                 >
-                  <Card className="border-2 border-secondary bg-white shadow-card">
-                    <CardContent className="space-y-6 p-8 md:p-10">
-                      {/* Icon & Title */}
-                      <div className="space-y-4">
-                        <div className="inline-flex">
-                          <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 text-primary shadow-sm">
-                            <Icon className="h-7 w-7" strokeWidth={2} />
+                  <div className="space-y-5 md:space-y-6">
+                    {/* Title */}
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                        {title}
+                      </h3>
+                      <div className="h-1 w-20 bg-gradient-to-r from-accent to-primary rounded-full" />
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-base leading-relaxed text-foreground/70 md:text-lg lg:text-xl">
+                      {description}
+                    </p>
+
+                    {/* Features List */}
+                    <ul className="space-y-3 pt-2">
+                      {features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent/10">
+                            <Check className="h-3.5 w-3.5 text-accent" strokeWidth={3} />
+                          </div>
+                          <span className="text-sm font-medium text-foreground/80 md:text-base">
+                            {feature}
                           </span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-foreground md:text-3xl">
-                          {title}
-                        </h3>
-                      </div>
+                        </li>
+                      ))}
+                    </ul>
 
-                      {/* Description */}
-                      <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
-                        {description}
-                      </p>
-
-                      {/* Features List */}
-                      <ul className="space-y-3">
-                        {features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <ArrowRight className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                            <span className="text-sm font-medium text-foreground/80">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* CTA Badge */}
-                      <div className="pt-4">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-accent">
-                          <Icon className="h-4 w-4" />
-                          Available in Mumbai
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    {/* Location Badge */}
+                    <div className="pt-2">
+                      <span className="inline-flex items-center gap-2 rounded-full border-2 border-accent/20 bg-accent/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-accent">
+                        Available in Mumbai
+                      </span>
+                    </div>
+                  </div>
                 </motion.div>
               </motion.div>
             );
