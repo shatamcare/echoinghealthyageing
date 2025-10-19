@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logoTree from "../../public/Images/ts-logo-tree.jpg";
 import logoName from "../../public/Images/ts-eha-name.jpg";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Services", href: "#services" },
@@ -17,9 +20,43 @@ export const Header = () => {
     { name: "Contact", href: "#contact" }
   ];
 
-  const handleConsultation = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setIsMenuOpen(false);
+
+    // If it's the blog page, just navigate
+    if (href === "/blog") {
+      navigate("/blog");
+      return;
+    }
+
+    // If it's a hash link and we're not on the homepage, navigate to homepage first
+    if (href.startsWith("#") && location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else if (href.startsWith("#")) {
+      // We're already on homepage, just scroll
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleConsultation = () => {
+    setIsMenuOpen(false);
+    
+    // If not on homepage, navigate there first
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   useEffect(() => {
@@ -44,7 +81,11 @@ export const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <motion.a
-            href="#top"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}
             className="flex items-center gap-2"
             whileHover={{ scale: 1.04 }}
           >
@@ -68,6 +109,7 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-sm font-semibold text-foreground/70 transition-smooth hover:text-primary"
               >
                 {item.name}
@@ -110,7 +152,7 @@ export const Header = () => {
                     <a
                       href={item.href}
                       className="block rounded-xl px-4 py-3 min-h-[48px] flex items-center transition-smooth hover:bg-secondary/50 hover:text-primary active:bg-secondary"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                     >
                       {item.name}
                     </a>
