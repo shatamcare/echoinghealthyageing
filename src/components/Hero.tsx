@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroCare from "../../public/Images/care.jpg";
+import heroCare from "../../public/Images/img 7.jpg";
 import { ArrowRight, PhoneCall, Heart, Users, Home, Brain, HeartHandshake } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -63,7 +63,7 @@ export const Hero = () => {
         <div className="absolute inset-0">
           <img
             src={heroCare}
-            alt="An experienced caregiver supporting an elderly woman with warmth and dignity"
+            alt="Caregiver support group gathering - compassionate care and community connection"
             className="h-full w-full object-cover object-[50%_35%] md:object-center brightness-[0.95]"
             loading="eager"
           />

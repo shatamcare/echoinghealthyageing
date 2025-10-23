@@ -27,7 +27,7 @@ const SERVICES = [
     title: "Caregiver Training",
     description:
       "Whether you're a family member, healthcare aide, or student—this certificate course teaches you what actually works. Real techniques, honest conversations, no fluff.",
-    image: "/Images/training.jpg",
+    image: "/Images/caregiver certificate 2.jpg",
     features: ["Certificate program", "Practical techniques", "For families & professionals"],
   },
   {
