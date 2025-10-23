@@ -43,10 +43,10 @@ export const Services = () => {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-gradient-to-b from-secondary via-white to-white px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-secondary via-background to-secondary/30 px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
       aria-labelledby="services-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(16,88,110,0.12),transparent_60%),radial-gradient(circle_at_88%_80%,rgba(241,205,179,0.18),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(251,218,187,0.25),transparent_65%),radial-gradient(circle_at_88%_80%,rgba(180,218,230,0.20),transparent_60%)]" />
       <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,14 +90,14 @@ export const Services = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className={`lg:col-span-2 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                 >
-                  <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
+                  <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500">
                     <img
                       src={image}
                       alt={`${title} at Echoing Healthy Ageing`}
                       className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent" />
                   </div>
                 </motion.div>
 
@@ -115,7 +115,7 @@ export const Services = () => {
                       <h3 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
                         {title}
                       </h3>
-                      <div className="h-1 w-20 bg-gradient-to-r from-accent to-primary rounded-full" />
+                      <div className="h-1.5 w-16 bg-gradient-to-r from-accent via-gold to-primary rounded-full shadow-sm" />
                     </div>
 
                     {/* Description */}

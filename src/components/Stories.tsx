@@ -27,10 +27,10 @@ export const Stories = () => {
   return (
     <section
       id="stories"
-      className="relative overflow-hidden bg-white px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
+      className="relative overflow-hidden bg-background px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
       aria-labelledby="stories-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(1,58,74,0.08),transparent_60%),radial-gradient(circle_at_80%_70%,rgba(240,202,175,0.16),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(251,218,187,0.20),transparent_65%),radial-gradient(circle_at_80%_70%,rgba(180,218,230,0.18),transparent_60%)]" />
       <div className="container relative mx-auto px-4">
         <div className="grid gap-12 md:gap-14 lg:grid-cols-2 lg:gap-16">
           {/* LEFT COLUMN: Image at top → Text content → Image at bottom */}

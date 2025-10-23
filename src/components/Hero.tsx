@@ -67,7 +67,7 @@ export const Hero = () => {
             className="h-full w-full object-cover object-[50%_35%] md:object-center brightness-[0.95]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-sea/30 to-primary/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/20 to-sea/25" />
         </div>
       </motion.div>
 
@@ -145,14 +145,14 @@ export const Hero = () => {
         
         <motion.aside
           variants={itemVariants}
-          className="relative hidden w-full max-w-sm rounded-3xl border-4 border-accent/60 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] p-6 text-left overflow-hidden md:block lg:max-w-md"
+          className="relative hidden w-full max-w-sm rounded-3xl border-4 border-accent/50 bg-white/95 backdrop-blur-sm shadow-[0_20px_50px_-15px_rgba(0,0,0,0.25)] p-6 text-left overflow-hidden md:block lg:max-w-md"
           aria-label="Our approach to dementia care"
-          whileHover={{ scale: 1.02, boxShadow: "0 25px 70px -15px rgba(0,0,0,0.5)" }}
+          whileHover={{ scale: 1.02, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.3)" }}
           transition={{ duration: 0.3 }}
         >
-          {/* Strong colorful gradient accent */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-accent/40 to-primary/40 rounded-full blur-2xl" />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-tr from-primary/30 to-sea/30 rounded-full blur-2xl" />
+          {/* Softer gradient accents */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-accent/30 to-gold/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-tr from-teal/25 to-sea/25 rounded-full blur-3xl" />
           
           <div className="relative">
             {/* Bold header with strong visual */}

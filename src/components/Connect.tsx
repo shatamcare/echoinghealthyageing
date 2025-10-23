@@ -56,10 +56,10 @@ export const Connect = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-secondary/30 to-white px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-background via-secondary/40 to-background px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
       aria-labelledby="contact-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(16,88,110,0.1),transparent_60%),radial-gradient(circle_at_82%_85%,rgba(241,205,179,0.15),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(251,218,187,0.25),transparent_65%),radial-gradient(circle_at_82%_85%,rgba(180,218,230,0.20),transparent_60%)]" />
       <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

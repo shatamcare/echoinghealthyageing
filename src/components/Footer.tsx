@@ -13,8 +13,8 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative mt-20 overflow-hidden bg-gradient-to-br from-primary/95 via-sea/90 to-teal/95 pb-3 pt-8 text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.12),transparent_60%)] opacity-40" />
+    <footer className="relative mt-20 overflow-hidden bg-gradient-to-br from-primary/90 via-teal/85 to-sea/90 pb-3 pt-8 text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.15),transparent_65%)] opacity-50" />
       
       <div className="container relative mx-auto px-4">
         {/* Compact Info Grid */}
