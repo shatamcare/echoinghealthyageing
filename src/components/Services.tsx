@@ -111,15 +111,14 @@ export const Services = () => {
                 >
                   <div className="space-y-5 md:space-y-6">
                     {/* Title */}
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
                         {title}
                       </h3>
-                      <div className="h-1.5 w-16 bg-gradient-to-r from-accent via-gold to-primary rounded-full shadow-sm" />
                     </div>
 
                     {/* Description */}
-                    <p className="text-base leading-relaxed text-foreground/70 md:text-lg lg:text-xl">
+                    <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
                       {description}
                     </p>
 
