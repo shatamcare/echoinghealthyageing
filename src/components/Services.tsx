@@ -5,35 +5,35 @@ const SERVICES = [
   {
     title: "Memory Café Sessions",
     description:
-      "Every Tuesday, we gather in small circles filled with music, art, and laughter. It is not a therapy room, it is a place where your loved one feels seen, and you feel lighter.",
+      "Weekly circles for older adults and caregivers, filled with music, art, and light conversation. A friendly space to feel seen and connected.",
     image: "/Images/activities.jpg",
     features: ["Weekly sessions on Tuesdays", "Music, art, and joyful connection", "Safe, friendly environment"],
   },
   {
     title: "Caregiver Support Groups",
     description:
-      "Caring for someone with dementia can feel lonely, but it doesn’t have to. Our groups help caregivers share stories, exchange tips, and rediscover their own strength.",
+      "For anyone supporting an older adult—with or without dementia. Share stories, exchange tips, and rediscover your own strength.",
     image: "/Images/hospital.jpg",
     features: ["In-person and online meetings", "Peer-to-peer guidance", "Monthly sessions"],
   },
   {
     title: "Home-Based Therapy",
     description:
-      "Therapy should never feel like a hospital visit. We bring music, art, and movement therapy to your doorstep, helping your loved one stay active, engaged, and calm.",
+      "At-home music, art, and movement sessions that keep seniors active, engaged, and calm—without the stress of hospital visits.",
     image: "/Images/art.jpg",
     features: ["Music and art therapy at home", "Gentle movement activities", "Flexible scheduling"],
   },
   {
     title: "Caregiver Training",
     description:
-      "If you are caring for a loved one or planning to work in elder care, this hands-on course will prepare you for the real world with practical skills and honest conversations.",
+      "Practical, hands-on skills for families, aides, and students. Build confidence in daily elder care, with dementia readiness.",
     image: "/Images/caregiver certificate 2.jpg",
     features: ["Certificate program", "Practical caregiving methods", "For families, aides, and students"],
   },
   {
     title: "Decoding Dementia Workshops",
     description:
-      "We take dementia awareness to colleges, offices, and communities because when more people understand, life gets easier for those who live it every day.",
+      "Clear, stigma-free dementia understanding for colleges, offices, and communities across Mumbai—because kinder awareness helps every family.",
     image: "/Images/sessions.jpg",
     features: ["Community outreach programs", "Corporate and campus workshops", "Awareness sessions across Mumbai"],
   },
@@ -56,13 +56,13 @@ export const Services = () => {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="inline-flex items-center justify-center rounded-full bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-            Our Services
+            Elder Care Services
           </span>
           <h2 id="services-heading" className="mt-6 text-3xl font-bold text-foreground sm:text-4xl">
-            For families living with dementia and those who care for them
+            Support for older adults—and the people who care for them
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-foreground/70">
-            These are not programs written on paper. They are living spaces where families meet, share, and find strength. Whether you need a moment to breathe, a word of guidance, or a safe hand to hold, we are here.
+            From companionship and daily engagement to caregiver guidance and dementia‑specific support, we meet families where they are. Whether you need a moment to breathe, a word of guidance, or a safe hand to hold, we’re here.
           </p>
         </motion.div>
 
