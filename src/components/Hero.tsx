@@ -37,7 +37,7 @@ export const Hero = () => {
     []
   );
 
-  const headingLines = useMemo(() => ["Real Dementia Care for Real Families"], []);
+  const headingLines = useMemo(() => ["Care That Feels Like Home"], []);
 
   const wordVariants = {
     hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
