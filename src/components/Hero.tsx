@@ -74,7 +74,7 @@ export const Hero = () => {
 
   return (
 	<section
-      className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-transparent px-4 pt-24 pb-20 md:min-h-[90vh] md:px-8 md:pt-28 md:pb-24 lg:min-h-[92vh] lg:px-12"
+  className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-transparent px-4 pt-20 pb-16 md:min-h-[90vh] md:px-8 md:pt-24 md:pb-20 lg:min-h-[92vh] lg:px-12"
       aria-labelledby="hero-heading"
     >
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>

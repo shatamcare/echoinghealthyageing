@@ -77,7 +77,7 @@ export const Header = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+  <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <motion.a
             href="/"
@@ -91,13 +91,13 @@ export const Header = () => {
             <img
               src={logoTree}
               alt="Echoing Healthy Ageing tree logo"
-              className="h-14 w-auto"
+              className="h-12 w-auto"
               loading="lazy"
             />
             <img
               src={logoName}
               alt="Echoing Healthy Ageing logotype"
-              className="h-14 w-auto translate-y-0.5"
+              className="h-12 w-auto translate-y-0.5"
               loading="lazy"
             />
           </motion.a>
