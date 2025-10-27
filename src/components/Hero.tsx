@@ -30,17 +30,14 @@ export const Hero = () => {
 
   const heroQuotes = useMemo(
     () => [
-      "Compassion, connection, and dignity in every moment.",
-      "Small, consistent care can change a family's every day.",
-      "Support for today. Confidence for tomorrow.",
+      "Every memory matters, even the fading ones.",
+      "Care is not about curing, it is about connecting.",
+      "One small act of kindness can change an entire day.",
     ],
     []
   );
 
-  const headingLines = useMemo(
-    () => ["Dementia Care & Support", "For Families in Mumbai"],
-    []
-  );
+  const headingLines = useMemo(() => ["Real Dementia Care for Real Families"], []);
 
   const wordVariants = {
     hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
@@ -124,7 +121,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="max-w-2xl text-base leading-relaxed text-white sm:text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           >
-            Memory Cafés, caregiver support groups, home therapy, and training. Real support for families living with dementia.
+            Support that goes beyond medicine, through conversations, music, and companionship. We’ve been walking beside families for over a decade, helping them find comfort, dignity, and calm in the middle of it all.
           </motion.p>
 
           <motion.div
@@ -149,7 +146,7 @@ export const Hero = () => {
               onClick={dialCareLine}
             >
               <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />
-              Call Care Specialist
+              Call a Care Specialist
             </Button>
           </motion.div>
         </div>

@@ -31,7 +31,7 @@ const BlogList = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-4 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl md:mb-6"
           >
-            Coming Soon
+            Care Guides and Stories
           </motion.h1>
 
           {/* Description */}
@@ -41,9 +41,7 @@ const BlogList = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-6 text-base leading-relaxed text-foreground/70 sm:text-lg md:mb-8"
           >
-            We're preparing valuable insights, guides, and stories about dementia care. 
-            Our blog will feature practical tips for caregivers, updates from our Memory Café sessions, 
-            and resources to support families across Mumbai and beyond.
+            We are working on bringing you practical guides, reflections, and insights from our team and caregiver community. From managing daily routines to coping with stress, every post will come from real experiences, not theory.
           </motion.p>
 
           {/* Feature Pills */}

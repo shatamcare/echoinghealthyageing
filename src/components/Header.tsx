@@ -120,7 +120,7 @@ export const Header = () => {
               className="rounded-full px-5 py-2 text-sm font-semibold shadow-card"
               onClick={handleConsultation}
             >
-              Book Consultation
+              Book a Consultation
             </Button>
           </nav>
 
@@ -165,7 +165,7 @@ export const Header = () => {
                   className="w-full rounded-full text-base font-semibold min-h-[56px]"
                   onClick={handleConsultation}
                 >
-                  Book Consultation
+                  Book a Consultation
                 </Button>
               </div>
             </motion.nav>

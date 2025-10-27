@@ -69,13 +69,13 @@ export const Connect = () => {
           className="mx-auto max-w-3xl text-center mb-12"
         >
           <span className="inline-flex items-center justify-center rounded-full bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-primary shadow-sm">
-            Get In Touch
+            Let’s Talk
           </span>
           <h2 id="contact-heading" className="mt-5 text-3xl font-bold text-foreground sm:text-4xl">
-            Let's start a conversation
+            Every family’s story is different. Tell us yours, and we will help you find what works best.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-foreground/70">
-            Our care team is ready to listen, guide, and support you every step of the way.
+            
           </p>
         </motion.div>
 
@@ -135,9 +135,9 @@ export const Connect = () => {
             <Card className="border-2 border-secondary bg-white shadow-2xl">
               <CardContent className="space-y-6 p-6 md:p-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Send us a message</h3>
+                  <h3 className="text-2xl font-bold text-foreground">Send a Message</h3>
                   <p className="mt-2 text-sm text-foreground/60">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    We usually reply within 24 hours on working days. (If it is urgent, please call us directly.)
                   </p>
                 </div>
                 

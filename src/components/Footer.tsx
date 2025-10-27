@@ -84,7 +84,7 @@ export const Footer = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center text-xs text-white/70"
         >
-          <p>© {year} Echoing Healthy Ageing · All rights reserved</p>
+          <p>© {year} Echoing Healthy Ageing · Made with care for those who care.</p>
         </motion.div>
       </div>
 

@@ -5,37 +5,37 @@ const SERVICES = [
   {
     title: "Memory Café Sessions",
     description:
-      "Every Tuesday, families gather for music, art, and conversation. It's not therapy—it's connection. A place where your loved one can be themselves, and you can breathe for a couple of hours.",
+      "Every Tuesday, we gather in small circles filled with music, art, and laughter. It is not a therapy room, it is a place where your loved one feels seen, and you feel lighter.",
     image: "/Images/activities.jpg",
-    features: ["Weekly Tuesday sessions", "Music & art activities", "Safe, welcoming space"],
+    features: ["Weekly sessions on Tuesdays", "Music, art, and joyful connection", "Safe, friendly environment"],
   },
   {
     title: "Caregiver Support Groups",
     description:
-      "You can't pour from an empty cup. Our support groups (in-person and online) are where caregivers share the weight, swap tips, and remember they're not doing this alone.",
+      "Caring for someone with dementia can feel lonely, but it doesn’t have to. Our groups help caregivers share stories, exchange tips, and rediscover their own strength.",
     image: "/Images/hospital.jpg",
-    features: ["In-person & online options", "Peer support", "Monthly meetings"],
+    features: ["In-person and online meetings", "Peer-to-peer guidance", "Monthly sessions"],
   },
   {
     title: "Home-Based Therapy",
     description:
-      "Music, art, and movement therapy—brought right to your doorstep. No hospital visits, no stress. Just trained therapists helping your loved one stay engaged and active at home.",
+      "Therapy should never feel like a hospital visit. We bring music, art, and movement therapy to your doorstep, helping your loved one stay active, engaged, and calm.",
     image: "/Images/art.jpg",
-    features: ["Music & art therapy", "Movement therapy", "At your convenience"],
+    features: ["Music and art therapy at home", "Gentle movement activities", "Flexible scheduling"],
   },
   {
     title: "Caregiver Training",
     description:
-      "Whether you're a family member, healthcare aide, or student—this certificate course teaches you what actually works. Real techniques, honest conversations, no fluff.",
+      "If you are caring for a loved one or planning to work in elder care, this hands-on course will prepare you for the real world with practical skills and honest conversations.",
     image: "/Images/caregiver certificate 2.jpg",
-    features: ["Certificate program", "Practical techniques", "For families & professionals"],
+    features: ["Certificate program", "Practical caregiving methods", "For families, aides, and students"],
   },
   {
     title: "Decoding Dementia Workshops",
     description:
-      "We take our workshops to colleges, offices, and neighborhoods across Mumbai. Because the more people understand dementia, the kinder our city becomes.",
+      "We take dementia awareness to colleges, offices, and communities because when more people understand, life gets easier for those who live it every day.",
     image: "/Images/sessions.jpg",
-    features: ["Community outreach", "Office workshops", "Educational sessions"],
+    features: ["Community outreach programs", "Corporate and campus workshops", "Awareness sessions across Mumbai"],
   },
 ];
 
@@ -59,10 +59,10 @@ export const Services = () => {
             Our Services
           </span>
           <h2 id="services-heading" className="mt-6 text-3xl font-bold text-foreground sm:text-4xl">
-            How we support families living with dementia
+            For families living with dementia and those who care for them
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-foreground/70">
-            These aren't just programs on paper. They're spaces where real people meet, learn, and find strength. Whether you need a break, some guidance, or just someone who gets it—we're here.
+            These are not programs written on paper. They are living spaces where families meet, share, and find strength. Whether you need a moment to breathe, a word of guidance, or a safe hand to hold, we are here.
           </p>
         </motion.div>
 

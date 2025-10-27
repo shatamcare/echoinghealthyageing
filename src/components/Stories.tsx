@@ -5,21 +5,21 @@ import { Quote, Star, Heart, Users } from "lucide-react";
 const STORIES = [
   {
     quote:
-      "Tuesday mornings at Memory Café became the highlight of our week. Ma sings along to old Hindi songs, and I finally met other caregivers who just... get it. We're not experts, but we're in this together.",
+      "Tuesday mornings at the Memory Café became our weekly reset. Ma sings, I breathe, and for a while, everything feels normal again.",
     name: "Priya M.",
-    role: "Caring for her mother, Andheri",
+    role: "Caregiver (Andheri)",
   },
   {
     quote:
-      "Before the training course, I was honestly scared of saying the wrong thing. Now I know how to listen, how to calm someone down without arguing. It changed how I do my job.",
+      "This training gave me confidence, not just at work but in life. I learned to listen, not correct. That changed everything.",
     name: "Anjali S.",
     role: "Healthcare Aide",
   },
   {
     quote:
-      "I didn't know anything about dementia until their workshop came to our office. When my colleague's dad got diagnosed, I knew how to help. Now I volunteer because everyone should understand this.",
+      "Before their workshop, dementia felt like a mystery. Now I know how to be kind, patient, and helpful, even at my workplace.",
     name: "Rohan K.",
-    role: "IT Professional & Volunteer",
+    role: "Volunteer",
   },
 ];
 
@@ -60,13 +60,13 @@ export const Stories = () => {
               className="space-y-6"
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-                Patient Stories
+                Real Stories
               </span>
               <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-                Voices from our community
+                Real Stories, Real People
               </h2>
               <p className="text-lg leading-relaxed text-foreground/70">
-                These are real experiences from caregivers, healthcare professionals, and community members who have participated in our Memory Café sessions, training programs, and support groups across Mumbai.
+                Voices from our community of caregivers, volunteers, and professionals. Since 2012, hundreds of Mumbai families have found comfort, strength, and belonging with us.
               </p>
               <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
                 <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
