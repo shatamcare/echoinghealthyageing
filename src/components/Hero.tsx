@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroCare from "../../public/Images/img 7.jpg";
+import HeroBackgroundSlider from "@/components/HeroBackgroundSlider";
 import { ArrowRight, PhoneCall } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -15,6 +15,27 @@ export const Hero = () => {
 
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 480], [0, 160]);
+
+  // Curated background images from public/Images
+  const heroImages = useMemo(
+    () => [
+      "/Images/img 7.jpg",
+      "/Images/EHA7.jpg",
+      "/Images/care.jpg",
+      "/Images/hospital.jpg",
+      "/Images/activities.jpg",
+    ],
+    []
+  );
+
+  const heroQuotes = useMemo(
+    () => [
+      "Compassion, connection, and dignity in every moment.",
+      "Small, consistent care can change a family's every day.",
+      "Support for today. Confidence for tomorrow.",
+    ],
+    []
+  );
 
   const headingLines = useMemo(
     () => ["Dementia Care & Support", "For Families in Mumbai"],
@@ -60,18 +81,8 @@ export const Hero = () => {
       aria-labelledby="hero-heading"
     >
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
-        <div className="absolute inset-0">
-          <img
-            src={heroCare}
-            alt="Caregiver support group gathering - compassionate care and community connection"
-            className="h-full w-full object-cover object-[50%_35%] md:object-center brightness-[0.95]"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/35 via-accent/25 to-sea/30" />
-        </div>
+        <HeroBackgroundSlider images={heroImages} quotes={heroQuotes} />
       </motion.div>
-
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/60 to-transparent" />
 
       <motion.div
         className="relative z-10 mx-auto w-full max-w-5xl text-slate-50"
