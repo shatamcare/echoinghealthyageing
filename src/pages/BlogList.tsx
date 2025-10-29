@@ -30,7 +30,7 @@ const BlogList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#faf8f5]">
+    <div className="min-h-screen bg-[#faf8f5] pb-20 md:pb-0">
       <Header />
       <main id="main-content" className="px-4 py-32 md:py-36">
         <div className="mx-auto max-w-6xl">

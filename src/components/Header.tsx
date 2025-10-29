@@ -13,19 +13,27 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const navItems = [
+    { name: "Home", href: "/" },
     { name: "Services", href: "#services" },
     { name: "Stories", href: "#stories" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "#contact" }
   ];
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
+    // If it's the home page link
+    if (href === "/") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     // If it's the blog page, just navigate
     if (href === "/blog") {
       navigate("/blog");
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
@@ -42,6 +50,7 @@ export const Header = () => {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };}
   };
 
   const handleConsultation = () => {
@@ -70,15 +79,17 @@ export const Header = () => {
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full border-b transition-smooth ${
-        isScrolled ? "border-border bg-white shadow-premium backdrop-blur-sm" : "border-border/40 bg-white/95 backdrop-blur-sm"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="container mx-auto px-4">
-  <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
+          <motion.a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              navigate("/");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="flex items-center gap-2"
+            whileHover={{ scale: 1.04 }}
+          >/* Logo */}
           <motion.a
             href="/"
             onClick={(e) => {

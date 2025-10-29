@@ -1,16 +1,50 @@
 import { Home, Heart, Users, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const quickNav = [
-    { icon: Home, label: 'Home', href: '#top' },
+    { icon: Home, label: 'Home', href: '/' },
     { icon: Heart, label: 'Services', href: '#services' },
     { icon: Users, label: 'Stories', href: '#stories' },
     { icon: Mail, label: 'Blog', href: '/blog' },
     { icon: Phone, label: 'Contact', href: '#contact' }
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    // If it's the home page link
+    if (href === "/") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // If it's the blog page
+    if (href === "/blog") {
+      navigate("/blog");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // If it's a hash link and we're not on the homepage, navigate to homepage first
+    if (href.startsWith("#") && location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else if (href.startsWith("#")) {
+      // We're already on homepage, just scroll
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <footer className="relative mt-20 overflow-hidden bg-gradient-to-br from-primary/90 via-teal/85 to-sea/90 pb-3 pt-8 text-white">
@@ -98,6 +132,7 @@ export const Footer = () => {
             <a
               key={label}
               href={href}
+              onClick={(e) => handleNavClick(e, href)}
               className="group flex min-w-[60px] flex-col items-center gap-1 px-2 py-1.5 text-[#1C5D55] transition-all duration-200 hover:text-[#174B45] active:scale-95"
               aria-label={label}
             >

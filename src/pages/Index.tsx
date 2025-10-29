@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className="min-h-screen pb-20 md:pb-0">
       <a href="#main-content" className="skip-to-main">
         Skip to main content
       </a>

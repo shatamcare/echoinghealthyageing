@@ -97,7 +97,7 @@ const BlogPost = () => {
   }
 
   return (
-    <main className="min-h-screen bg-[#faf8f5]" id="main-content">
+    <main className="min-h-screen bg-[#faf8f5] pb-20 md:pb-0" id="main-content">
       {/* Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-accent/60 to-primary/60 origin-left z-50"
