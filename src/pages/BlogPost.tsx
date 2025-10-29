@@ -105,8 +105,8 @@ const BlogPost = () => {
       />
 
       {/* Hero Section - Full Width */}
-      <header className="relative bg-gradient-to-br from-[#f3e8ff] via-[#fef3f2] to-[#e0f2fe] pt-24 pb-16 px-6">
-        <div className="max-w-3xl mx-auto">
+      <header className="relative bg-gradient-to-br from-[#f3e8ff] via-[#fef3f2] to-[#e0f2fe] pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,32 +114,32 @@ const BlogPost = () => {
           >
             <Link 
               to="/blog" 
-              className="inline-flex items-center gap-2 text-[#666] hover:text-primary transition-colors mb-8 text-sm font-medium"
+              className="inline-flex items-center gap-2 text-[#666] hover:text-primary transition-colors mb-6 sm:mb-8 text-sm font-medium"
             >
               ← Back to Articles
             </Link>
 
-            <div className="flex items-center gap-3 mb-6 text-sm text-[#666]">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6 text-xs sm:text-sm text-[#666]">
               <span className="font-medium text-primary">Echoing Healthy Ageing</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <time dateTime={post.datePublished} itemProp="datePublished">
                 {formatDisplayDate(post.datePublished)}
               </time>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>{post.readingTimeMinutes} min read</span>
             </div>
 
             <h1 
               id={`post-${post.slug}`}
               itemProp="headline"
-              className="text-5xl md:text-6xl font-semibold leading-[1.15] mb-6 text-[#222]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.2] sm:leading-[1.15] mb-4 sm:mb-6 text-[#222]"
               style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
             >
               {post.title}
             </h1>
 
             <p 
-              className="text-xl md:text-2xl text-[#444] leading-[1.6] font-light mb-8"
+              className="text-lg sm:text-xl md:text-2xl text-[#444] leading-[1.6] font-light mb-6 sm:mb-8"
               itemProp="description"
             >
               {post.summary}
@@ -150,7 +150,7 @@ const BlogPost = () => {
                 {post.tags.map((tag) => (
                   <span 
                     key={`${post.slug}-${tag}`}
-                    className="px-4 py-1.5 bg-white/60 backdrop-blur-sm rounded-full text-sm text-[#555] border border-[#e5e5e5]"
+                    className="px-3 sm:px-4 py-1 sm:py-1.5 bg-white/60 backdrop-blur-sm rounded-full text-xs sm:text-sm text-[#555] border border-[#e5e5e5]"
                   >
                     {tag}
                   </span>
@@ -162,26 +162,26 @@ const BlogPost = () => {
       </header>
 
       {/* Main Content */}
-      <article className="max-w-[720px] mx-auto px-6 py-16" itemScope itemType="https://schema.org/Article">
+      <article className="w-full max-w-[720px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20" itemScope itemType="https://schema.org/Article">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="prose prose-lg max-w-none
+          className="prose prose-base sm:prose-lg max-w-none
             prose-headings:font-semibold prose-headings:tracking-tight prose-headings:leading-[1.3]
-            prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:text-[#222] prose-h2:bg-gradient-to-r prose-h2:from-[#F6FAF9] prose-h2:to-transparent prose-h2:px-4 prose-h2:py-3 prose-h2:rounded-lg prose-h2:-ml-4
-            prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-[#0F6F66] prose-h3:bg-[#F6FAF9] prose-h3:px-4 prose-h3:py-2 prose-h3:rounded-md prose-h3:-ml-4
-            prose-p:text-[#222] prose-p:text-[1.1875rem] prose-p:leading-[1.85] prose-p:mb-8 prose-p:mt-0 prose-p:text-left
-            prose-p:first-of-type:first-letter:text-5xl prose-p:first-of-type:first-letter:font-semibold prose-p:first-of-type:first-letter:text-[#35B6A6] prose-p:first-of-type:first-letter:float-left prose-p:first-of-type:first-letter:mr-2 prose-p:first-of-type:first-letter:leading-[0.9] prose-p:first-of-type:first-letter:mt-1
+            prose-h2:text-2xl sm:prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-12 sm:prose-h2:mt-16 prose-h2:mb-6 sm:prose-h2:mb-8 prose-h2:text-[#222] prose-h2:bg-gradient-to-r prose-h2:from-[#F6FAF9] prose-h2:to-transparent prose-h2:px-3 sm:prose-h2:px-4 prose-h2:py-2 sm:prose-h2:py-3 prose-h2:rounded-lg prose-h2:-ml-3 sm:prose-h2:-ml-4
+            prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 sm:prose-h3:mt-12 prose-h3:mb-4 sm:prose-h3:mb-6 prose-h3:text-[#0F6F66] prose-h3:bg-[#F6FAF9] prose-h3:px-3 sm:prose-h3:px-4 prose-h3:py-1.5 sm:prose-h3:py-2 prose-h3:rounded-md prose-h3:-ml-3 sm:prose-h3:-ml-4
+            [&>p]:text-[#222] [&>p]:text-base sm:[&>p]:text-[1.1875rem] [&>p]:leading-[1.75] sm:[&>p]:leading-[1.85] [&>p]:mb-6 sm:[&>p]:mb-8 [&>p]:mt-0
+            [&>p:first-of-type]:first-letter:text-4xl sm:[&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-semibold [&>p:first-of-type]:first-letter:text-[#35B6A6] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-1.5 sm:[&>p:first-of-type]:first-letter:mr-2 [&>p:first-of-type]:first-letter:leading-[0.9] [&>p:first-of-type]:first-letter:mt-1
             prose-strong:text-[#222] prose-strong:font-semibold
             prose-em:text-[#444] prose-em:italic
-            prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:transition-colors
-            prose-blockquote:border-l-[3px] prose-blockquote:border-[#c4b5fd] prose-blockquote:pl-8 prose-blockquote:pr-8 prose-blockquote:py-8 prose-blockquote:my-12 prose-blockquote:bg-gradient-to-r prose-blockquote:from-[#f3e8ff]/30 prose-blockquote:to-transparent prose-blockquote:italic prose-blockquote:text-[#555] prose-blockquote:text-xl prose-blockquote:leading-[1.85] prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-light
-            prose-ul:my-8 prose-ul:space-y-3 prose-ul:list-none prose-ul:pl-0
-            prose-ol:my-8 prose-ol:space-y-3
-            prose-li:text-[#333] prose-li:leading-[1.85] prose-li:pl-8 prose-li:relative prose-li:mb-2
+            prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:transition-colors prose-a:break-words
+            prose-blockquote:border-l-[3px] prose-blockquote:border-[#c4b5fd] prose-blockquote:pl-4 sm:prose-blockquote:pl-8 prose-blockquote:pr-4 sm:prose-blockquote:pr-8 prose-blockquote:py-6 sm:prose-blockquote:py-8 prose-blockquote:my-8 sm:prose-blockquote:my-12 prose-blockquote:bg-gradient-to-r prose-blockquote:from-[#f3e8ff]/30 prose-blockquote:to-transparent prose-blockquote:italic prose-blockquote:text-[#555] prose-blockquote:text-lg sm:prose-blockquote:text-xl prose-blockquote:leading-[1.75] sm:prose-blockquote:leading-[1.85] prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-light
+            prose-ul:my-6 sm:prose-ul:my-8 prose-ul:space-y-2 sm:prose-ul:space-y-3 prose-ul:list-none prose-ul:pl-0
+            prose-ol:my-6 sm:prose-ol:my-8 prose-ol:space-y-2 sm:prose-ol:space-y-3
+            prose-li:text-[#333] prose-li:text-base sm:prose-li:text-[1.0625rem] prose-li:leading-[1.75] sm:prose-li:leading-[1.85] prose-li:pl-6 sm:prose-li:pl-8 prose-li:relative prose-li:mb-2
             prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-[0.6em] prose-li:before:w-1.5 prose-li:before:h-1.5 prose-li:before:rounded-full prose-li:before:bg-primary
-            prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-16
+            prose-img:block prose-img:w-full prose-img:max-w-full prose-img:h-auto prose-img:rounded-xl sm:prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8 sm:prose-img:my-12 prose-img:mx-auto
           "
           style={{ fontFamily: "'Inter', 'Source Sans Pro', 'Helvetica Neue', sans-serif" }}
           aria-label={`${post.title} content`}
@@ -189,30 +189,30 @@ const BlogPost = () => {
         />
 
         {/* Section Divider */}
-        <div className="my-16 h-px bg-gradient-to-r from-transparent via-[#e5e5e5] to-transparent" />
+        <div className="my-12 sm:my-16 h-px bg-gradient-to-r from-transparent via-[#e5e5e5] to-transparent" />
 
         {/* Author Bio Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-gradient-to-br from-white to-[#fef3f2] rounded-2xl p-8 border border-[#e5e5e5] shadow-sm"
+          className="bg-gradient-to-br from-white to-[#fef3f2] rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-[#e5e5e5] shadow-sm"
         >
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-semibold text-primary">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-xl sm:text-2xl font-semibold text-primary">
                 {post.author.charAt(0)}
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-[#222] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-semibold text-[#222] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 About {post.author}
               </h3>
-              <p className="text-[#555] leading-[1.7] mb-4">
+              <p className="text-sm sm:text-base text-[#555] leading-[1.7] mb-3 sm:mb-4">
                 A dedicated healthcare professional specializing in geriatric care and dementia support, 
                 committed to bringing empathy, dignity, and expertise to caregiving in Mumbai.
               </p>
-              <div className="flex items-center gap-2 text-sm text-[#666]">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#666]">
                 <span itemProp="author">Clinical Expert at Echoing Healthy Ageing</span>
               </div>
             </div>
@@ -224,24 +224,24 @@ const BlogPost = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 bg-gradient-to-br from-[#f3e8ff] to-[#fef3f2] rounded-2xl p-10 text-center"
+          className="mt-12 sm:mt-16 bg-gradient-to-br from-[#f3e8ff] to-[#fef3f2] rounded-xl sm:rounded-2xl p-6 sm:p-10 text-center"
         >
-          <h3 className="text-3xl font-semibold text-[#222] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h3 className="text-2xl sm:text-3xl font-semibold text-[#222] mb-3 sm:mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
             Need Personalized Care Support?
           </h3>
-          <p className="text-lg text-[#555] leading-[1.7] mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-[#555] leading-[1.7] mb-6 sm:mb-8 max-w-2xl mx-auto">
             Our team provides compassionate, expert care for dementia, geriatric health, and home-based support across Mumbai.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
             <a
               href="/#contact"
-              className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg text-sm sm:text-base"
             >
               Book a Consultation
             </a>
             <Link
               to="/blog"
-              className="px-8 py-4 bg-white text-primary rounded-full font-medium hover:bg-gray-50 transition-all border border-primary/20"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary rounded-full font-medium hover:bg-gray-50 transition-all border border-primary/20 text-sm sm:text-base"
             >
               Read More Articles
             </Link>
@@ -254,17 +254,17 @@ const BlogPost = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 pt-12 border-t border-[#e5e5e5]"
+            className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-[#e5e5e5]"
           >
-            <h2 className="text-2xl font-semibold text-[#222] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#222] mb-4 sm:mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               References & Resources
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {citationItems.map((citation) => (
                 <li key={`${post.slug}-${citation.href}`}>
                   <a
                     href={citation.href}
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group"
+                    className="inline-flex items-start gap-2 text-primary hover:text-primary/80 transition-colors group text-sm sm:text-base break-words"
                     target={citation.external ? "_blank" : undefined}
                     rel={citation.external ? "noopener noreferrer" : undefined}
                   >

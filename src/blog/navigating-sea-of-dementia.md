@@ -22,6 +22,8 @@ The life expectancy of a person with dementia is unpredictable, and the disease 
 
 Let me explain what to expect from different stages of dementia.
 
+![Three stages of dementia progression](/Images/blog/blog-1.png)
+
 ## Stage 1: Mild Dementia – 'Setting Out on a Journey'
 
 First stage that is mild dementia stage may start with minor lapses in memory and behaviour. These symptoms may go unnoticed to family/friends around the person suspecting to have dementia. As time passes in the mild stage itself the incidences of forgetfulness, changes in mood, apathy towards activities become frequent and the person with dementia does become aware about the fact that something could be amiss. As the disease progressed these abnormalities in behaviour might be noticed by family members, people around the person. This stage generally provides alarming changes in the person and ideally leads to the diagnosis. The person still may appear to do daily activities of living, communicating fairly well. However they will be advised to stop driving or travelling alone, cooking (from safety point of view), retire from work.

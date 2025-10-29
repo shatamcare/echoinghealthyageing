@@ -100,7 +100,7 @@ const ALLOWED_CLASSES = new Set([
 
 const ALLOWED_ATTRS: Record<string, Set<string>> = {
   a: new Set(["href", "title", "rel", "target"]),
-  img: new Set(["src", "alt", "title", "width", "height", "loading", "decoding"]),
+  img: new Set(["src", "alt", "title", "width", "height", "loading", "decoding", "style"]),
   figure: new Set(["role"]),
   section: new Set(["aria-labelledby"]),
   div: new Set(["role"]),
@@ -454,14 +454,14 @@ function parseMarkdownPost(markdownContent: string, slug: string): BlogPost | nu
     
     // Handle inline formatting
     html = html
+      // Images FIRST - before links, to avoid conflicts
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 3rem auto; border-radius: 1rem;" loading="lazy" />')
       // Bold and italic
       .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      // Links
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-      // Images
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+      // Links (after images to avoid conflict)
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     
     // Split into paragraphs by double line breaks
     const paragraphs = html.split(/\n\n+/).map(para => para.trim()).filter(Boolean);
@@ -475,7 +475,7 @@ function parseMarkdownPost(markdownContent: string, slug: string): BlogPost | nu
       // Replace single line breaks within paragraphs with spaces (not <br>)
       const cleanPara = para.replace(/\n/g, ' ');
       return `<p>${cleanPara}</p>`;
-    }).join('\n');
+    }).join('\n\n');
     
     // Clean up any empty tags
     html = html.replace(/<p>\s*<\/p>/g, '').replace(/<blockquote>\s*<\/blockquote>/g, '');
