@@ -19,6 +19,7 @@ export const Header = () => {
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "#contact" }
   ];
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
@@ -50,7 +51,6 @@ export const Header = () => {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };}
   };
 
   const handleConsultation = () => {
@@ -79,17 +79,15 @@ export const Header = () => {
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full border-b transition-smooth ${
-          <motion.a
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsMenuOpen(false);
-              navigate("/");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="flex items-center gap-2"
-            whileHover={{ scale: 1.04 }}
-          >/* Logo */}
+        isScrolled ? "border-border bg-white shadow-premium backdrop-blur-sm" : "border-border/40 bg-white/95 backdrop-blur-sm"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="container mx-auto px-4">
+  <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
           <motion.a
             href="/"
             onClick={(e) => {
