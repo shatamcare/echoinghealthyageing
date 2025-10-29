@@ -19,11 +19,11 @@ export const Hero = () => {
   // Curated background images from public/Images
   const heroImages = useMemo(
     () => [
-      "/Images/img 7.jpg",
-      "/Images/EHA7.jpg",
-      "/Images/care.jpg",
-      "/Images/hospital.jpg",
-      "/Images/activities.jpg",
+      "/Images/img 1.jpg",
+      "/Images/img 2.jpg",
+      "/Images/sessions.jpg",
+      "/Images/activities 2.jpg",
+      "/Images/kit.jpg",
     ],
     []
   );
@@ -78,11 +78,16 @@ export const Hero = () => {
       aria-labelledby="hero-heading"
     >
       <motion.div className="absolute inset-0 -z-10" style={{ y: yParallax }}>
-        <HeroBackgroundSlider images={heroImages} quotes={heroQuotes} />
+        <HeroBackgroundSlider 
+          images={heroImages} 
+          quotes={[]}
+          overlayClassName=""
+          enablePauseControl={false}
+        />
       </motion.div>
 
       <motion.div
-        className="relative z-10 mx-auto w-full max-w-5xl text-slate-50"
+        className="relative z-10 mx-auto w-full max-w-5xl text-white"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -97,7 +102,8 @@ export const Hero = () => {
 
           <h1
             id="hero-heading"
-            className="text-balance font-bold text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_3px_12px_rgba(0,0,0,0.4)] max-w-4xl"
+            className="text-balance font-semibold text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] max-w-4xl text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {headingLines.map((line) => (
               <span key={line} className="block mb-1">
@@ -119,9 +125,9 @@ export const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="max-w-2xl text-base leading-relaxed text-white sm:text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            className="max-w-2xl text-sm leading-relaxed text-white sm:text-base md:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           >
-            Support that goes beyond medicine, through conversations, music, and companionship. We’ve been walking beside families for over a decade, helping them find comfort, dignity, and calm in the middle of it all.
+            Support that goes beyond medicine, through conversations, music, and companionship. We've been walking beside families for over a decade, helping them find comfort, dignity, and calm in the middle of it all.
           </motion.p>
 
           <motion.div
@@ -131,18 +137,16 @@ export const Hero = () => {
             aria-label="Primary actions"
           >
             <Button
-              variant="cta"
               size="lg"
-              className="group w-full sm:w-auto min-w-[260px] justify-between px-6 py-3 text-base font-semibold min-h-[54px] shadow-xl"
+              className="group w-full sm:w-auto min-w-[260px] justify-between px-8 py-3 text-base font-semibold min-h-[56px] shadow-2xl bg-[#35B6A6] hover:bg-[#0F6F66] text-white rounded-full transition-all duration-500 hover:scale-[1.03]"
               onClick={scrollToContact}
             >
               Book a Care Consultation
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Button>
             <Button
-              variant="secondary"
               size="lg"
-              className="w-full sm:w-auto min-w-[240px] justify-center rounded-full border-2 border-white/40 bg-white/25 px-6 py-3 text-base font-semibold text-white shadow-xl backdrop-blur-md hover:bg-white/35 hover:border-white/60 focus-visible:ring-accent min-h-[54px]"
+              className="w-full sm:w-auto min-w-[240px] justify-center rounded-full border-2 border-white/40 bg-white/20 backdrop-blur-md px-8 py-3 text-base font-semibold text-white shadow-2xl hover:bg-white/30 hover:border-white/60 focus-visible:ring-[#35B6A6] min-h-[56px] transition-all duration-500 hover:scale-[1.03]"
               onClick={dialCareLine}
             >
               <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />

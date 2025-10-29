@@ -42,8 +42,9 @@ export interface BlogMetadataOptions {
 
 const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
 
-const docxLoaders = import.meta.glob<string>("../blog/*.docx", {
-  query: "?url",
+// Load Markdown files instead of DOCX
+const markdownLoaders = import.meta.glob<string>("../blog/*.md", {
+  query: "?raw",
   import: "default",
 });
 
@@ -374,15 +375,13 @@ async function loadPosts(): Promise<BlogPost[]> {
     return [];
   }
 
-  const entries = Object.entries(docxLoaders);
+  const entries = Object.entries(markdownLoaders);
   const posts = await Promise.all(
     entries.map(async ([path, loader]) => {
       const slug = deriveSlugFromPath(path);
       try {
-        const assetUrl = await loader();
-        const buffer = await fetchDocxBuffer(assetUrl);
-        const html = await convertDocxToHtml(buffer);
-        const post = transformDocxHtml(html, slug, assetUrl);
+        const markdownContent = await loader();
+        const post = parseMarkdownPost(markdownContent, slug);
         return post;
       } catch (error) {
         console.error(`Failed to parse blog post ${slug}`, error);
@@ -400,7 +399,124 @@ async function loadPosts(): Promise<BlogPost[]> {
 
 function deriveSlugFromPath(path: string): string {
   const filename = path.split("/").pop() ?? "post";
-  return filename.replace(/\.docx$/i, "");
+  return filename.replace(/\.(docx|md)$/i, "");
+}
+
+function parseMarkdownPost(markdownContent: string, slug: string): BlogPost | null {
+  if (!isBrowser) {
+    return null;
+  }
+
+  try {
+    // Split frontmatter and content
+    const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+    const match = markdownContent.match(frontmatterRegex);
+    
+    if (!match) {
+      console.error(`No frontmatter found in ${slug}`);
+      return null;
+    }
+
+    const frontmatterText = match[1];
+    const content = match[2];
+
+    // Parse frontmatter
+    const frontmatter: Record<string, string> = {};
+    frontmatterText.split('\n').forEach(line => {
+      const colonIndex = line.indexOf(':');
+      if (colonIndex > 0) {
+        const key = line.substring(0, colonIndex).trim();
+        const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
+        frontmatter[key] = value;
+      }
+    });
+
+    const title = frontmatter.title || "Untitled Post";
+    const author = frontmatter.author || "Echoing Healthy Ageing";
+    const summary = frontmatter.summary || frontmatter.description || "";
+    const datePublishedIso = frontmatter.date 
+      ? parseDate(frontmatter.date) || new Date().toISOString()
+      : new Date().toISOString();
+    const tagsString = frontmatter.tags || "";
+    const explicitTags = tagsString.split(',').map(t => t.trim()).filter(Boolean);
+
+    // Convert markdown to HTML (improved conversion with proper paragraph spacing)
+    let html = content;
+    
+    // First, handle block-level elements (headers, blockquotes)
+    html = html
+      // Headers (must be on their own line) - with serif font
+      .replace(/^### (.+)$/gim, '<h3 style="font-family: \'Playfair Display\', Georgia, serif;">$1</h3>')
+      .replace(/^## (.+)$/gim, '<h2 style="font-family: \'Playfair Display\', Georgia, serif;">$1</h2>')
+      .replace(/^# (.+)$/gim, '<h1 style="font-family: \'Playfair Display\', Georgia, serif;">$1</h1>')
+      // Blockquotes
+      .replace(/^> (.+)$/gim, '<blockquote>$1</blockquote>');
+    
+    // Handle inline formatting
+    html = html
+      // Bold and italic
+      .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      // Links
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+      // Images
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+    
+    // Split into paragraphs by double line breaks
+    const paragraphs = html.split(/\n\n+/).map(para => para.trim()).filter(Boolean);
+    
+    // Wrap non-block elements in <p> tags
+    html = paragraphs.map(para => {
+      // Don't wrap if already a block element
+      if (para.match(/^<(h[1-6]|blockquote|img|ul|ol|li)/i)) {
+        return para;
+      }
+      // Replace single line breaks within paragraphs with spaces (not <br>)
+      const cleanPara = para.replace(/\n/g, ' ');
+      return `<p>${cleanPara}</p>`;
+    }).join('\n');
+    
+    // Clean up any empty tags
+    html = html.replace(/<p>\s*<\/p>/g, '').replace(/<blockquote>\s*<\/blockquote>/g, '');
+
+    const workingDoc = document.implementation.createHTMLDocument("Blog Post");
+    const articleContainer = workingDoc.createElement("div");
+    articleContainer.innerHTML = html;
+
+    const { sanitisedHtml, citations } = sanitiseRichText(articleContainer);
+    const plainText = stripHtml(sanitisedHtml);
+    const wordCount = countWords(plainText);
+    const excerpt = buildExcerpt(summary || plainText);
+    const readingTime = Math.max(2, Math.round(wordCount / WORDS_PER_MINUTE) || 2);
+
+    // Infer tags from content if not provided
+    const inferredTags = explicitTags.length > 0 
+      ? explicitTags 
+      : inferTags(title, summary, Array.from(articleContainer.children) as HTMLElement[]);
+    
+    const heroImage = selectHeroImage(inferredTags);
+
+    return {
+      slug,
+      title,
+      author,
+      summary,
+      excerpt,
+      tags: inferredTags,
+      datePublished: datePublishedIso,
+      dateModified: datePublishedIso,
+      readingTimeMinutes: readingTime,
+      wordCount,
+      heroImage,
+      contentHtml: sanitisedHtml,
+      citations,
+      sourceDoc: slug,
+    };
+  } catch (error) {
+    console.error(`Error parsing markdown for ${slug}:`, error);
+    return null;
+  }
 }
 
 async function fetchDocxBuffer(url: string): Promise<ArrayBuffer> {

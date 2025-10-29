@@ -139,8 +139,6 @@ export function HeroBackgroundSlider({
         })}
         {/* Overlay gradient for contrast */}
         <div className={`absolute inset-0 ${overlayClassName}`} />
-        {/* Top gradient to soften header overlap */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/60 to-transparent" />
       </div>
 
       {/* Optional rotating quote */}

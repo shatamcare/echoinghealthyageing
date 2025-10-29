@@ -56,8 +56,11 @@ export const Connect = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background px-4 py-20 md:px-6 md:py-32 lg:px-8 lg:py-40"
+      className="relative overflow-hidden px-4 py-20 md:px-6 md:py-32 lg:px-8 lg:py-40"
       aria-labelledby="contact-heading"
+      style={{
+        background: 'linear-gradient(to bottom right, #f0fdf4, #fef9f3, #f0fdfa)'
+      }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(251,218,187,0.2),transparent_60%),radial-gradient(circle_at_85%_80%,rgba(180,218,230,0.18),transparent_55%)]" />
       <div className="container relative mx-auto px-4">

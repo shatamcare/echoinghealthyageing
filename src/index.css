@@ -8,44 +8,82 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core Brand Palette - Blue & Teal Harmony - Calming, Trustworthy, Ocean-inspired */
-    --primary: 195 60% 45%; /* Deep ocean teal */
+    /* Premium Wellness Design System */
+    --brand-teal: #35B6A6;
+    --brand-teal-dark: #0F6F66;
+    --bg-mist: #F6FAF9;
+    --text: #222;
+    --border: #E8F3F0;
+    
+    /* Core Brand Palette - Teal & Wellness Harmony */
+    --primary: 171 53% 46%; /* #35B6A6 - Teal */
     --primary-foreground: 0 0% 100%;
-    --secondary: 200 45% 96%; /* Light blue-gray cream */
-    --secondary-foreground: 200 25% 30%;
-    --accent: 185 55% 55%; /* Bright turquoise accent */
+    --secondary: 160 20% 97%; /* #F6FAF9 - Soft mist */
+    --secondary-foreground: 160 10% 20%;
+    --accent: 171 76% 21%; /* #0F6F66 - Deep teal */
     --accent-foreground: 0 0% 100%;
-    --muted: 200 20% 94%; /* Soft blue-gray */
-    --muted-foreground: 200 15% 45%;
-    --background: 200 25% 98%; /* Cool white with blue tint */
-    --foreground: 200 30% 25%;
+    --muted: 160 15% 95%; /* Soft background */
+    --muted-foreground: 160 10% 40%;
+    --background: 160 25% 98%; /* #F9FBFA - Almost white with warmth */
+    --foreground: 0 0% 13%; /* #222 - Soft black */
 
-    /* Extended Brand Tokens - Blue & Teal Spectrum */
-    --teal: 175 50% 50%; /* Classic teal */
+    /* Extended Brand Tokens */
+    --teal: 171 53% 46%;
     --teal-foreground: 0 0% 100%;
-    --sea: 190 55% 55%; /* Bright sea blue */
+    --sea: 171 53% 60%;
     --sea-foreground: 0 0% 100%;
-    --gold: 185 60% 65%; /* Light aqua */
-    --gold-foreground: 185 80% 20%;
-    --peach: 170 45% 70%; /* Soft mint-teal */
-    --peach-foreground: 170 70% 25%;
-    --lavender: 195 35% 92%; /* Pale blue-gray */
-    --lavender-foreground: 195 40% 35%;
+    --gold: 45 95% 70%; /* Warm accent if needed */
+    --gold-foreground: 45 90% 20%;
+    --peach: 20 100% 95%; /* Soft peach for gradients */
+    --peach-foreground: 20 70% 25%;
+    --lavender: 260 60% 96%; /* Soft lavender for gradients */
+    --lavender-foreground: 260 40% 35%;
 
     --destructive: 4 86% 58%;
     --destructive-foreground: 17 100% 98%;
-    --popover: 195 70% 11%;
-    --popover-foreground: 195 82% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 207 34% 17%;
-    --border: 198 21% 82%;
-    --input: 198 21% 82%;
-    --ring: 190 94% 18%;
-    --radius: 0.9rem;
+    --card-foreground: 0 0% 13%;
+    --border: 160 25% 92%; /* #E8F3F0 */
+    --input: 160 25% 92%;
+    --ring: 171 53% 46%;
+    --radius: 1rem;
 
+    /* Typography Scale */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+    
     /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(190 94% 18%), hsl(203 73% 32%));
+    --gradient-primary: linear-gradient(135deg, #35B6A6, #0F6F66);
+    --gradient-hero: radial-gradient(1200px 600px at 10% -10%, #EBFBF7 0%, transparent 60%), 
+                     radial-gradient(900px 500px at 110% -10%, #F0EEFF 0%, transparent 55%);
   }
+}
+
+/* Global Typography */
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Glass Morphism Utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(53, 182, 166, 0.08);
 }
 
 /* Safety layout reset: ensure root elements take full width/height so nothing collapses into a small left column */

@@ -27,12 +27,14 @@ export const Stories = () => {
   return (
     <section
       id="stories"
-      className="relative overflow-hidden bg-background px-4 py-20 md:px-6 md:py-28 lg:px-8 lg:py-32"
+      className="relative overflow-hidden px-4 py-24 md:px-6 md:py-32 lg:px-8 lg:py-40"
       aria-labelledby="stories-heading"
+      style={{
+        background: 'linear-gradient(to bottom right, #f0fdf4, #fef9f3, #f0fdfa)'
+      }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(251,218,187,0.20),transparent_65%),radial-gradient(circle_at_80%_70%,rgba(180,218,230,0.18),transparent_60%)]" />
       <div className="container relative mx-auto px-4">
-        <div className="grid gap-12 md:gap-14 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-12 md:gap-14 lg:grid-cols-2 lg:gap-20">
           {/* LEFT COLUMN: Image at top → Text content → Image at bottom */}
           <div className="space-y-10">
             {/* Top Image */}
@@ -59,21 +61,21 @@ export const Stories = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="space-y-6"
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#35B6A6]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#35B6A6]">
                 Real Stories
               </span>
-              <h2 id="stories-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
+              <h2 id="stories-heading" className="text-4xl font-semibold text-[#222] sm:text-5xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Real Stories, Real People
               </h2>
-              <p className="text-lg leading-relaxed text-foreground/70">
+              <p className="text-lg leading-[1.8] text-[#444]">
                 Voices from our community of caregivers, volunteers, and professionals. Since 2012, hundreds of Mumbai families have found comfort, strength, and belonging with us.
               </p>
-              <div className="grid gap-4 text-sm font-semibold text-foreground/80 sm:grid-cols-2">
-                <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
-                  <Heart className="h-5 w-5 text-accent" aria-hidden="true" /> Active since 2012 in Mumbai
+              <div className="grid gap-4 text-sm font-semibold text-[#333] sm:grid-cols-2">
+                <span className="flex items-center gap-3 rounded-2xl backdrop-blur-sm bg-white/75 border border-[#E8F3F0] px-5 py-4 shadow-lg">
+                  <Heart className="h-5 w-5 text-[#35B6A6]" aria-hidden="true" /> Active since 2012 in Mumbai
                 </span>
-                <span className="flex items-center gap-3 rounded-2xl border-2 border-secondary bg-white px-4 py-3 shadow-sm">
-                  <Users className="h-5 w-5 text-primary" aria-hidden="true" /> Monthly support group sessions
+                <span className="flex items-center gap-3 rounded-2xl backdrop-blur-sm bg-white/75 border border-[#E8F3F0] px-5 py-4 shadow-lg">
+                  <Users className="h-5 w-5 text-[#35B6A6]" aria-hidden="true" /> Monthly support sessions
                 </span>
               </div>
             </motion.div>
@@ -105,7 +107,7 @@ export const Stories = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <Card className="group h-full border-2 border-secondary bg-white shadow-card transition-smooth hover:-translate-y-2 hover:border-accent/20 hover:shadow-xl">
+                <Card className="group h-full backdrop-blur-sm bg-white/75 border-2 border-[#E8F3F0] shadow-[0_8px_32px_rgba(53,182,166,0.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(53,182,166,0.15)] hover:scale-[1.02]">
                   <CardContent className="space-y-6 p-8">
                     <motion.div
                       className="inline-flex"
@@ -113,20 +115,19 @@ export const Stories = () => {
                       whileInView={{ rotate: 0, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                      whileHover={{ rotateY: 15 }}
                     >
-                      <div className="rounded-2xl bg-gradient-to-br from-accent/20 via-accent/10 to-transparent p-4 shadow-lg">
-                        <Quote className="h-7 w-7 text-accent" strokeWidth={2.5} aria-hidden="true" />
+                      <div className="rounded-2xl bg-gradient-to-br from-[#35B6A6]/20 via-[#35B6A6]/10 to-transparent p-4 shadow-lg">
+                        <Quote className="h-8 w-8 text-[#35B6A6]" strokeWidth={2.5} aria-hidden="true" />
                       </div>
                     </motion.div>
-                    <p className="text-lg leading-relaxed text-foreground/85">{quote}</p>
-                    <div className="space-y-1">
-                      <p className="text-base font-semibold text-foreground">{name}</p>
-                      <p className="text-sm text-foreground/60">{role}</p>
+                    <p className="text-lg leading-[1.8] text-[#333] italic">{quote}</p>
+                    <div className="space-y-1 pt-2">
+                      <p className="text-base font-semibold text-[#222]" style={{ fontFamily: "'Playfair Display', serif" }}>{name}</p>
+                      <p className="text-sm text-[#666]">{role}</p>
                     </div>
                     <div className="flex gap-1">
                       {Array.from({ length: 5 }).map((_, idx) => (
-                        <Star key={idx} className="h-4 w-4 fill-accent text-accent drop-shadow-sm" aria-hidden="true" />
+                        <Star key={idx} className="h-4 w-4 fill-[#35B6A6] text-[#35B6A6] drop-shadow-sm" aria-hidden="true" />
                       ))}
                     </div>
                   </CardContent>

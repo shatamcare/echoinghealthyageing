@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Debug Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        h1 { color: #333; }
+        .post { border: 2px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .post h3 { margin-top: 0; color: #0066cc; }
+        .meta { color: #666; font-size: 14px; }
+        .summary { background: #f5f5f5; padding: 10px; margin: 10px 0; }
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .tag { background: #e0e0e0; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+        .error { color: red; padding: 20px; background: #ffe0e0; border-radius: 8px; }
+        .loading { color: #0066cc; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Blog Posts Debug Test</h1>
+    <div id="output"><p class="loading">⏳ Loading blog posts...</p></div>
+    
+    <script type="module">
+        import { getAllPosts } from '/src/lib/blog.ts';
+        
+        const output = document.getElementById('output');
+        
+        try {
+            console.log('Starting to load posts...');
+            const posts = await getAllPosts();
+            console.log('Posts loaded:', posts);
+            
+            if (posts.length === 0) {
+                output.innerHTML = '<div class="error"><strong>⚠️ No posts found!</strong><p>Check browser console for details.</p></div>';
+            } else {
+                output.innerHTML = `
+                    <h2>✅ Found ${posts.length} blog post${posts.length !== 1 ? 's' : ''}:</h2>
+                    ${posts.map((post, index) => `
+                        <div class="post">
+                            <h3>${index + 1}. ${post.title}</h3>
+                            <div class="meta">
+                                <strong>Slug:</strong> ${post.slug} | 
+                                <strong>Author:</strong> ${post.author} | 
+                                <strong>Date:</strong> ${new Date(post.datePublished).toLocaleDateString()} | 
+                                <strong>Words:</strong> ${post.wordCount} | 
+                                <strong>Reading Time:</strong> ${post.readingTimeMinutes} min
+                            </div>
+                            <div class="summary">
+                                <strong>Summary:</strong><br>
+                                ${post.summary || post.excerpt}
+                            </div>
+                            ${post.tags.length > 0 ? `
+                                <div class="tags">
+                                    <strong>Tags:</strong> 
+                                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                            <div style="margin-top: 10px;">
+                                <strong>Content Preview:</strong><br>
+                                <div style="max-height: 100px; overflow-y: auto; border: 1px solid #ddd; padding: 8px; font-size: 13px;">
+                                    ${post.contentHtml.substring(0, 500)}...
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
+            }
+        } catch (error) {
+            console.error('Error loading posts:', error);
+            output.innerHTML = `
+                <div class="error">
+                    <h3>❌ Error Loading Posts</h3>
+                    <p><strong>Message:</strong> ${error.message}</p>
+                    <pre style="overflow-x: auto;">${error.stack}</pre>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
