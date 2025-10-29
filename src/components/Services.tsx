@@ -59,8 +59,9 @@ export const Services = () => {
             Elder Care Services
           </span>
           <h2 id="services-heading" className="mt-6 text-3xl font-bold text-foreground sm:text-4xl">
-            Support for older adults—and the people who care for them
+          Support for older adults and the people who care for them
           </h2>
+         <p className="mt-4 text-sm text-foreground/60">Support for older adults and the people who care for them</p>
           <p className="mt-4 text-lg leading-relaxed text-foreground/70">
             From companionship and daily engagement to caregiver guidance and dementia‑specific support, we meet families where they are. Whether you need a moment to breathe, a word of guidance, or a safe hand to hold, we’re here.
           </p>
