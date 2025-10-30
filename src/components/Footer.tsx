@@ -1,6 +1,7 @@
 import { Home, Heart, Users, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
+import FooterHomeButton from "@/components/FooterHomeButton";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
@@ -51,6 +52,11 @@ export const Footer = () => {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.15),transparent_65%)] opacity-50" />
       
       <div className="container relative mx-auto px-4">
+        {/* Right-aligned Home button (hidden on /) */}
+        <div className="flex items-center">
+          <FooterHomeButton />
+        </div>
+
         {/* Compact Info Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
