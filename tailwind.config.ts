@@ -104,11 +104,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				marqueeLeft: {
+					"0%": { transform: 'translateX(0)' },
+					"100%": { transform: 'translateX(-50%)' }
+				},
+				marqueeRight: {
+					"0%": { transform: 'translateX(-50%)' },
+					"100%": { transform: 'translateX(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'marquee-left': 'marqueeLeft var(--scroll-duration,30s) linear infinite',
+				'marquee-right': 'marqueeRight var(--scroll-duration,30s) linear infinite'
 			}
 		}
 	},

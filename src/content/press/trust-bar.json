@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Mint Lounge",
+    "logo": "/Images/media-logo/mint-logo.svg",
+    "url": "https://www.livemint.com/mint-lounge/ideas/what-caring-for-amma-through-her-memory-loss-is-teaching-me-111632130888200.html",
+    "alt": "Mint Lounge article quoting Amrita Patil Pimpale on caregiving"
+  },
+  {
+    "name": "Mid-Day",
+    "logo": "/Images/media-logo/mid-day.png",
+    "url": "https://www.mid-day.com/mumbai-guide/things-to-do/article/mind-the-gap-23284030",
+    "alt": "Mid-Day listing featuring the Decoding Dementia workshop with Amrita Patil Pimpale"
+  },
+  {
+    "name": "The Better India",
+    "logo": "/Images/media-logo/the-better-india.png",
+    "url": "https://thebetterindia.com/111532/echoing-healthy-ageing-dementia-care-amrita-patil-pimpale-mumbai/",
+    "alt": "The Better India feature on Echoing Healthy Ageing"
+  },
+  {
+    "name": "HelpAge India",
+    "logo": "/Images/media-logo/helpagelogo.jpg",
+    "url": "https://www.helpageindia.org/is-caregiving-mainly-a-womans-job",
+    "alt": "HelpAge India blog quoting Amrita Patil Pimpale of Echoing Healthy Ageing"
+  },
+  {
+    "name": "UN Women (WEPs)",
+    "logo": "/Images/media-logo/un-women.png",
+    "url": "https://www.weps.org/company/echoing-healthy-ageing",
+    "alt": "UN Women WEPs profile of Echoing Healthy Ageing"
+  },
+  {
+    "name": "NSRCEL – IIM Bangalore (GS 10,000 Women)",
+    "logo": "/Images/media-logo/iimb.webp",
+    "url": "https://nsrcel.org/10000-women/",
+    "alt": "NSRCEL – IIM Bangalore: Goldman Sachs 10,000 Women program page"
+  },
+  {
+    "name": "UnLtd India",
+    "logo": "/Images/media-logo/unltd-india.jpeg",
+    "url": "https://unltdindia.org/",
+    "alt": "UnLtd India social enterprise incubator (early supporter of EHA)"
+  },
+  {
+    "name": "DBS Foundation",
+    "logo": "/Images/media-logo/dbs.png",
+    "url": "https://www.dbs.com/livemore/uploads/DBS-The-50-years.pdf",
+    "alt": "DBS Foundation publication referencing support for social enterprises like Echoing Healthy Ageing"
+  }
+]

@@ -1,5 +1,5 @@
 import React from "react";
-import trustItems from "@/data/trust-bar.json";
+import trustItems from "@/content/press/trust-bar.json";
 import { cn } from "@/lib/utils";
 
 // Types for JSON entries
@@ -15,30 +15,28 @@ export type TrustBarProps = {
 };
 
 // Lightweight analytics dispatcher
-function sendAnalytics(item: TrustItem) {
+function sendEvent(item: TrustItem) {
   try {
+    if (!item.url) return;
+    // Preferred signature
+    // @ts-ignore
+    if (typeof window !== "undefined" && typeof window.logEvent === "function") {
+      // @ts-ignore
+      window.logEvent('press_logo_click', { outlet: item.name, url: item.url, location: 'home_as_seen_in' });
+      return;
+    }
     // gtag-style
     // @ts-ignore
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       // @ts-ignore
-      window.gtag("event", "click", {
-        event_category: "trust_bar",
-        event_label: item.name,
-        value: item.url,
-      });
+      window.gtag("event", "press_logo_click", { outlet: item.name, url: item.url, location: 'home_as_seen_in' });
       return;
     }
     // dataLayer-style
     // @ts-ignore
     if (typeof window !== "undefined" && Array.isArray(window.dataLayer)) {
       // @ts-ignore
-      window.dataLayer.push({
-        event: "trust_bar_click",
-        category: "trust_bar",
-        action: "click",
-        label: item.name,
-        url: item.url,
-      });
+      window.dataLayer.push({ event: "press_logo_click", outlet: item.name, url: item.url, location: 'home_as_seen_in' });
       return;
     }
   } catch (e) {
@@ -46,7 +44,7 @@ function sendAnalytics(item: TrustItem) {
   }
   if (process.env.NODE_ENV !== "production") {
     // eslint-disable-next-line no-console
-    console.debug("analytics:", { category: "trust_bar", action: "click", label: item.name, url: item.url });
+    console.debug("analytics:", { event: 'press_logo_click', outlet: item.name, url: item.url, location: 'home_as_seen_in' });
   }
 }
 
@@ -75,14 +73,14 @@ export const TrustBar: React.FC<TrustBarProps> = ({ className }) => {
   return (
     <section aria-label="As seen in" className={cn("bg-white border-t border-neutral-200/60", className)}>
       <OrganizationJsonLd />
-      <div className="mx-auto max-w-screen-xl px-4">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Visually hidden heading for screen readers */}
         <h2 className="sr-only">As seen in</h2>
 
         <ul
           role="list"
           aria-label={`List of ${items.length} logos`}
-          className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6 gap-y-4 min-h-14 md:min-h-16 py-3"
+          className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-4 min-h-14 md:min-h-16 py-3"
         >
           {items.map((item, idx) => (
             <li key={item.name} className="shrink-0">
@@ -91,29 +89,23 @@ export const TrustBar: React.FC<TrustBarProps> = ({ className }) => {
                 title={item.name}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={item.alt}
-                onClick={() => sendAnalytics(item)}
-                className="group inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/50 focus-visible:ring-offset-1 rounded-md"
+                aria-label={`Open ${item.name} in a new tab`}
+                onClick={() => sendEvent(item)}
+                className="inline-flex items-center justify-center transition filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/50 focus-visible:ring-offset-1 rounded-md"
               >
-                <img
-                  src={item.logo}
-                  alt={item.alt}
-                  height={idx < 4 ? 32 : 28}
-                  loading={idx < 4 ? "eager" : "lazy"}
-                  // @ts-ignore (not yet in TS DOM types in all versions)
-                  fetchPriority={idx < 4 ? "high" : "auto"}
-                  decoding="async"
-                  className={cn(
-                    "h-7 md:h-8 w-auto object-contain grayscale opacity-70",
-                    "transition-opacity duration-200 motion-reduce:transition-none",
-                    "group-hover:opacity-100 group-focus-visible:opacity-100"
-                  )}
-                  onError={(e) => {
-                    // Hide only this item if the asset fails to load
-                    const li = (e.currentTarget.closest("li") as HTMLElement | null);
-                    if (li) li.style.display = "none";
-                  }}
-                />
+                <span className="h-7 md:h-8 w-auto flex items-center">
+                  <img
+                    src={item.logo}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-7 md:h-8 w-auto object-contain"
+                    onError={(e) => {
+                      const li = (e.currentTarget.closest("li") as HTMLElement | null);
+                      if (li) li.style.display = "none";
+                    }}
+                  />
+                </span>
               </a>
             </li>
           ))}

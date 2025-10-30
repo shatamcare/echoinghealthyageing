@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
+import TrustBarMarquee from "@/components/TrustBarMarquee";
 import { Services } from "@/components/Services";
 import { Stories } from "@/components/Stories";
 import { Connect } from "@/components/Connect";
@@ -15,7 +15,7 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <Hero />
-        <TrustBar />
+        <TrustBarMarquee speedSeconds={28} direction="left" />
         <Services />
         <Stories />
         <Connect />
