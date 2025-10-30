@@ -42,8 +42,11 @@ export interface BlogMetadataOptions {
 
 const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
 
-// Load Markdown files instead of DOCX
-const markdownLoaders = import.meta.glob<string>("../blog/*.md", {
+// Load Markdown files (exclude underscore-prefixed templates like _TEMPLATE.md)
+const markdownLoaders = import.meta.glob<string>([
+  "../blog/*.md",
+  "!../blog/_*.md",
+], {
   query: "?raw",
   import: "default",
 });
@@ -430,6 +433,12 @@ function parseMarkdownPost(markdownContent: string, slug: string): BlogPost | nu
         frontmatter[key] = value;
       }
     });
+
+    // Skip drafts or underscore-prefixed slugs defensively
+    const isDraft = (frontmatter.draft ?? "").toString().trim().toLowerCase() === "true";
+    if (isDraft || slug.startsWith("_")) {
+      return null;
+    }
 
     const title = frontmatter.title || "Untitled Post";
     const author = frontmatter.author || "Echoing Healthy Ageing";

@@ -1,10 +1,9 @@
 ---
 title: What to Expect While Navigating the Sea of Dementia
 author: Amrita Patil Pimpale
-date: 2025-01-08
+date: 2025-10-25
 summary: Understanding the three stages of dementia progression and how families, friends, and carers can provide meaningful support throughout the journey.
 tags: dementia, caregiving, dementia stages, family support, Mumbai
----
 
 *"Like Columbus, I am on a voyage of discovery. My route is not exact and I must make adjustments as I go along …unlike being at sea in a storm, I know that the voyage is only going to become more difficult. It may become a typhoon or hurricane, depending on where it takes me. This storm will not pass: I have to make suitable preparations before the force 12 hits. Let me tell you that I am lucky: I have every good friends who will be with me on the stormy ride ahead."*
 
