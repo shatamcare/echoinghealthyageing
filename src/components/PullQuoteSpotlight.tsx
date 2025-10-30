@@ -63,6 +63,7 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
   const activeQuote = items[index];
   const ctaHref = activeQuote?.url || "/press";
   const ctaTitle = activeQuote?.url ? `Read full coverage on ${activeQuote.outlet}` : "See all press & partners";
+  const ctaLabel = activeQuote?.url ? "Read the article →" : "See our press & partners →";
 
   return (
     <section aria-label="Press pull-quote spotlight" className={className}>
@@ -126,7 +127,7 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
                     title={ctaTitle}
                     onClick={() => logPressQuoteClick("cta", activeQuote?.outlet, activeQuote?.url)}
                   >
-                    See our press & partners →
+                    {ctaLabel}
                   </a>
                 </div>
               </figure>
@@ -145,7 +146,7 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
             title={ctaTitle}
             onClick={() => logPressQuoteClick("cta", activeQuote?.outlet, activeQuote?.url)}
           >
-            See our press & partners →
+            {ctaLabel}
           </a>
         </div>
       </div>
