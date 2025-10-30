@@ -16,9 +16,9 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <Hero />
-        <TrustBarMarquee speedSeconds={28} direction="left" />
-        <Services />
-        <PullQuoteSpotlight intervalMs={7000} className="mt-6" />
+  <TrustBarMarquee speedSeconds={28} direction="left" />
+  <Services />
+  <PullQuoteSpotlight intervalMs={7000} className="my-8 sm:my-10 md:my-14" />
         <Stories />
         <Connect />
       </main>
