@@ -1,6 +1,19 @@
 import React from "react";
 import quotes from "@/content/press/pull-quotes.json";
 
+// (optional) lightweight analytics
+function logPressQuoteClick(kind: "logo" | "cta", outlet: string, url?: string) {
+  const payload = { event: "press_quote_click", kind, outlet, url, location: "pull_quote_spotlight" };
+  // @ts-ignore
+  if (typeof window !== "undefined" && (window as any).gtag) (window as any).gtag("event", "press_quote_click", payload);
+  // @ts-ignore
+  if (typeof window !== "undefined" && (window as any).dataLayer) (window as any).dataLayer.push(payload);
+  if (typeof window !== "undefined" && !((window as any).gtag || (window as any).dataLayer)) {
+    // eslint-disable-next-line no-console
+    console.debug(payload);
+  }
+}
+
 type Props = {
   intervalMs?: number; // rotation interval
   className?: string;
@@ -46,6 +59,11 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
     };
   }, []);
 
+  // NEW: derive active quote once to reuse for CTA
+  const activeQuote = items[index];
+  const ctaHref = activeQuote?.url || "/press";
+  const ctaTitle = activeQuote?.url ? `Read full coverage on ${activeQuote.outlet}` : "See all press & partners";
+
   return (
     <section aria-label="Press pull-quote spotlight" className={className}>
       <div
@@ -69,12 +87,13 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
               >
                 {/* Outlet logo */}
                 <a
-                  href={q.url}
+                  href={q.url || "/press"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center"
                   title={q.outlet}
                   aria-label={`Open ${q.outlet} coverage in a new tab`}
+                  onClick={() => logPressQuoteClick("logo", q.outlet, q.url)}
                 >
                   <img
                     src={q.logo}
@@ -99,9 +118,13 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
                 {/* CTA */}
                 <div className="hidden sm:block">
                   <a
-                    href="/press"
+                    href={ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-50 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
-                    aria-label="Go to Press & Partners page"
+                    aria-label={ctaTitle}
+                    title={ctaTitle}
+                    onClick={() => logPressQuoteClick("cta", activeQuote?.outlet, activeQuote?.url)}
                   >
                     See our press & partners →
                   </a>
@@ -114,8 +137,13 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
         {/* CTA visible on mobile below */}
         <div className="mt-4 sm:hidden text-center">
           <a
-            href="/press"
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-50 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+            aria-label={ctaTitle}
+            title={ctaTitle}
+            onClick={() => logPressQuoteClick("cta", activeQuote?.outlet, activeQuote?.url)}
           >
             See our press & partners →
           </a>
