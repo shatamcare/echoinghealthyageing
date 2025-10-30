@@ -52,8 +52,8 @@ export const Footer = () => {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,255,255,0.15),transparent_65%)] opacity-50" />
       
       <div className="container relative mx-auto px-4">
-        {/* Right-aligned Home button (hidden on /) */}
-        <div className="flex items-center">
+        {/* Pinned Home button at top-right of footer (hidden on /) */}
+        <div className="absolute right-4 top-4 md:right-6">
           <FooterHomeButton />
         </div>
 
