@@ -76,14 +76,14 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div className="relative min-h-[110px] md:min-h-[120px] rounded-2xl md:rounded-3xl border border-neutral-200/60 bg-white/80 backdrop-blur shadow-sm ring-1 ring-black/5 px-4 sm:px-6 md:px-10 py-5 sm:py-6 md:py-10">
+        <div className="relative min-h-[140px] md:min-h-[170px] rounded-2xl md:rounded-3xl border border-neutral-200/60 bg-white/80 backdrop-blur shadow-sm ring-1 ring-black/5 px-6 sm:px-8 md:px-12 py-6 sm:py-8 md:py-12">
           {items.map((q, i) => {
             const active = i === index;
             return (
               <figure
                 key={q.outlet + i}
                 className={[
-                  "absolute inset-0 grid grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-6",
+                  "absolute inset-0 grid grid-cols-[auto_1fr_auto] items-center gap-5 md:gap-8",
                   "transition-opacity duration-500 ease-out",
                   active ? "opacity-100" : "opacity-0 pointer-events-none",
                   "motion-reduce:transition-none",
@@ -102,7 +102,7 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
                   <img
                     src={q.logo}
                     alt={q.alt}
-                    className="h-8 md:h-10 lg:h-12 w-auto object-contain"
+                    className="h-10 md:h-12 lg:h-14 w-auto object-contain"
                     width={160}
                     height={48}
                     loading={active ? "eager" : "lazy"}
@@ -111,7 +111,7 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
                 </a>
 
                 {/* Quote text */}
-                <blockquote className="text-base md:text-lg lg:text-xl leading-snug text-neutral-800">
+                <blockquote className="text-lg md:text-xl lg:text-2xl leading-relaxed text-neutral-800">
                   <span className="sr-only">Quote: </span>
                   <span className="italic">“{q.text}”</span>
                   <figcaption className="mt-1 text-sm text-neutral-600">

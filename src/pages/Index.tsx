@@ -18,7 +18,7 @@ const Index = () => {
         <Hero />
   <TrustBarMarquee speedSeconds={28} direction="left" />
   <Services />
-  <PullQuoteSpotlight intervalMs={7000} className="my-8 sm:my-10 md:my-14" />
+  <PullQuoteSpotlight intervalMs={7000} className="my-10 sm:my-14 md:my-16" />
         <Stories />
         <Connect />
       </main>
