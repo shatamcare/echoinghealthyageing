@@ -88,7 +88,7 @@ export default function TrustBarMarquee({
                   rel="noopener noreferrer"
                   aria-label={`Open ${item.name} in a new tab`}
                   title={item.name}
-                  className="inline-flex items-center justify-center transition filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/50 focus-visible:ring-offset-1 rounded-sm"
+                  className="inline-flex items-center justify-center transition opacity-100 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/50 focus-visible:ring-offset-1 rounded-sm"
                   onClick={() => {
                     if (item.url) {
                       logEventSafe("press_logo_click", {
@@ -127,7 +127,7 @@ export default function TrustBarMarquee({
                   target="_blank"
                   rel="noopener noreferrer"
                   tabIndex={-1}
-                  className="inline-flex items-center justify-center transition filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100"
+                  className="inline-flex items-center justify-center transition opacity-100 hover:opacity-100"
                 >
                   <div className="h-12 md:h-16 lg:h-20 w-auto flex items-center">
                     <img
