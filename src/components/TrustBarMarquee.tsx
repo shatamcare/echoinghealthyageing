@@ -69,7 +69,7 @@ export default function TrustBarMarquee({
             role="list"
             aria-label={`List of ${items.length} logos`}
             className={[
-              "flex shrink-0 items-center gap-6 md:gap-10",
+              "flex shrink-0 items-center gap-10 md:gap-12 lg:gap-14",
               animation,
               "motion-reduce:animate-none",
               "group-hover:[animation-play-state:paused]",
@@ -78,7 +78,10 @@ export default function TrustBarMarquee({
             style={{ ["--scroll-duration" as any]: `${speedSeconds}s` }}
           >
             {items.map((item) => (
-              <li key={`a-${item.name}`} className="flex items-center">
+              <li
+                key={`a-${item.name}`}
+                className="flex items-center justify-center min-w-[140px] md:min-w-[180px] lg:min-w-[220px]"
+              >
                 <a
                   href={item.url}
                   target="_blank"
@@ -97,13 +100,13 @@ export default function TrustBarMarquee({
                   }}
                 >
                   {/* Bigger logos: fixed-height box for CLS safety */}
-                  <div className="h-10 md:h-12 lg:h-14 w-auto flex items-center">
+                  <div className="h-12 md:h-16 lg:h-20 w-auto flex items-center">
                     <img
                       src={item.logo}
                       alt={item.alt}
-                      className="h-10 md:h-12 lg:h-14 w-auto object-contain"
-                      width={160}
-                      height={56}
+                      className="h-12 md:h-16 lg:h-20 w-auto object-contain"
+                      width={300}
+                      height={80}
                       loading="eager"
                       decoding="async"
                     />
@@ -114,7 +117,11 @@ export default function TrustBarMarquee({
 
             {/* Clone for seamless scroll */}
             {items.map((item) => (
-              <li key={`b-${item.name}`} className="flex items-center" aria-hidden="true">
+              <li
+                key={`b-${item.name}`}
+                className="flex items-center justify-center min-w-[140px] md:min-w-[180px] lg:min-w-[220px]"
+                aria-hidden="true"
+              >
                 <a
                   href={item.url}
                   target="_blank"
@@ -122,13 +129,13 @@ export default function TrustBarMarquee({
                   tabIndex={-1}
                   className="inline-flex items-center justify-center transition filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100"
                 >
-                  <div className="h-10 md:h-12 lg:h-14 w-auto flex items-center">
+                  <div className="h-12 md:h-16 lg:h-20 w-auto flex items-center">
                     <img
                       src={item.logo}
                       alt=""
-                      className="h-10 md:h-12 lg:h-14 w-auto object-contain"
-                      width={160}
-                      height={56}
+                      className="h-12 md:h-16 lg:h-20 w-auto object-contain"
+                      width={300}
+                      height={80}
                       loading="lazy"
                       decoding="async"
                     />
