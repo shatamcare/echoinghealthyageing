@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import TrustBarMarquee from "@/components/TrustBarMarquee";
+import PullQuoteSpotlight from "@/components/PullQuoteSpotlight";
 import { Services } from "@/components/Services";
 import { Stories } from "@/components/Stories";
 import { Connect } from "@/components/Connect";
@@ -16,6 +17,7 @@ const Index = () => {
       <main id="main-content">
         <Hero />
         <TrustBarMarquee speedSeconds={28} direction="left" />
+        <PullQuoteSpotlight intervalMs={7000} className="mt-6" />
         <Services />
         <Stories />
         <Connect />
