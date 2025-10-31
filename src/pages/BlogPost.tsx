@@ -169,8 +169,8 @@ const BlogPost = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="prose prose-base sm:prose-lg max-w-none [text-wrap:pretty]
               prose-headings:font-semibold prose-headings:tracking-tight prose-headings:leading-[1.3]
-              prose-h2:text-2xl sm:prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-12 sm:prose-h2:mt-16 prose-h2:mb-6 sm:prose-h2:mb-8 prose-h2:text-[#222] prose-h2:bg-gradient-to-r prose-h2:from-[#F6FAF9] prose-h2:to-transparent prose-h2:px-3 sm:prose-h2:px-4 prose-h2:py-2 sm:prose-h2:py-3 prose-h2:rounded-lg prose-h2:-ml-3 sm:prose-h2:-ml-4 prose-h2:clear-both
-              prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 sm:prose-h3:mt-12 prose-h3:mb-4 sm:prose-h3:mb-6 prose-h3:text-[#0F6F66] prose-h3:bg-[#F6FAF9] prose-h3:px-3 sm:prose-h3:px-4 prose-h3:py-1.5 sm:prose-h3:py-2 prose-h3:rounded-md prose-h3:-ml-3 sm:prose-h3:-ml-4 prose-h3:clear-both
+              prose-h2:text-2xl sm:prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-12 sm:prose-h2:mt-16 prose-h2:mb-6 sm:prose-h2:mb-8 prose-h2:text-[#222] prose-h2:bg-gradient-to-r prose-h2:from-[#F6FAF9] prose-h2:to-transparent prose-h2:px-3 sm:prose-h2:px-4 prose-h2:py-2 sm:prose-h2:py-3 prose-h2:rounded-lg prose-h2:-ml-3 sm:prose-h2:-ml-4
+              prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 sm:prose-h3:mt-12 prose-h3:mb-4 sm:prose-h3:mb-6 prose-h3:text-[#0F6F66] prose-h3:bg-[#F6FAF9] prose-h3:px-3 sm:prose-h3:px-4 prose-h3:py-1.5 sm:prose-h3:py-2 prose-h3:rounded-md prose-h3:-ml-3 sm:prose-h3:-ml-4
               [&>p]:text-[#222] [&>p]:text-base sm:[&>p]:text-[1.1875rem] [&>p]:leading-[1.75] sm:[&>p]:leading-[1.85] [&>p]:mb-6 sm:[&>p]:mb-8 [&>p]:mt-0 [&>p]:[text-align:justify] [&>p]:[hyphens:auto]
               [&>p:first-of-type]:first-letter:text-4xl sm:[&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-semibold [&>p:first-of-type]:first-letter:text-[#35B6A6] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-1.5 sm:[&>p:first-of-type]:first-letter:mr-2 [&>p:first-of-type]:first-letter:leading-[0.9] [&>p:first-of-type]:first-letter:mt-1
               prose-strong:text-[#222] prose-strong:font-semibold
@@ -181,8 +181,7 @@ const BlogPost = () => {
               prose-ol:my-6 sm:prose-ol:my-8 prose-ol:space-y-2 sm:prose-ol:space-y-3
               prose-li:text-[#333] prose-li:text-base sm:prose-li:text-[1.0625rem] prose-li:leading-[1.75] sm:prose-li:leading-[1.85] prose-li:pl-6 sm:prose-li:pl-8 prose-li:relative prose-li:mb-2 [&>li]:[text-align:justify] [&>li]:[hyphens:auto]
               prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-[0.6em] prose-li:before:w-1.5 prose-li:before:h-1.5 prose-li:before:rounded-full prose-li:before:bg-primary
-              prose-img:block prose-img:w-full prose-img:max-w-full prose-img:h-auto prose-img:rounded-xl sm:prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-6 sm:prose-img:my-8 lg:prose-img:my-2
-              lg:prose-img:float-right lg:prose-img:w-auto lg:prose-img:max-w-[320px] xl:prose-img:max-w-[360px] lg:prose-img:ml-8 lg:prose-img:mb-2 lg:prose-img:mx-0
+              prose-img:block prose-img:w-full prose-img:max-w-full prose-img:h-auto prose-img:rounded-xl sm:prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8 sm:prose-img:my-12 prose-img:mx-auto
             "
             style={{ fontFamily: "'Inter', 'Source Sans Pro', 'Helvetica Neue', sans-serif" }}
             aria-label={`${post.title} content`}
