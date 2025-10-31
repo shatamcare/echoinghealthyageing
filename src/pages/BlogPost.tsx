@@ -161,9 +161,8 @@ const BlogPost = () => {
         </div>
       </header>
 
-      {/* Main Content + Desktop Sidebar */}
-      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-[minmax(0,820px)_minmax(280px,360px)] gap-8 lg:gap-12">
-        <article className="w-full" itemScope itemType="https://schema.org/Article">
+      {/* Main Content - Single Column */}
+      <article className="w-full max-w-[900px] md:max-w-[980px] xl:max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20" itemScope itemType="https://schema.org/Article">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -183,7 +182,7 @@ const BlogPost = () => {
               prose-li:text-[#333] prose-li:text-base sm:prose-li:text-[1.0625rem] prose-li:leading-[1.75] sm:prose-li:leading-[1.85] prose-li:pl-6 sm:prose-li:pl-8 prose-li:relative prose-li:mb-2 [&>li]:[text-align:justify] [&>li]:[hyphens:auto]
               prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-[0.6em] prose-li:before:w-1.5 prose-li:before:h-1.5 prose-li:before:rounded-full prose-li:before:bg-primary
               prose-img:block prose-img:w-full prose-img:max-w-full prose-img:h-auto prose-img:rounded-xl sm:prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-6 sm:prose-img:my-8 lg:prose-img:my-2
-              lg:prose-img:float-right lg:prose-img:w-auto lg:prose-img:max-w-[420px] xl:prose-img:max-w-[480px] lg:prose-img:ml-8 lg:prose-img:mb-2 lg:prose-img:mx-0
+              lg:prose-img:float-right lg:prose-img:w-auto lg:prose-img:max-w-[320px] xl:prose-img:max-w-[360px] lg:prose-img:ml-8 lg:prose-img:mb-2 lg:prose-img:mx-0
             "
             style={{ fontFamily: "'Inter', 'Source Sans Pro', 'Helvetica Neue', sans-serif" }}
             aria-label={`${post.title} content`}
@@ -192,6 +191,35 @@ const BlogPost = () => {
 
           {/* Section Divider */}
           <div className="my-12 sm:my-16 h-px bg-gradient-to-r from-transparent via-[#e5e5e5] to-transparent" />
+
+          {/* Call to Action Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12 sm:mt-16 bg-gradient-to-br from-[#f3e8ff] to-[#fef3f2] rounded-xl sm:rounded-2xl p-6 sm:p-10 text-center"
+          >
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#222] mb-3 sm:mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Need Personalized Care Support?
+            </h3>
+            <p className="text-base sm:text-lg text-[#555] leading-[1.7] mb-6 sm:mb-8 max-w-2xl mx-auto">
+              Our team provides compassionate, expert care for dementia, geriatric health, and home-based support across Mumbai.
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
+              <a
+                href="/#contact"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg text-sm sm:text-base"
+              >
+                Book a Consultation
+              </a>
+              <Link
+                to="/blog"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary rounded-full font-medium hover:bg-gray-50 transition-all border border-primary/20 text-sm sm:text-base"
+              >
+                Read More Articles
+              </Link>
+            </div>
+          </motion.div>
 
           {/* References Section */}
           {citationItems.length > 0 && (
@@ -223,68 +251,7 @@ const BlogPost = () => {
               </ul>
             </motion.div>
           )}
-        </article>
-
-        {/* Desktop Sidebar: Author + CTA (appears below content on mobile) */}
-        <aside className="space-y-6 lg:sticky lg:top-24" aria-label="About the author and actions">
-          {/* Author Bio Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-white to-[#fef3f2] rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-[#e5e5e5] shadow-sm"
-          >
-            <div className="flex items-start gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-xl sm:text-2xl font-semibold text-primary">
-                  {post.author.charAt(0)}
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-[#222] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  About {post.author}
-                </h3>
-                <p className="text-sm sm:text-base text-[#555] leading-[1.7] mb-3 sm:mb-4">
-                  A dedicated healthcare professional specializing in geriatric care and dementia support, 
-                  committed to bringing empathy, dignity, and expertise to caregiving in Mumbai.
-                </p>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-[#666]">
-                  <span itemProp="author">Clinical Expert at Echoing Healthy Ageing</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Call to Action Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-gradient-to-br from-[#f3e8ff] to-[#fef3f2] rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center"
-          >
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#222] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Need Personalized Care Support?
-            </h3>
-            <p className="text-sm sm:text-base text-[#555] leading-[1.7] mb-5">
-              Our team provides compassionate, expert care for dementia, geriatric health, and home-based support across Mumbai.
-            </p>
-            <div className="flex flex-col gap-3">
-              <a
-                href="/#contact"
-                className="px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg text-sm"
-              >
-                Book a Consultation
-              </a>
-              <Link
-                to="/blog"
-                className="px-6 py-3 bg-white text-primary rounded-full font-medium hover:bg-gray-50 transition-all border border-primary/20 text-sm"
-              >
-                Read More Articles
-              </Link>
-            </div>
-          </motion.div>
-        </aside>
-      </div>
+      </article>
     </main>
   );
 };
