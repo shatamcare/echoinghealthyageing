@@ -162,7 +162,7 @@ const BlogPost = () => {
       </header>
 
       {/* Main Content - Single Column */}
-      <article className="w-full max-w-[900px] md:max-w-[980px] xl:max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20" itemScope itemType="https://schema.org/Article">
+  <article className="w-full max-w-[860px] md:max-w-[920px] xl:max-w-[980px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20" itemScope itemType="https://schema.org/Article">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -171,7 +171,7 @@ const BlogPost = () => {
               prose-headings:font-semibold prose-headings:tracking-tight prose-headings:leading-[1.3]
               prose-h2:text-2xl sm:prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-12 sm:prose-h2:mt-16 prose-h2:mb-6 sm:prose-h2:mb-8 prose-h2:text-[#222] prose-h2:bg-gradient-to-r prose-h2:from-[#F6FAF9] prose-h2:to-transparent prose-h2:px-3 sm:prose-h2:px-4 prose-h2:py-2 sm:prose-h2:py-3 prose-h2:rounded-lg prose-h2:-ml-3 sm:prose-h2:-ml-4
               prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 sm:prose-h3:mt-12 prose-h3:mb-4 sm:prose-h3:mb-6 prose-h3:text-[#0F6F66] prose-h3:bg-[#F6FAF9] prose-h3:px-3 sm:prose-h3:px-4 prose-h3:py-1.5 sm:prose-h3:py-2 prose-h3:rounded-md prose-h3:-ml-3 sm:prose-h3:-ml-4
-              [&>p]:text-[#222] [&>p]:text-base sm:[&>p]:text-[1.1875rem] [&>p]:leading-[1.75] sm:[&>p]:leading-[1.85] [&>p]:mb-6 sm:[&>p]:mb-8 [&>p]:mt-0 [&>p]:[text-align:justify] [&>p]:[hyphens:auto]
+              [&>p]:text-[#222] [&>p]:text-base sm:[&>p]:text-[1.1875rem] lg:[&>p]:text-[1.25rem] [&>p]:leading-[1.75] sm:[&>p]:leading-[1.85] lg:[&>p]:leading-[1.9] [&>p]:mb-6 sm:[&>p]:mb-8 [&>p]:mt-0 [&>p]:[text-align:justify] [&>p]:[hyphens:auto]
               [&>p:first-of-type]:first-letter:text-4xl sm:[&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-semibold [&>p:first-of-type]:first-letter:text-[#35B6A6] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-1.5 sm:[&>p:first-of-type]:first-letter:mr-2 [&>p:first-of-type]:first-letter:leading-[0.9] [&>p:first-of-type]:first-letter:mt-1
               prose-strong:text-[#222] prose-strong:font-semibold
               prose-em:text-[#444] prose-em:italic
@@ -179,7 +179,7 @@ const BlogPost = () => {
               prose-blockquote:border-l-[3px] prose-blockquote:border-[#c4b5fd] prose-blockquote:pl-4 sm:prose-blockquote:pl-8 prose-blockquote:pr-4 sm:prose-blockquote:pr-8 prose-blockquote:py-6 sm:prose-blockquote:py-8 prose-blockquote:my-8 sm:prose-blockquote:my-12 prose-blockquote:bg-gradient-to-r prose-blockquote:from-[#f3e8ff]/30 prose-blockquote:to-transparent prose-blockquote:italic prose-blockquote:text-[#555] prose-blockquote:text-lg sm:prose-blockquote:text-xl prose-blockquote:leading-[1.75] sm:prose-blockquote:leading-[1.85] prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-light
               prose-ul:my-6 sm:prose-ul:my-8 prose-ul:space-y-2 sm:prose-ul:space-y-3 prose-ul:list-none prose-ul:pl-0
               prose-ol:my-6 sm:prose-ol:my-8 prose-ol:space-y-2 sm:prose-ol:space-y-3
-              prose-li:text-[#333] prose-li:text-base sm:prose-li:text-[1.0625rem] prose-li:leading-[1.75] sm:prose-li:leading-[1.85] prose-li:pl-6 sm:prose-li:pl-8 prose-li:relative prose-li:mb-2 [&>li]:[text-align:justify] [&>li]:[hyphens:auto]
+              prose-li:text-[#333] prose-li:text-base sm:prose-li:text-[1.0625rem] lg:prose-li:text-[1.125rem] prose-li:leading-[1.75] sm:prose-li:leading-[1.85] lg:prose-li:leading-[1.9] prose-li:pl-6 sm:prose-li:pl-8 prose-li:relative prose-li:mb-2 [&>li]:[text-align:justify] [&>li]:[hyphens:auto]
               prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-[0.6em] prose-li:before:w-1.5 prose-li:before:h-1.5 prose-li:before:rounded-full prose-li:before:bg-primary
               prose-img:block prose-img:w-full prose-img:max-w-full prose-img:h-auto prose-img:rounded-xl sm:prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8 sm:prose-img:my-12 prose-img:mx-auto
             "
