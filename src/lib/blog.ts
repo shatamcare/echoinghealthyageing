@@ -464,7 +464,7 @@ function parseMarkdownPost(markdownContent: string, slug: string): BlogPost | nu
     // Handle inline formatting
     html = html
       // Images FIRST - before links, to avoid conflicts
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 3rem auto; border-radius: 1rem;" loading="lazy" />')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="eha-blog-img" loading="lazy" decoding="async" />')
       // Bold and italic
       .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
