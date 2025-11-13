@@ -17,6 +17,7 @@ export const Header = () => {
     { name: "Services", href: "#services" },
     { name: "Stories", href: "#stories" },
     { name: "Blog", href: "/blog" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -31,9 +32,9 @@ export const Header = () => {
       return;
     }
 
-    // If it's the blog page, just navigate
-    if (href === "/blog") {
-      navigate("/blog");
+    // If it's a full page route (blog or careers), just navigate
+    if (href === "/blog" || href === "/careers") {
+      navigate(href);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
