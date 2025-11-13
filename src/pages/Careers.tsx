@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { 
   Heart, 
@@ -14,30 +11,12 @@ import {
   GraduationCap, 
   Building2,
   FileText,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
   MapPin,
   Briefcase
 } from "lucide-react";
 import careersData from "@/data/careers.json";
 
 const Careers = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    city: "",
-    roleInterest: "",
-    availability: "",
-    linkedIn: "",
-    message: "",
-    consent: false,
-  });
-  const [cvFile, setCvFile] = useState<File | null>(null);
-  const [submitState, setSubmitState] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
-
   useEffect(() => {
     document.title = "Careers at Echoing Healthy Ageing | Dementia Care Jobs in Mumbai";
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -45,80 +24,6 @@ const Careers = () => {
       metaDescription.setAttribute("content", "Join Echoing Healthy Ageing—Memory Café, home therapy, and caregiver support roles. Evidence-based care with empathy.");
     }
   }, []);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file && file.type === "application/pdf" && file.size <= 5 * 1024 * 1024) {
-      setCvFile(file);
-      setErrorMessage("");
-    } else if (file && file.size > 5 * 1024 * 1024) {
-      setErrorMessage("File size must be under 5MB");
-      setCvFile(null);
-    } else if (file && file.type !== "application/pdf") {
-      setErrorMessage("Only PDF files are accepted");
-      setCvFile(null);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitState("loading");
-    setErrorMessage("");
-
-    // Validation
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.city || !formData.roleInterest || !formData.availability) {
-      setSubmitState("error");
-      setErrorMessage("Please fill in all required fields");
-      return;
-    }
-
-    if (!formData.consent) {
-      setSubmitState("error");
-      setErrorMessage("Please consent to data storage to proceed");
-      return;
-    }
-
-    // TODO: Wire to actual backend endpoint
-    // For now, simulate submission
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Placeholder: In production, send to your backend/email service
-      console.log("Career interest submitted:", { ...formData, cvFile });
-      
-      setSubmitState("success");
-      
-      // Reset form after success
-      setTimeout(() => {
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          city: "",
-          roleInterest: "",
-          availability: "",
-          linkedIn: "",
-          message: "",
-          consent: false,
-        });
-        setCvFile(null);
-        setSubmitState("idle");
-      }, 5000);
-    } catch (error) {
-      setSubmitState("error");
-      setErrorMessage("Something went wrong. Please try again or email us directly at careers@echoinghealthyageing.com");
-    }
-  };
 
   const cultureValues = [
     {
@@ -459,233 +364,44 @@ const Careers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center"
             >
               <h2 
-                className="mb-8 text-center text-3xl font-semibold text-foreground sm:text-4xl"
+                className="mb-4 text-3xl font-semibold text-foreground sm:text-4xl"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Share your interest
               </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <Label htmlFor="fullName" className="mb-2 block text-base font-medium">
-                      Full name <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="fullName"
-                      name="fullName"
-                      type="text"
-                      required
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      className="min-h-[48px]"
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email" className="mb-2 block text-base font-medium">
-                      Email <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="min-h-[48px]"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <Label htmlFor="phone" className="mb-2 block text-base font-medium">
-                      Phone <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="min-h-[48px]"
-                      placeholder="+91 98765 43210"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="city" className="mb-2 block text-base font-medium">
-                      City/Area <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="city"
-                      name="city"
-                      type="text"
-                      required
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      className="min-h-[48px]"
-                      placeholder="e.g., Andheri, Mumbai"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <Label htmlFor="roleInterest" className="mb-2 block text-base font-medium">
-                      Role/Interest <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="roleInterest"
-                      name="roleInterest"
-                      type="text"
-                      required
-                      value={formData.roleInterest}
-                      onChange={handleInputChange}
-                      className="min-h-[48px]"
-                      placeholder="e.g., Care coordinator, Therapist"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="availability" className="mb-2 block text-base font-medium">
-                      Availability <span className="text-destructive">*</span>
-                    </Label>
-                    <select
-                      id="availability"
-                      name="availability"
-                      required
-                      value={formData.availability}
-                      onChange={handleInputChange}
-                      className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">Select availability</option>
-                      <option value="Full-time">Full-time</option>
-                      <option value="Part-time">Part-time</option>
-                      <option value="Volunteer">Volunteer</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="linkedIn" className="mb-2 block text-base font-medium">
-                    LinkedIn URL <span className="text-sm text-muted-foreground">(optional)</span>
-                  </Label>
-                  <Input
-                    id="linkedIn"
-                    name="linkedIn"
-                    type="url"
-                    value={formData.linkedIn}
-                    onChange={handleInputChange}
-                    className="min-h-[48px]"
-                    placeholder="https://linkedin.com/in/yourprofile"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="cv" className="mb-2 block text-base font-medium">
-                    Upload CV/Resume (PDF) <span className="text-sm text-muted-foreground">(optional, max 5MB)</span>
-                  </Label>
-                  <Input
-                    id="cv"
-                    name="cv"
-                    type="file"
-                    accept=".pdf"
-                    onChange={handleFileChange}
-                    className="min-h-[48px] cursor-pointer"
-                  />
-                  {cvFile && (
-                    <p className="mt-2 text-sm text-foreground/60">
-                      Selected: {cvFile.name}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="mb-2 block text-base font-medium">
-                    Message <span className="text-sm text-muted-foreground">(optional)</span>
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="resize-none"
-                    placeholder="Tell us what draws you to this work..."
-                  />
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    checked={formData.consent}
-                    onChange={handleInputChange}
-                    className="mt-1 h-5 w-5 cursor-pointer rounded border-gray-300 text-primary focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                    required
-                  />
-                  <Label htmlFor="consent" className="cursor-pointer text-base leading-relaxed">
-                    I consent to EHA storing my details to contact me about roles. <span className="text-destructive">*</span>
-                  </Label>
-                </div>
-
-                {submitState === "error" && errorMessage && (
-                  <div 
-                    role="alert" 
-                    aria-live="assertive"
-                    className="flex items-start gap-3 rounded-lg bg-destructive/10 p-4 text-destructive"
-                  >
-                    <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0" />
-                    <p className="text-base">{errorMessage}</p>
-                  </div>
-                )}
-
-                {submitState === "success" && (
-                  <div 
-                    role="alert" 
-                    aria-live="polite"
-                    className="flex items-start gap-3 rounded-lg bg-green-50 p-4 text-green-800"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0" />
-                    <p className="text-base">
-                      Thanks! We'll review and get back within 5–7 working days.
-                    </p>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={submitState === "loading" || submitState === "success"}
-                  className="min-h-[48px] w-full rounded-full text-base font-semibold sm:w-auto sm:px-12"
+              <p className="mb-8 text-base text-foreground/70 sm:text-lg">
+                Don't see the perfect role? We're always looking for passionate individuals. Share your story with us.
+              </p>
+              
+              <Button
+                asChild
+                size="lg"
+                className="min-h-[56px] rounded-full px-8 text-lg font-semibold"
+              >
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdyX1XzzSpaSgyD2NshzBXAI8WgsXsvoZWCYZMk4o-3FllhKQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
                 >
-                  {submitState === "loading" ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    "Submit Application"
-                  )}
-                </Button>
-              </form>
-
-              <p className="mt-6 text-center text-sm text-foreground/60">
-                Or email us directly at{" "}
-                <a 
-                  href="mailto:careers@echoinghealthyageing.com" 
-                  className="font-medium text-primary underline-offset-4 hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                >
-                  careers@echoinghealthyageing.com
+                  Fill Out Interest Form
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
+              </Button>
+              
+              <p className="mt-4 text-sm text-muted-foreground">
+                Opens in a new tab • Secure Google Form
               </p>
             </motion.div>
           </div>
