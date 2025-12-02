@@ -2,14 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, Users, Brain, Heart, BookOpen, ChevronLeft, ChevronRight, Music, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect, useMemo } from "react";
+import { useRef, useState, useEffect, useMemo, ReactNode } from "react";
+
+interface Event {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  date: string;
+  time: string;
+  locations: string[];
+  audience: string;
+  color: string;
+  registerUrl: string;
+}
 
 export const Events = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const events = [
+  const events: Event[] = [
     {
       title: "Dementia Caregiver Support Group",
       description: "Online support session for family caregivers and friends of dementia patients. Share experiences and learn coping strategies.",
@@ -233,7 +245,7 @@ export const Events = () => {
                         <Button
                           variant="cta"
                           size="sm"
-                          onClick={() => openRegister((event as any).registerUrl)}
+                          onClick={() => openRegister(event.registerUrl)}
                           className="relative w-full rounded-full text-xs font-medium py-2.5 bg-gradient-to-r from-teal-600 to-slate-700 hover:from-teal-500 hover:to-slate-800 shadow-md hover:shadow-lg transition-all group overflow-hidden"
                         >
                           <span className="relative z-10">Register Now</span>

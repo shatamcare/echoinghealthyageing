@@ -1,14 +1,24 @@
 import React from "react";
 import quotes from "@/content/press/pull-quotes.json";
 
+// Extend Window interface for analytics
+interface WindowWithAnalytics extends Window {
+  gtag?: (...args: unknown[]) => void;
+  dataLayer?: unknown[];
+}
+
 // (optional) lightweight analytics
 function logPressQuoteClick(kind: "logo" | "cta", outlet: string, url?: string) {
   const payload = { event: "press_quote_click", kind, outlet, url, location: "pull_quote_spotlight" };
-  // @ts-ignore
-  if (typeof window !== "undefined" && (window as any).gtag) (window as any).gtag("event", "press_quote_click", payload);
-  // @ts-ignore
-  if (typeof window !== "undefined" && (window as any).dataLayer) (window as any).dataLayer.push(payload);
-  if (typeof window !== "undefined" && !((window as any).gtag || (window as any).dataLayer)) {
+  const win = window as WindowWithAnalytics;
+  
+  if (typeof window !== "undefined" && win.gtag) {
+    win.gtag("event", "press_quote_click", payload);
+  }
+  if (typeof window !== "undefined" && win.dataLayer) {
+    win.dataLayer.push(payload);
+  }
+  if (typeof window !== "undefined" && !(win.gtag || win.dataLayer)) {
     // eslint-disable-next-line no-console
     console.debug(payload);
   }
@@ -52,10 +62,10 @@ export default function PullQuoteSpotlight({ intervalMs = 7000, className = "" }
       if (!el.contains(e.relatedTarget as Node)) setPaused(false);
     };
     el.addEventListener("focusin", onFocusIn);
-    el.addEventListener("focusout", onFocusOut as any);
+    el.addEventListener("focusout", onFocusOut);
     return () => {
       el.removeEventListener("focusin", onFocusIn);
-      el.removeEventListener("focusout", onFocusOut as any);
+      el.removeEventListener("focusout", onFocusOut);
     };
   }, []);
 

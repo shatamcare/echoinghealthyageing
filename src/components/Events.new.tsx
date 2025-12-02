@@ -2,9 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, Users, Brain, Heart, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
+
+interface Event {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  date: string;
+  time: string;
+  locations: string[];
+  audience: string;
+  color: string;
+}
 
 export const Events = () => {
-  const events = [
+  const events: Event[] = [
     {
       title: "Dementia Caregiver Support Group",
       description: "Online support session for family caregivers and friends of dementia patients. Share experiences and learn coping strategies.",
@@ -90,7 +102,7 @@ export const Events = () => {
     }
   };
 
-  const EventCard = ({ event, index }: { event: any, index: number }) => (
+  const EventCard = ({ event, index }: { event: Event; index: number }) => (
     <motion.div 
       variants={cardVariants}
       className="flex-shrink-0 w-80"
