@@ -1,9 +1,10 @@
-    
+---
 title: Home Care Services vs. Residential Care: Making the Right Choice
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: A practical guide to choosing between home-based care and residential care for individuals living with dementia, based on needs, safety, progression, and family capacity.
 tags: dementia, caregiving, home care, residential care, decision-making, Mumbai
+---
     
 
 *"The best place for care is where safety, dignity, and emotional comfort come together—whether at home or in a supportive residential environment."*

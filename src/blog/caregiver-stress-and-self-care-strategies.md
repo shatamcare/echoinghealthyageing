@@ -1,9 +1,10 @@
- 
+---
 title: Caregiver Stress and Self-Care Strategies
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: Understanding the emotional and physical toll of dementia caregiving, how stress develops, and practical self-care strategies to maintain resilience.
 tags: dementia, caregiving, stress, self-care, Mumbai
+---
  
 
 *"Caregiving often begins with love—and slowly becomes a journey of endurance, adaptation, and emotional strength."*

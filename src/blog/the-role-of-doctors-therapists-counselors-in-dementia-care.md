@@ -1,9 +1,10 @@
-       
+---
 title: The Role of Doctors, Therapists & Counselors in Dementia Care
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: Understanding how medical professionals, therapists, and counselors work together to support individuals with dementia and provide guidance, structure, and relief for caregivers.
 tags: dementia, caregiving, healthcare team, therapy, counseling, Mumbai
+---
        
 
 *"Dementia care is strongest when families do not walk the journey alone—professionals provide the guidance, structure, and support that make compassionate care possible."*

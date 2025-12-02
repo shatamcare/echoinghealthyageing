@@ -1,9 +1,10 @@
-  
+---
 title: Planning for the Future: Legal & Financial Preparation
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: A guide to understanding legal, financial, and long-term planning for families facing dementia—ensuring safety, dignity, and security as the condition progresses.
 tags: dementia, legal planning, financial planning, future care, Mumbai
+---
   
 
 *"The greatest gift you can give a person living with dementia is the assurance that their future is safe, structured, and thoughtfully planned."*

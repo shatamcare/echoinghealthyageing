@@ -1,9 +1,10 @@
-        
+---
 title: When to Seek Professional Help: Recognizing the Right Time
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: A guide to understanding early signs of dementia, how it progresses, and the indicators that signal when families should seek medical or professional support.
 tags: dementia, diagnosis, professional help, early signs, Mumbai
+---
         
 
 *"Seeking help is not a sign of giving up—it is the first step in ensuring safety, clarity, and compassionate care for your loved one."*

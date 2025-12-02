@@ -1,9 +1,10 @@
-     
+---
 title: Inside a Dementia Care Home: What to Expect
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: A look inside dementia care homes—how they are designed, what services they offer, and how they support safety, dignity, and well-being for individuals in moderate to severe stages of dementia.
 tags: dementia, residential care, caregiving, dementia care homes, Mumbai
+---
      
 
 *"A dementia care home is not just a place to live—it is a place designed to comfort, support, and honour the person behind the illness."*

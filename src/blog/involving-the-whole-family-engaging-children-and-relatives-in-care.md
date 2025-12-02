@@ -1,9 +1,10 @@
-      
+---
 title: Involving the Whole Family: Engaging Children and Relatives in Care
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: How involving children, teens, and extended relatives in dementia care strengthens family bonds, reduces caregiver burden, and improves the well-being of the person living with dementia.
 tags: dementia, caregiving, family support, children, Mumbai
+---
       
 
 *"When dementia enters a family, it does not arrive alone—it reshapes every relationship, every routine, and every role. But when families come together, the journey becomes lighter and far more meaningful."*

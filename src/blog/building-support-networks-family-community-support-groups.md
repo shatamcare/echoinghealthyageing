@@ -1,9 +1,10 @@
-  
+---
 title: Building Support Networks: Family, Community, and Support Groups
 author: Echoing Healthy Ageing (EHA)
 date: 2025-10-25
 summary: Understanding why caregivers of individuals with dementia need strong support networks and how family, community, and support groups together create emotional, practical, and social resilience.
 tags: dementia, caregiving, support groups, family support, Mumbai
+---
   
 
 *"No caregiver should ever feel alone. When support is shared, the journey becomes lighter, the burden becomes bearable, and hope becomes possible."*
