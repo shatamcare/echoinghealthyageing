@@ -92,16 +92,6 @@ const BlogList = () => {
                 >
                   <Link to={`/blog/${post.slug}`} className="group block h-full">
                     <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
-                      {/* Hero Image */}
-                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
-                        <img
-                          src={post.heroImage.fallback}
-                          alt={post.heroImage.alt}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      </div>
-
                       {/* Content */}
                       <div className="flex flex-col p-6">
                         {/* Tags */}
