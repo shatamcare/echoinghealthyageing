@@ -1,7 +1,7 @@
 ---
 title: "Ensuring Safety for People Living With Dementia: A Practical Guide"
 description: "Home safety, medication management, outdoor precautions, and financial safeguards for individuals living with dementia."
-date: 2024-06-21
+date: 2025-06-21
 author: "Echoing Healthy Ageing"
 tags: ["dementia", "safety", "caregiving", "elder-care"]
 ---

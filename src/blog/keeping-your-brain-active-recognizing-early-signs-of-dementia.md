@@ -1,7 +1,7 @@
 ---
 title: "Keeping Your Brain Active & Recognizing Early Signs of Dementia"
 description: "Simple lifestyle practices to stimulate the brain, early warning signs of dementia, and how support groups help caregivers and individuals."
-date: 2024-07-23
+date: 2025-07-23
 author: "Echoing Healthy Ageing"
 tags: ["dementia", "brain-health", "support-groups", "elder-care"]
 ---

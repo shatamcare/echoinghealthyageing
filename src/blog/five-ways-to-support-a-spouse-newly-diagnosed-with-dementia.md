@@ -1,7 +1,7 @@
 ---
 title: "Five Ways to Support a Spouse Newly Diagnosed With Dementia"
 description: "Emotional acceptance, decision-making, routines, support systems, and self-care techniques for partners of people diagnosed with dementia."
-date: 2024-07-07
+date: 2025-07-07
 author: "Echoing Healthy Ageing"
 tags: ["dementia", "caregiving", "spouse-support", "elder-care"]
 ---
