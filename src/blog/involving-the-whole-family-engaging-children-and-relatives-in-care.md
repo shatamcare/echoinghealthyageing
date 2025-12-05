@@ -103,10 +103,6 @@ When families come together, dementia care transforms from an isolating burden t
 
 **Together, families can create memories, celebrate small victories, and nurture one another along the way.**
 
-## References
-
-Based on content extracted from the uploaded document.
-
 ## About the Author
 
 **Echoing Healthy Ageing (EHA)** – A Mumbai-based dementia care organization dedicated to supporting older adults, caregivers, and families through therapies, counseling, caregiver training, and community-based dementia programs. EHA specializes in person-centred dementia care, professional upskilling, and dementia-friendly interventions designed to improve quality of life for individuals and their carers.

@@ -126,10 +126,6 @@ Dementia care requires collaboration. Doctors provide medical clarity. Therapist
 
 **You do not have to walk this path alone—support is available, and it can transform the caregiving experience.**
 
-## References
-
-Based on content extracted from the uploaded document.
-
 ## About the Author
 
 **Echoing Healthy Ageing (EHA)** – A Mumbai-based dementia care organization dedicated to supporting older adults, caregivers, and families through therapies, counseling, caregiver training, and community-based dementia programs. EHA specializes in person-centred dementia care, professional upskilling, and dementia-friendly interventions designed to improve quality of life for individuals and their carers.

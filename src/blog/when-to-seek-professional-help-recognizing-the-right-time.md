@@ -132,10 +132,6 @@ Recognizing dementia early and seeking timely professional help lays the foundat
 
 **You are not alone—professional guidance can make this journey more manageable, hopeful, and humane.**
 
-## References
-
-Based on content extracted from the uploaded document.
-
 ## About the Author
 
 **Echoing Healthy Ageing (EHA)** – A Mumbai-based dementia care organization dedicated to supporting older adults, caregivers, and families through therapies, counseling, caregiver training, and community-based dementia programs. EHA specializes in person-centred dementia care, professional upskilling, and dementia-friendly interventions designed to improve quality of life for individuals and their carers.

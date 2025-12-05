@@ -96,10 +96,6 @@ Dementia caregiving can feel overwhelming, but no caregiver should ever walk the
 
 **Together, the caregiving road becomes lighter—and far more meaningful.**
 
-## References
-
-Based on content extracted from the uploaded document.
-
 ## About the Author
 
 **Echoing Healthy Ageing (EHA)** – A Mumbai-based dementia care organization dedicated to supporting older adults, caregivers, and families through therapies, counseling, caregiver training, and community-based dementia programs. EHA specializes in person-centred dementia care, professional upskilling, and dementia-friendly interventions designed to improve quality of life for individuals and their carers.
